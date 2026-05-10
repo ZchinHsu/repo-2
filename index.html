@@ -6,23 +6,23 @@
 <style>
   /* ===== 全局：教学课件风（沉稳） ===== */
   :root {
-    --bg: #f4f1ea;
-    --paper: #ffffff;
-    --line: #d8d3c8;
-    --line-2: #ebe6d9;
-    --ink: #2c3e50;
-    --ink-2: #5a6470;
-    --muted: #8a8a82;
-    --primary: #2c5f7c;       /* 墨青 */
-    --primary-2: #1e4258;
-    --primary-soft: #e6eef3;
+    --bg: #e8d68a;
+    --paper: #faf1d3;
+    --line: #d4b97a;
+    --line-2: #e6d49a;
+    --ink: #3a2e1f;
+    --ink-2: #5a4a32;
+    --muted: #8a7a52;
+    --primary: #8a5a1f;       /* 深古铜 */
+    --primary-2: #5e3d12;
+    --primary-soft: #f5e6b8;
     --accent: #b88845;        /* 暖金 */
-    --accent-2: #8a6630;
-    --accent-soft: #f4ecd8;
-    --green: #4f7f6b;
-    --green-soft: #e3ede6;
-    --rust: #a04e3a;
-    --rust-soft: #f4e4df;
+    --accent-2: #6b4a1f;
+    --accent-soft: #f4e4b5;
+    --green: #5a6f3a;
+    --green-soft: #e5e4b8;
+    --rust: #8a3a1f;
+    --rust-soft: #f0d8c0;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
@@ -44,7 +44,9 @@
     display: none;
     flex-direction: column;
     padding: 64px 56px 50px;
-    background: var(--paper);
+    background:
+      radial-gradient(circle at 100% 0%, rgba(255,255,255,0.5) 0, transparent 60%),
+      linear-gradient(135deg, #faf1d3 0%, #f3e2a8 60%, #ecd58a 100%);
     overflow: hidden;
   }
 
@@ -82,7 +84,7 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 32px;
-    background: #fbf9f4;
+    background: #f5e6b8;
     border-top: 1px solid var(--line);
     color: var(--muted);
     display: flex; align-items: center; justify-content: space-between;
@@ -145,7 +147,7 @@
     justify-content: center;
     align-items: center;
     background:
-      linear-gradient(135deg, #1e4258 0%, #2c5f7c 55%, #3a7a92 100%);
+      linear-gradient(135deg, #5e3d12 0%, #8a5a1f 35%, #b88845 70%, #d4a850 100%);
     color: #fff;
     position: relative;
   }
