@@ -465,6 +465,114 @@
   }
   .bubble b { color: #ff4d6d; }
 
+  /* ===== 拨珠互动游戏 ===== */
+  .game-board {
+    background: #fff;
+    border-radius: 24px;
+    padding: 16px 22px;
+    border: 4px solid #ffe5ec;
+    box-shadow: 0 8px 0 #ffd6e0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .game-target { font-size: 24px; color: #ff4d6d; font-weight: bold; }
+  .game-target .num {
+    font-size: 40px;
+    color: #ff4d6d;
+    background: #fff0f3;
+    padding: 4px 18px;
+    border-radius: 16px;
+    margin-left: 8px;
+    letter-spacing: 6px;
+    box-shadow: 0 4px 0 #ffd6e0;
+  }
+  .game-stats { display: flex; gap: 10px; font-size: 18px; }
+  .stat-pill {
+    background: linear-gradient(135deg, #ffd166, #f8b500);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    box-shadow: 0 3px 0 #d99a00;
+    font-weight: bold;
+  }
+  .stat-pill.green { background: linear-gradient(135deg, #95d5b2, #52b788); box-shadow: 0 3px 0 #2d6a4f; }
+  .stat-pill.blue { background: linear-gradient(135deg, #bde0fe, #4895ef); box-shadow: 0 3px 0 #2d4d99; }
+
+  .game-counter { display: flex; justify-content: center; gap: 22px; margin: 4px 0; }
+  .game-rod { width: 100px; text-align: center; }
+  .game-rod .label {
+    font-size: 20px; color: #fff; background: #ff6f91;
+    border-radius: 20px; padding: 4px 0; margin-bottom: 6px;
+    font-weight: bold; box-shadow: 0 3px 0 #d4577a;
+  }
+  .game-btn {
+    width: 64px; height: 32px; border: none; border-radius: 16px;
+    font-size: 20px; font-weight: bold; cursor: pointer;
+    margin: 4px auto; display: block; transition: transform 0.1s;
+  }
+  .game-btn.plus { background: linear-gradient(135deg, #95d5b2, #52b788); color: #fff; box-shadow: 0 3px 0 #2d6a4f; }
+  .game-btn.minus { background: linear-gradient(135deg, #ffb3c6, #ff8fab); color: #fff; box-shadow: 0 3px 0 #d4577a; }
+  .game-btn:active { transform: translateY(2px); }
+  .game-beads {
+    height: 150px;
+    border: 3px solid #ffb3c6; border-radius: 16px;
+    background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
+    display: flex; flex-direction: column-reverse; align-items: center;
+    padding: 5px; gap: 3px;
+  }
+  .game-beads .bead { width: 50px; height: 14px; }
+  .game-rod .digit-display {
+    margin-top: 6px; font-size: 28px; color: #ff4d6d; font-weight: bold;
+    background: #fff; border-radius: 50%; width: 46px; height: 46px;
+    line-height: 46px; margin-left: auto; margin-right: auto;
+    border: 3px solid #ffd6e0; box-shadow: 0 4px 0 #ffd6e0;
+  }
+  .game-current { text-align: center; margin: 4px 0; font-size: 22px; color: #4a3f55; }
+  .game-current .num { font-size: 32px; color: #4895ef; font-weight: bold; margin: 0 8px; }
+  .game-current .num.correct { color: #52b788; animation: pop 0.4s; }
+  @keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+  }
+  .game-feedback {
+    text-align: center; font-size: 22px; min-height: 30px; font-weight: bold;
+  }
+  .game-feedback.success { color: #52b788; }
+  .game-feedback.hint { color: #888; }
+  .game-actions { text-align: center; margin-top: 4px; }
+  .next-btn {
+    background: linear-gradient(135deg, #ffd166, #f8b500);
+    color: #fff; border: none; padding: 10px 28px;
+    border-radius: 30px; font-size: 20px; font-weight: bold;
+    cursor: pointer; box-shadow: 0 4px 0 #d99a00; transition: transform 0.1s;
+  }
+  .next-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #d99a00; }
+
+  /* 烟花庆祝 */
+  .celebration {
+    position: fixed; inset: 0; pointer-events: none; z-index: 999;
+    display: none;
+  }
+  .celebration.show { display: block; }
+  .confetti {
+    position: absolute; font-size: 40px;
+    animation: confetti-fall 1.6s ease-out forwards;
+  }
+  @keyframes confetti-fall {
+    0% { transform: translateY(-60px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
   /* 角落小妙想 */
   .corner-mascot {
     position: absolute;
@@ -1103,6 +1211,65 @@
     <div class="tip">比较多位数大小：<b>位数多的数大</b>；位数相同时，从高位比起。</div>
   </section>
 
+  <!-- 18. 互动小游戏 -->
+  <section class="slide">
+    <h2 class="section">🎮 妙想的拨珠挑战</h2>
+    <div class="with-bubble" style="margin:6px 0 10px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">看看屏幕上的目标数，点 <b style="color:#52b788;">+</b> 加珠子、<b style="color:#ff6f91;">−</b> 去珠子，把它拨出来吧！🎯</div>
+    </div>
+    <div class="game-board">
+      <div class="game-header">
+        <div class="game-target">🎯 目标：<span class="num" id="g-target">3506</span></div>
+        <div class="game-stats">
+          <span class="stat-pill green">⭐ 得分 <span id="g-score">0</span></span>
+          <span class="stat-pill">🔥 连对 <span id="g-streak">0</span></span>
+          <span class="stat-pill blue">🎲 第 <span id="g-round">1</span> 关</span>
+        </div>
+      </div>
+      <div class="game-counter">
+        <div class="game-rod">
+          <div class="label">千位</div>
+          <button class="game-btn plus" data-i="0">+</button>
+          <div class="game-beads" id="g-beads-0"></div>
+          <button class="game-btn minus" data-i="0">−</button>
+          <div class="digit-display" id="g-digit-0">0</div>
+        </div>
+        <div class="game-rod">
+          <div class="label">百位</div>
+          <button class="game-btn plus" data-i="1">+</button>
+          <div class="game-beads" id="g-beads-1"></div>
+          <button class="game-btn minus" data-i="1">−</button>
+          <div class="digit-display" id="g-digit-1">0</div>
+        </div>
+        <div class="game-rod">
+          <div class="label">十位</div>
+          <button class="game-btn plus" data-i="2">+</button>
+          <div class="game-beads" id="g-beads-2"></div>
+          <button class="game-btn minus" data-i="2">−</button>
+          <div class="digit-display" id="g-digit-2">0</div>
+        </div>
+        <div class="game-rod">
+          <div class="label">个位</div>
+          <button class="game-btn plus" data-i="3">+</button>
+          <div class="game-beads" id="g-beads-3"></div>
+          <button class="game-btn minus" data-i="3">−</button>
+          <div class="digit-display" id="g-digit-3">0</div>
+        </div>
+      </div>
+      <div class="game-current">现在拨出的是 <span class="num" id="g-current">0</span></div>
+      <div class="game-feedback hint" id="g-feedback">👆 试试点上面的按钮拨珠子吧！</div>
+      <div class="game-actions">
+        <button class="next-btn" id="g-next">🎲 换一题</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="celebration" id="celebration"></div>
+
   <!-- 14. 总结 -->
   <section class="slide">
     <h2 class="section">📌 这节课我学到了……</h2>
@@ -1212,6 +1379,113 @@
     a.title = '点击显示答案';
     a.addEventListener('click', () => a.classList.toggle('show'));
   });
+
+  // ========== 妙想的拨珠挑战游戏 ==========
+  const game = {
+    target: 0,
+    beads: [0, 0, 0, 0],
+    score: 0,
+    streak: 0,
+    round: 0,
+    locked: false,
+    colors: ['', 'blue', 'green', 'yellow'],
+    randomTarget() {
+      // 随机生成 1000~9999 的四位数
+      return Math.floor(Math.random() * 9000) + 1000;
+    },
+    newRound() {
+      this.round++;
+      this.target = this.randomTarget();
+      this.beads = [0, 0, 0, 0];
+      this.locked = false;
+      document.getElementById('g-target').textContent = this.target;
+      document.getElementById('g-round').textContent = this.round;
+      document.getElementById('g-feedback').textContent = '👆 试试点上面的按钮拨珠子吧！';
+      document.getElementById('g-feedback').className = 'game-feedback hint';
+      this.render();
+    },
+    add(i) {
+      if (this.locked) return;
+      if (this.beads[i] < 9) { this.beads[i]++; this.render(); this.check(); }
+      else { this.flash('每个数位最多 9 颗珠子哦！', 'hint'); }
+    },
+    sub(i) {
+      if (this.locked) return;
+      if (this.beads[i] > 0) { this.beads[i]--; this.render(); this.check(); }
+    },
+    current() {
+      return this.beads[0]*1000 + this.beads[1]*100 + this.beads[2]*10 + this.beads[3];
+    },
+    render() {
+      for (let i = 0; i < 4; i++) {
+        const beadsBox = document.getElementById('g-beads-' + i);
+        beadsBox.innerHTML = '';
+        for (let k = 0; k < this.beads[i]; k++) {
+          const b = document.createElement('div');
+          b.className = 'bead ' + this.colors[i];
+          beadsBox.appendChild(b);
+        }
+        document.getElementById('g-digit-' + i).textContent = this.beads[i];
+      }
+      const cur = this.current();
+      const curEl = document.getElementById('g-current');
+      curEl.textContent = cur;
+      curEl.className = 'num' + (cur === this.target ? ' correct' : '');
+      document.getElementById('g-score').textContent = this.score;
+      document.getElementById('g-streak').textContent = this.streak;
+    },
+    check() {
+      const cur = this.current();
+      if (cur === this.target) {
+        this.score++;
+        this.streak++;
+        this.locked = true;
+        this.flash('🎉 太棒了！妙想为你点赞！点"换一题"挑战下一关！', 'success');
+        this.celebrate();
+      } else {
+        const diff = cur - this.target;
+        if (diff === 0) return;
+        const hint = Math.abs(diff) < 100 ? '快接近啦～再调一调个位/十位！'
+                   : (cur > this.target ? '拨多啦，去掉一些珠子试试！' : '还差一点，再加一些珠子！');
+        this.flash(hint, 'hint');
+      }
+    },
+    flash(msg, type) {
+      const fb = document.getElementById('g-feedback');
+      fb.textContent = msg;
+      fb.className = 'game-feedback ' + type;
+    },
+    miss() {
+      // 点击"换一题"且没成功 → streak 清零
+      if (!this.locked && this.round > 0) this.streak = 0;
+      this.newRound();
+    },
+    celebrate() {
+      const layer = document.getElementById('celebration');
+      layer.innerHTML = '';
+      layer.classList.add('show');
+      const emojis = ['🎉','⭐','🌟','💖','🐼','🌸','🎀','✨'];
+      for (let i = 0; i < 24; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        c.style.left = (Math.random()*100) + 'vw';
+        c.style.animationDelay = (Math.random()*0.4) + 's';
+        c.style.fontSize = (28 + Math.random()*30) + 'px';
+        layer.appendChild(c);
+      }
+      setTimeout(() => layer.classList.remove('show'), 1800);
+    },
+    init() {
+      document.querySelectorAll('.game-btn.plus').forEach(b =>
+        b.addEventListener('click', () => this.add(+b.dataset.i)));
+      document.querySelectorAll('.game-btn.minus').forEach(b =>
+        b.addEventListener('click', () => this.sub(+b.dataset.i)));
+      document.getElementById('g-next').addEventListener('click', () => this.miss());
+      this.newRound();
+    }
+  };
+  game.init();
 </script>
 
 </body>
