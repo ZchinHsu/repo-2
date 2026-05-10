@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <title>保护野生哺乳动物 - 北师大版二年级下册数学课件</title>
 <style>
+  /* ===== 可爱风全局 ===== */
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
     height: 100%;
-    font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
-    background: #1a3a2e;
+    font-family: "Comic Sans MS", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "STHupo", sans-serif;
+    background: #ffe5ec;
     overflow: hidden;
-    color: #2c3e50;
+    color: #4a3f55;
   }
   .deck {
     position: relative;
@@ -23,287 +24,387 @@
     inset: 0;
     display: none;
     flex-direction: column;
-    padding: 40px 60px;
-    background: linear-gradient(135deg, #f8fbf6 0%, #eaf3e3 100%);
-    animation: fadeIn 0.4s ease;
+    padding: 40px 60px 80px;
+    background:
+      radial-gradient(circle at 10% 15%, #ffd6e0 0 60px, transparent 61px),
+      radial-gradient(circle at 92% 12%, #c1f0d6 0 70px, transparent 71px),
+      radial-gradient(circle at 8% 88%, #fff2b3 0 80px, transparent 81px),
+      radial-gradient(circle at 90% 90%, #d6c1f5 0 70px, transparent 71px),
+      linear-gradient(135deg, #fff8fb 0%, #f0fbff 100%);
+    animation: bounceIn 0.5s cubic-bezier(.68,-0.4,.27,1.55);
+    overflow: hidden;
+  }
+  /* 可爱小肉垫装饰背景 */
+  .slide::before {
+    content: "🐾";
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 70px;
+    opacity: 0.18;
+    transform: rotate(20deg);
+  }
+  .slide::after {
+    content: "🐾";
+    position: absolute;
+    bottom: 70px;
+    left: 30px;
+    font-size: 50px;
+    opacity: 0.15;
+    transform: rotate(-15deg);
   }
   .slide.active { display: flex; }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  @keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.92) translateY(20px); }
+    60% { opacity: 1; transform: scale(1.02) translateY(-4px); }
+    100% { transform: scale(1) translateY(0); }
   }
 
   h1.title {
-    font-size: 56px;
-    color: #2d6a4f;
+    font-size: 60px;
+    color: #ff6f91;
     text-align: center;
     margin-top: 60px;
     letter-spacing: 4px;
   }
-  h2.subtitle {
-    font-size: 28px;
-    color: #52796f;
-    text-align: center;
-    margin-top: 20px;
-    font-weight: normal;
-  }
   h2.section {
-    font-size: 38px;
-    color: #2d6a4f;
-    border-left: 8px solid #95d5b2;
-    padding-left: 16px;
+    font-size: 40px;
+    color: #ff6f91;
+    background: #fff;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 4px dashed #ffb3c6;
+    display: inline-block;
     margin-bottom: 24px;
+    box-shadow: 0 6px 0 #ffd6e0;
+    align-self: flex-start;
   }
   h3 {
     font-size: 28px;
-    color: #40916c;
-    margin: 18px 0 12px;
+    color: #ff6f91;
+    margin: 14px 0 10px;
   }
-  p, li { font-size: 24px; line-height: 1.8; color: #333; }
+  p, li { font-size: 24px; line-height: 1.8; color: #4a3f55; }
   ul { padding-left: 36px; }
 
-  /* 封面 */
+  /* ===== 封面 ===== */
   .cover {
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #2d6a4f 0%, #52b788 60%, #95d5b2 100%);
+    background:
+      radial-gradient(circle at 20% 30%, #fff 0 6px, transparent 7px),
+      radial-gradient(circle at 80% 20%, #fff 0 8px, transparent 9px),
+      radial-gradient(circle at 70% 70%, #fff 0 5px, transparent 6px),
+      radial-gradient(circle at 30% 80%, #fff 0 7px, transparent 8px),
+      linear-gradient(135deg, #ffb3c6 0%, #ffc8dd 40%, #bde0fe 100%);
     color: #fff;
   }
+  .cover::before, .cover::after { display: none; }
   .cover h1 {
-    font-size: 78px;
+    font-size: 88px;
     color: #fff;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    letter-spacing: 8px;
+    text-shadow: 0 4px 0 #ff6f91, 0 6px 20px rgba(0,0,0,0.15);
+    letter-spacing: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
   }
   .cover .meta {
-    margin-top: 30px;
+    margin-top: 24px;
     font-size: 26px;
-    color: #d8f3dc;
+    color: #fff;
     letter-spacing: 2px;
+    background: rgba(255,255,255,0.35);
+    padding: 8px 24px;
+    border-radius: 30px;
+    backdrop-filter: blur(4px);
   }
   .cover .emoji {
-    font-size: 120px;
+    font-size: 140px;
     margin-bottom: 20px;
-    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));
+    animation: wiggle 2s ease-in-out infinite;
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(3deg) translateY(-10px); }
   }
 
-  /* 通用卡片 */
+  /* ===== 圆胖卡片 ===== */
   .card {
     background: #fff;
-    border-radius: 16px;
+    border-radius: 24px;
     padding: 24px 32px;
-    box-shadow: 0 6px 20px rgba(45,106,79,0.08);
-    border: 2px solid #b7e4c7;
+    box-shadow: 0 8px 0 #ffd6e0, 0 12px 24px rgba(255,111,145,0.12);
+    border: 4px solid #ffe5ec;
   }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
   .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 
-  /* 动物卡片 */
+  /* ===== 动物卡（萌萌哒） ===== */
   .animal {
     background: #fff;
-    border-radius: 16px;
-    padding: 18px;
+    border-radius: 30px;
+    padding: 16px 12px;
     text-align: center;
-    border: 2px solid #b7e4c7;
-    box-shadow: 0 4px 12px rgba(45,106,79,0.1);
+    border: 4px solid #ffd6e0;
+    box-shadow: 0 6px 0 #ffb3c6, 0 10px 18px rgba(255,111,145,0.12);
+    transition: transform 0.25s;
   }
-  .animal .icon { font-size: 70px; }
-  .animal .name { font-size: 22px; color: #2d6a4f; margin: 6px 0; font-weight: bold; }
+  .animal:nth-child(2) { border-color: #c1f0d6; box-shadow: 0 6px 0 #95d5b2, 0 10px 18px rgba(82,183,136,0.12); }
+  .animal:nth-child(3) { border-color: #fff2b3; box-shadow: 0 6px 0 #ffd166, 0 10px 18px rgba(255,209,102,0.15); }
+  .animal:nth-child(4) { border-color: #c8d9ff; box-shadow: 0 6px 0 #a0bfff, 0 10px 18px rgba(120,150,255,0.12); }
+  .animal:hover { transform: translateY(-6px) rotate(-2deg); }
+  .animal .icon {
+    font-size: 70px;
+    display: inline-block;
+    animation: bob 2.5s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .animal .name { font-size: 22px; color: #ff6f91; margin: 6px 0; font-weight: bold; }
   .animal .num {
-    font-size: 32px;
-    color: #d62828;
+    font-size: 30px;
+    color: #ff4d6d;
     font-weight: bold;
-    background: #fef3f2;
-    border-radius: 10px;
-    padding: 4px 0;
+    background: linear-gradient(135deg, #fff0f3, #ffe5ec);
+    border-radius: 20px;
+    padding: 6px 0;
     margin-top: 6px;
   }
-  .animal .unit { font-size: 18px; color: #666; }
+  .animal .unit { font-size: 18px; color: #888; }
 
-  /* 计数器 */
+  /* ===== 计数器（果冻风） ===== */
   .counter {
     display: flex;
     justify-content: center;
     gap: 24px;
-    margin: 20px 0;
+    margin: 16px 0;
   }
   .rod {
     width: 90px;
     text-align: center;
   }
-  .rod .label { font-size: 22px; color: #2d6a4f; margin-bottom: 8px; font-weight: bold; }
+  .rod .label {
+    font-size: 22px;
+    color: #fff;
+    background: #ff6f91;
+    border-radius: 20px;
+    padding: 4px 0;
+    margin-bottom: 8px;
+    font-weight: bold;
+    box-shadow: 0 3px 0 #d4577a;
+  }
   .beads {
-    height: 240px;
-    border: 3px solid #52796f;
-    border-radius: 8px;
-    background: #f1faee;
+    height: 220px;
+    border: 4px solid #ffb3c6;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     padding: 8px;
     gap: 4px;
-    position: relative;
+    box-shadow: inset 0 -4px 0 #ffe5ec;
   }
   .bead {
-    width: 56px;
-    height: 18px;
-    background: radial-gradient(circle at 30% 30%, #ff8fa3, #d62828);
+    width: 60px;
+    height: 20px;
+    background: radial-gradient(circle at 30% 30%, #ffb3c6, #ff6f91);
     border-radius: 50%;
-    box-shadow: inset -2px -2px 6px rgba(0,0,0,0.2);
+    box-shadow: inset -2px -2px 6px rgba(0,0,0,0.18), 0 2px 0 rgba(0,0,0,0.05);
   }
-  .bead.blue { background: radial-gradient(circle at 30% 30%, #74c0fc, #1971c2); }
-  .bead.green { background: radial-gradient(circle at 30% 30%, #b2f2bb, #2f9e44); }
-  .bead.yellow { background: radial-gradient(circle at 30% 30%, #ffec99, #f08c00); }
+  .bead.blue { background: radial-gradient(circle at 30% 30%, #bde0fe, #4895ef); }
+  .bead.green { background: radial-gradient(circle at 30% 30%, #c1f0d6, #52b788); }
+  .bead.yellow { background: radial-gradient(circle at 30% 30%, #fff2b3, #ffd166); }
   .rod .digit {
     margin-top: 8px;
-    font-size: 36px;
-    color: #d62828;
+    font-size: 38px;
+    color: #ff4d6d;
     font-weight: bold;
+    background: #fff;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #ffd6e0;
+    box-shadow: 0 4px 0 #ffd6e0;
   }
 
-  /* 数位表 */
+  /* ===== 数位表 ===== */
   .place-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 6px;
     margin-top: 14px;
     font-size: 24px;
   }
   .place-table th, .place-table td {
-    border: 2px solid #2d6a4f;
-    padding: 14px;
+    border: none;
+    padding: 16px;
     text-align: center;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 0 #ffd6e0;
   }
   .place-table th {
-    background: #2d6a4f;
+    background: linear-gradient(135deg, #ff8fab, #ff6f91);
     color: #fff;
     font-size: 22px;
+    box-shadow: 0 4px 0 #d4577a;
   }
   .place-table td.num {
     font-size: 36px;
-    color: #d62828;
+    color: #ff4d6d;
     font-weight: bold;
-    background: #fff;
   }
 
-  /* 练习题 */
+  /* ===== 练习题 ===== */
   .question {
     background: #fff;
-    border-left: 8px solid #f4a261;
-    padding: 16px 22px;
-    border-radius: 8px;
-    margin: 14px 0;
+    padding: 18px 24px;
+    border-radius: 24px;
+    margin: 12px 0;
     font-size: 24px;
+    border: 3px solid #fff2b3;
+    box-shadow: 0 5px 0 #ffd166;
+    position: relative;
+  }
+  .question::before {
+    content: "🌟";
+    position: absolute;
+    left: -16px;
+    top: -10px;
+    font-size: 32px;
   }
   .answer {
-    color: #2d6a4f;
+    color: #ff4d6d;
     font-weight: bold;
     font-size: 24px;
-    margin-top: 8px;
     display: none;
+    background: #fff0f3;
+    padding: 2px 12px;
+    border-radius: 12px;
   }
-  .answer.show { display: inline; }
+  .answer.show { display: inline-block; }
   .tag {
     display: inline-block;
-    background: #f4a261;
+    background: linear-gradient(135deg, #ffd166, #f8b500);
     color: #fff;
-    padding: 2px 10px;
-    border-radius: 6px;
+    padding: 3px 14px;
+    border-radius: 20px;
     font-size: 18px;
-    margin-right: 8px;
+    margin-right: 10px;
+    box-shadow: 0 2px 0 #d99a00;
   }
 
-  /* 提示框 */
+  /* ===== 提示框 ===== */
   .tip {
-    background: #fff8e1;
-    border: 2px dashed #f4a261;
+    background: linear-gradient(135deg, #fff8d6, #fff2b3);
+    border: 3px dashed #ffd166;
     padding: 18px 24px;
-    border-radius: 12px;
-    font-size: 24px;
-    color: #6b3e00;
-    margin: 16px 0;
+    border-radius: 24px;
+    font-size: 22px;
+    color: #8a6500;
+    margin: 14px 0;
+    box-shadow: 0 5px 0 #ffe79e;
   }
   .tip::before {
     content: "💡 ";
     font-size: 28px;
   }
 
-  /* 控制条 */
+  /* ===== 控制条 ===== */
   .controls {
     position: fixed;
-    bottom: 20px;
+    bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 16px;
-    background: rgba(45, 106, 79, 0.85);
+    gap: 14px;
+    background: linear-gradient(135deg, #ffb3c6, #ff8fab);
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 30px;
-    backdrop-filter: blur(8px);
+    padding: 8px 18px;
+    border-radius: 40px;
     z-index: 100;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 0 #d4577a, 0 10px 24px rgba(0,0,0,0.15);
   }
   .controls button {
-    background: #95d5b2;
+    background: #fff;
     border: none;
-    color: #1a3a2e;
-    width: 40px;
-    height: 40px;
+    color: #ff6f91;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
     font-weight: bold;
     transition: transform 0.15s;
+    box-shadow: 0 3px 0 #ffd6e0;
   }
-  .controls button:hover { transform: scale(1.1); background: #b7e4c7; }
-  .controls .page-info { font-size: 18px; min-width: 70px; text-align: center; }
-
-  .footer {
-    position: absolute;
-    bottom: 16px;
-    right: 24px;
-    font-size: 16px;
-    color: #95d5b2;
-  }
+  .controls button:hover { transform: scale(1.15) rotate(-5deg); }
+  .controls .page-info { font-size: 18px; min-width: 70px; text-align: center; font-weight: bold; }
 
   .big-num {
-    font-size: 80px;
-    color: #d62828;
+    font-size: 84px;
+    color: #ff4d6d;
     font-weight: bold;
     text-align: center;
-    letter-spacing: 8px;
-    margin: 20px 0;
+    letter-spacing: 12px;
+    margin: 16px 0;
+    text-shadow: 0 4px 0 #ffd6e0;
   }
   .read {
     text-align: center;
     font-size: 30px;
-    color: #2d6a4f;
+    color: #ff6f91;
     margin-top: 10px;
   }
-  .highlight { background: #ffe066; padding: 0 6px; border-radius: 4px; }
+  .highlight {
+    background: linear-gradient(120deg, #fff2b3 0%, #ffd166 100%);
+    padding: 0 8px;
+    border-radius: 8px;
+    color: #8a4a00;
+    font-weight: bold;
+  }
 
+  /* ===== 学习目标 ===== */
   .objective {
     background: #fff;
-    padding: 20px 28px;
-    margin: 12px 0;
-    border-radius: 12px;
-    border-left: 8px solid #52b788;
-    font-size: 26px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 18px 26px;
+    margin: 10px 0;
+    border-radius: 24px;
+    font-size: 24px;
+    box-shadow: 0 5px 0 #ffd6e0;
+    border: 3px solid #ffe5ec;
+    display: flex;
+    align-items: center;
   }
+  .objective:nth-child(odd) { box-shadow: 0 5px 0 #c1f0d6; border-color: #e0f5ea; }
   .objective .num-circle {
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    text-align: center;
-    background: #52b788;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #ff8fab, #ff6f91);
     color: #fff;
     border-radius: 50%;
-    margin-right: 14px;
+    margin-right: 16px;
     font-weight: bold;
+    flex-shrink: 0;
+    box-shadow: 0 3px 0 #d4577a;
+  }
+  .objective:nth-child(odd) .num-circle {
+    background: linear-gradient(135deg, #95d5b2, #52b788);
+    box-shadow: 0 3px 0 #2d6a4f;
   }
 </style>
 </head>
@@ -313,10 +414,10 @@
 
   <!-- 1. 封面 -->
   <section class="slide cover active">
-    <div class="emoji">🐼🐯🦏🐘</div>
+    <div class="emoji">🐼💕🐯</div>
     <h1>保护野生哺乳动物</h1>
-    <div class="meta">北师大版 · 二年级下册 · 数学</div>
-    <div class="meta">—— 生活中的大数 ——</div>
+    <div class="meta">🌸 北师大版 · 二年级下册 · 数学 🌸</div>
+    <div class="meta">~ 生活中的大数 ~</div>
   </section>
 
   <!-- 2. 学习目标 -->
@@ -709,9 +810,9 @@
 
   <!-- 16. 结束 -->
   <section class="slide cover">
-    <div class="emoji">🌳🐾🌍</div>
-    <h1 style="font-size:64px;">谢谢同学们！</h1>
-    <div class="meta">让我们一起守护自然，守护这些可爱的动物朋友 💚</div>
+    <div class="emoji">🌳🐾🌷</div>
+    <h1 style="font-size:72px;">谢谢同学们 ♡</h1>
+    <div class="meta">让我们一起守护自然，守护这些可爱的动物朋友 🐾💕</div>
   </section>
 
 </div>
