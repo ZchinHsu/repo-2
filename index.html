@@ -735,6 +735,77 @@
   }
   .seq-arrow { font-size: 30px; color: #ffb3c6; font-weight: bold; }
 
+  /* ===== 手写画笔 ===== */
+  #pen-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    touch-action: none;
+  }
+  #pen-canvas.on { pointer-events: auto; cursor: crosshair; }
+  .pen-toolbar {
+    position: fixed;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+    background: linear-gradient(135deg, #fff, #fff8fb);
+    border: 3px solid #ffb3c6;
+    border-radius: 30px;
+    padding: 10px 8px;
+    box-shadow: 0 6px 20px rgba(255,111,145,0.25);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .pen-toolbar.open { display: flex; }
+  .pen-toolbar .tool {
+    width: 42px; height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #fff0f3;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.1s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pen-toolbar .tool:hover { transform: scale(1.1); }
+  .pen-toolbar .tool.active {
+    background: linear-gradient(135deg, #ff8fab, #ff6f91);
+    color: #fff;
+    box-shadow: 0 3px 0 #d4577a;
+  }
+  .pen-toolbar .color {
+    width: 28px; height: 28px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding: 0;
+    transition: transform 0.1s;
+  }
+  .pen-toolbar .color:hover { transform: scale(1.15); }
+  .pen-toolbar .color.active {
+    border-color: #ff4d6d;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 2px #ff4d6d, 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .pen-toolbar .sep {
+    width: 28px;
+    height: 2px;
+    background: #ffd6e0;
+    border-radius: 2px;
+    margin: 2px 0;
+  }
+  .pen-toolbar .label {
+    font-size: 11px;
+    color: #ff6f91;
+    font-weight: bold;
+    margin: -2px 0;
+  }
+
   /* 烟花庆祝 */
   .celebration {
     position: fixed; inset: 0; pointer-events: none; z-index: 999;
@@ -1709,6 +1780,29 @@
   <span class="page-info"><span id="cur">1</span> / <span id="total">16</span></span>
   <button id="next" title="下一页">›</button>
   <button id="toggle-ans" title="显示/隐藏答案" style="width:auto;padding:0 14px;border-radius:20px;font-size:16px;">显示答案</button>
+  <button id="pen-toggle" title="开启/关闭画笔（快捷键 P）" style="width:auto;padding:0 14px;border-radius:20px;font-size:16px;">🖊 画笔</button>
+</div>
+
+<!-- 画笔画布 -->
+<canvas id="pen-canvas"></canvas>
+
+<!-- 画笔工具栏（开启画笔时显示） -->
+<div class="pen-toolbar" id="pen-toolbar">
+  <span class="label">工具</span>
+  <button class="tool active" data-mode="pen" title="画笔">🖊</button>
+  <button class="tool" data-mode="highlighter" title="荧光笔">🖍</button>
+  <button class="tool" data-mode="eraser" title="橡皮">🧽</button>
+  <div class="sep"></div>
+  <span class="label">颜色</span>
+  <button class="color active" data-color="#ff4d6d" style="background:#ff4d6d" title="红色"></button>
+  <button class="color" data-color="#4895ef" style="background:#4895ef" title="蓝色"></button>
+  <button class="color" data-color="#52b788" style="background:#52b788" title="绿色"></button>
+  <button class="color" data-color="#f8b500" style="background:#f8b500" title="橙色"></button>
+  <button class="color" data-color="#222" style="background:#222" title="黑色"></button>
+  <div class="sep"></div>
+  <span class="label">操作</span>
+  <button class="tool" data-action="undo" title="撤销">↩</button>
+  <button class="tool" data-action="clear" title="清空当前页">🗑</button>
 </div>
 
 <script>
@@ -1763,6 +1857,7 @@
     cur = (i + total) % total;
     slides[cur].classList.add('active');
     document.getElementById('cur').textContent = cur + 1;
+    if (window.pen && pen.canvas) pen.redraw();
   }
 
   document.getElementById('prev').onclick = () => show(cur - 1);
@@ -2161,6 +2256,170 @@
     }
   };
   seqGame.init();
+
+  // ========== 手写画笔（按页保存批注） ==========
+  const pen = {
+    canvas: null, ctx: null,
+    enabled: false,
+    color: '#ff4d6d',
+    mode: 'pen',
+    drawing: false,
+    current: null,
+    strokes: {}, // {pageIdx: [strokes]}
+    init() {
+      this.canvas = document.getElementById('pen-canvas');
+      this.ctx = this.canvas.getContext('2d');
+      this.resize();
+      window.addEventListener('resize', () => this.resize());
+
+      const c = this.canvas;
+      c.addEventListener('pointerdown', e => this.start(e));
+      c.addEventListener('pointermove', e => this.move(e));
+      c.addEventListener('pointerup', e => this.end(e));
+      c.addEventListener('pointercancel', e => this.end(e));
+      c.addEventListener('pointerleave', e => this.end(e));
+
+      document.getElementById('pen-toggle').addEventListener('click', () => this.toggle());
+      document.querySelectorAll('.pen-toolbar .tool[data-mode]').forEach(b =>
+        b.addEventListener('click', () => this.setMode(b.dataset.mode, b)));
+      document.querySelectorAll('.pen-toolbar .color').forEach(b =>
+        b.addEventListener('click', () => this.setColor(b.dataset.color, b)));
+      document.querySelector('.pen-toolbar .tool[data-action="undo"]')
+        .addEventListener('click', () => this.undo());
+      document.querySelector('.pen-toolbar .tool[data-action="clear"]')
+        .addEventListener('click', () => this.clear());
+
+      // 快捷键 P 切换画笔
+      document.addEventListener('keydown', e => {
+        if (e.key === 'p' || e.key === 'P') {
+          if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+            this.toggle();
+            e.preventDefault();
+          }
+        }
+      });
+    },
+    resize() {
+      // 用 device pixel ratio 让画笔更清晰
+      const dpr = window.devicePixelRatio || 1;
+      this.canvas.width = window.innerWidth * dpr;
+      this.canvas.height = window.innerHeight * dpr;
+      this.canvas.style.width = window.innerWidth + 'px';
+      this.canvas.style.height = window.innerHeight + 'px';
+      this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      this.redraw();
+    },
+    toggle() {
+      this.enabled = !this.enabled;
+      this.canvas.classList.toggle('on', this.enabled);
+      document.getElementById('pen-toolbar').classList.toggle('open', this.enabled);
+      const btn = document.getElementById('pen-toggle');
+      btn.textContent = this.enabled ? '✋ 关闭画笔' : '🖊 画笔';
+      btn.style.background = this.enabled ? '#ffd166' : '';
+    },
+    setMode(m, el) {
+      this.mode = m;
+      document.querySelectorAll('.pen-toolbar .tool[data-mode]').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+    },
+    setColor(c, el) {
+      this.color = c;
+      document.querySelectorAll('.pen-toolbar .color').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      // 选颜色时自动切回画笔模式（除非当前是橡皮）
+      if (this.mode === 'eraser') {
+        this.mode = 'pen';
+        document.querySelectorAll('.pen-toolbar .tool[data-mode]').forEach(b => b.classList.remove('active'));
+        document.querySelector('.pen-toolbar .tool[data-mode="pen"]').classList.add('active');
+      }
+    },
+    pt(e) {
+      const r = this.canvas.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    },
+    start(e) {
+      e.preventDefault();
+      this.drawing = true;
+      this.current = {
+        color: this.color,
+        mode: this.mode,
+        size: this.mode === 'eraser' ? 32 : (this.mode === 'highlighter' ? 18 : 4),
+        points: [this.pt(e)]
+      };
+    },
+    move(e) {
+      if (!this.drawing) return;
+      e.preventDefault();
+      const p = this.pt(e);
+      this.current.points.push(p);
+      // 增量绘制最近两点
+      this.drawSegment(this.current, this.current.points.length - 2);
+    },
+    end(e) {
+      if (!this.drawing) return;
+      this.drawing = false;
+      if (this.current && this.current.points.length > 1) {
+        if (!this.strokes[cur]) this.strokes[cur] = [];
+        this.strokes[cur].push(this.current);
+      }
+      this.current = null;
+    },
+    setStyle(s) {
+      const ctx = this.ctx;
+      if (s.mode === 'eraser') {
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.strokeStyle = 'rgba(0,0,0,1)';
+      } else {
+        ctx.globalCompositeOperation = s.mode === 'highlighter' ? 'multiply' : 'source-over';
+        ctx.strokeStyle = s.mode === 'highlighter' ? this.alpha(s.color, 0.45) : s.color;
+      }
+      ctx.lineWidth = s.size;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+    },
+    alpha(hex, a) {
+      const h = hex.replace('#','');
+      const r = parseInt(h.length===3?h[0]+h[0]:h.substring(0,2),16);
+      const g = parseInt(h.length===3?h[1]+h[1]:h.substring(2,4),16);
+      const b = parseInt(h.length===3?h[2]+h[2]:h.substring(4,6),16);
+      return `rgba(${r},${g},${b},${a})`;
+    },
+    drawSegment(s, i) {
+      if (i < 0 || i+1 >= s.points.length) return;
+      this.setStyle(s);
+      const ctx = this.ctx;
+      ctx.beginPath();
+      ctx.moveTo(s.points[i].x, s.points[i].y);
+      ctx.lineTo(s.points[i+1].x, s.points[i+1].y);
+      ctx.stroke();
+      ctx.globalCompositeOperation = 'source-over';
+    },
+    drawStroke(s) {
+      this.setStyle(s);
+      const ctx = this.ctx;
+      ctx.beginPath();
+      const p = s.points;
+      ctx.moveTo(p[0].x, p[0].y);
+      for (let i = 1; i < p.length; i++) ctx.lineTo(p[i].x, p[i].y);
+      ctx.stroke();
+      ctx.globalCompositeOperation = 'source-over';
+    },
+    redraw() {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      const arr = this.strokes[cur] || [];
+      arr.forEach(s => this.drawStroke(s));
+    },
+    undo() {
+      const arr = this.strokes[cur];
+      if (arr && arr.length) { arr.pop(); this.redraw(); }
+    },
+    clear() {
+      delete this.strokes[cur];
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+  };
+  window.pen = pen;
+  pen.init();
 </script>
 
 </body>
