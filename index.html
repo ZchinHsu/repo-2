@@ -558,6 +558,133 @@
   }
   .next-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #d99a00; }
 
+  /* ===== 选择题游戏 ===== */
+  .mcq-prompt {
+    text-align: center;
+    font-size: 24px;
+    color: #4a3f55;
+    margin: 8px 0 4px;
+  }
+  .mcq-big {
+    text-align: center;
+    font-size: 78px;
+    font-weight: bold;
+    color: #ff4d6d;
+    letter-spacing: 12px;
+    background: #fff0f3;
+    padding: 14px 0;
+    border-radius: 24px;
+    margin: 8px auto;
+    width: 60%;
+    box-shadow: 0 6px 0 #ffd6e0;
+    text-shadow: 0 4px 0 #ffd6e0;
+  }
+  .mcq-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .mcq-opt {
+    padding: 16px 18px;
+    border-radius: 24px;
+    font-size: 26px;
+    background: #fff;
+    border: 4px solid #bde0fe;
+    box-shadow: 0 6px 0 #4895ef;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    color: #2d4d99;
+    transition: transform 0.15s;
+    user-select: none;
+  }
+  .mcq-opt:hover { transform: translateY(-3px); }
+  .mcq-opt:active { transform: translateY(2px); box-shadow: 0 2px 0 #4895ef; }
+  .mcq-opt.correct { background: #d8f5e3; border-color: #52b788; color: #2d6a4f; box-shadow: 0 6px 0 #2d6a4f; animation: pop 0.4s; }
+  .mcq-opt.wrong { background: #ffe5e5; border-color: #d62828; color: #d62828; box-shadow: 0 6px 0 #d62828; }
+  .mcq-opt.disabled { pointer-events: none; opacity: 0.55; }
+
+  /* ===== 比大小擂台 ===== */
+  .vs-arena {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 14px 0;
+  }
+  .vs-card {
+    flex: 1;
+    max-width: 280px;
+    padding: 28px 18px;
+    background: #fff;
+    border-radius: 30px;
+    border: 4px solid #ffd6e0;
+    box-shadow: 0 8px 0 #ffb3c6;
+    cursor: pointer;
+    text-align: center;
+    color: #ff4d6d;
+    transition: transform 0.2s;
+    user-select: none;
+  }
+  .vs-card .vs-emoji { font-size: 60px; display: block; margin-bottom: 4px; }
+  .vs-card .vs-num { font-size: 64px; font-weight: bold; letter-spacing: 6px; }
+  .vs-card:hover { transform: translateY(-6px) scale(1.04); }
+  .vs-card.win { background: linear-gradient(135deg, #d8f5e3, #b7e4c7); border-color: #52b788; box-shadow: 0 8px 0 #2d6a4f; color: #2d6a4f; animation: winShake 0.5s; }
+  .vs-card.lose { opacity: 0.4; transform: scale(0.92); }
+  .vs-card.disabled { pointer-events: none; }
+  .vs-vs {
+    font-size: 44px;
+    color: #ff6f91;
+    font-weight: bold;
+    text-shadow: 0 4px 0 #ffd6e0;
+  }
+  @keyframes winShake {
+    0%, 100% { transform: scale(1.05); }
+    25% { transform: scale(1.12) rotate(-4deg); }
+    75% { transform: scale(1.12) rotate(4deg); }
+  }
+
+  /* ===== 数字接龙 ===== */
+  .seq-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 0;
+    flex-wrap: wrap;
+  }
+  .seq-cell {
+    font-size: 36px;
+    font-weight: bold;
+    padding: 14px 18px;
+    background: #fff;
+    border-radius: 18px;
+    border: 4px solid #ffe5ec;
+    box-shadow: 0 5px 0 #ffd6e0;
+    color: #4a3f55;
+    min-width: 100px;
+    text-align: center;
+  }
+  .seq-cell.blank {
+    background: #fff8d6;
+    border: 4px dashed #ffd166;
+    color: #f8b500;
+    animation: blink 1.2s ease-in-out infinite;
+  }
+  .seq-cell.filled {
+    background: #d8f5e3;
+    border-color: #52b788;
+    color: #2d6a4f;
+    box-shadow: 0 5px 0 #2d6a4f;
+    animation: pop 0.4s;
+  }
+  @keyframes blink {
+    0%, 100% { box-shadow: 0 5px 0 #ffd166; }
+    50% { box-shadow: 0 5px 0 #ffd166, 0 0 20px #ffd166; }
+  }
+  .seq-arrow { font-size: 30px; color: #ffb3c6; font-weight: bold; }
+
   /* 烟花庆祝 */
   .celebration {
     position: fixed; inset: 0; pointer-events: none; z-index: 999;
@@ -1270,6 +1397,109 @@
 
   <div class="celebration" id="celebration"></div>
 
+  <!-- 游戏 2：读数小达人 -->
+  <section class="slide">
+    <h2 class="section">📣 游戏二：读数小达人</h2>
+    <div class="with-bubble" style="margin:6px 0 8px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">看清这个数，然后从下面 4 个选项中找到正确的读法吧！🔍</div>
+    </div>
+    <div class="game-board">
+      <div class="game-header">
+        <div class="game-target">这个数怎么读？</div>
+        <div class="game-stats">
+          <span class="stat-pill green">⭐ <span id="r-score">0</span></span>
+          <span class="stat-pill">🔥 <span id="r-streak">0</span></span>
+          <span class="stat-pill blue">🎲 第 <span id="r-round">1</span> 题</span>
+        </div>
+      </div>
+      <div class="mcq-big" id="r-num">4080</div>
+      <div class="mcq-options" id="r-options">
+        <div class="mcq-opt" data-i="0">—</div>
+        <div class="mcq-opt" data-i="1">—</div>
+        <div class="mcq-opt" data-i="2">—</div>
+        <div class="mcq-opt" data-i="3">—</div>
+      </div>
+      <div class="game-feedback hint" id="r-feedback">👆 想一想，再点一个选项</div>
+      <div class="game-actions">
+        <button class="next-btn" id="r-next">🎲 换一题</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 游戏 3：比大小擂台 -->
+  <section class="slide">
+    <h2 class="section">🥊 游戏三：比大小擂台</h2>
+    <div class="with-bubble" style="margin:6px 0 8px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">两个数比一比，<b>谁更大？</b> 点击你认为更大的那个！💪</div>
+    </div>
+    <div class="game-board">
+      <div class="game-header">
+        <div class="game-target">🥊 选出更大的数</div>
+        <div class="game-stats">
+          <span class="stat-pill green">⭐ <span id="c-score">0</span></span>
+          <span class="stat-pill">🔥 <span id="c-streak">0</span></span>
+          <span class="stat-pill blue">🎲 第 <span id="c-round">1</span> 关</span>
+        </div>
+      </div>
+      <div class="vs-arena">
+        <div class="vs-card" id="c-left">
+          <span class="vs-emoji">🐼</span>
+          <div class="vs-num" id="c-left-num">—</div>
+        </div>
+        <div class="vs-vs">VS</div>
+        <div class="vs-card" id="c-right">
+          <span class="vs-emoji">🐯</span>
+          <div class="vs-num" id="c-right-num">—</div>
+        </div>
+      </div>
+      <div class="game-feedback hint" id="c-feedback">👆 点一下你觉得更大的那个数</div>
+      <div class="game-actions">
+        <button class="next-btn" id="c-next">🎲 换一题</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 游戏 4：数字接龙 -->
+  <section class="slide">
+    <h2 class="section">🔍 游戏四：数字接龙</h2>
+    <div class="with-bubble" style="margin:6px 0 8px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">观察一下数字之间的规律，找出问号位置应该填哪个数字！🤔</div>
+    </div>
+    <div class="game-board">
+      <div class="game-header">
+        <div class="game-target">🐾 找出空格里的数</div>
+        <div class="game-stats">
+          <span class="stat-pill green">⭐ <span id="s-score">0</span></span>
+          <span class="stat-pill">🔥 <span id="s-streak">0</span></span>
+          <span class="stat-pill blue">🎲 第 <span id="s-round">1</span> 题</span>
+        </div>
+      </div>
+      <div class="seq-row" id="s-row"></div>
+      <div class="mcq-options" id="s-options" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
+        <div class="mcq-opt" data-i="0">—</div>
+        <div class="mcq-opt" data-i="1">—</div>
+        <div class="mcq-opt" data-i="2">—</div>
+        <div class="mcq-opt" data-i="3">—</div>
+      </div>
+      <div class="game-feedback hint" id="s-feedback">👆 看看相邻的数差多少？</div>
+      <div class="game-actions">
+        <button class="next-btn" id="s-next">🎲 换一题</button>
+      </div>
+    </div>
+  </section>
+
   <!-- 14. 总结 -->
   <section class="slide">
     <h2 class="section">📌 这节课我学到了……</h2>
@@ -1486,6 +1716,268 @@
     }
   };
   game.init();
+
+  // ========== 工具：把四位数转成中文读法 ==========
+  function readNumber(n) {
+    if (n === 10000) return '一万';
+    if (n === 0) return '零';
+    const digits = ['零','一','二','三','四','五','六','七','八','九'];
+    const units = ['','十','百','千'];
+    const s = String(n);
+    let result = '';
+    let zeroFlag = false;
+    for (let i = 0; i < s.length; i++) {
+      const d = parseInt(s[i]);
+      const unit = units[s.length - 1 - i];
+      if (d === 0) {
+        zeroFlag = true;
+      } else {
+        if (zeroFlag) { result += '零'; zeroFlag = false; }
+        result += digits[d] + unit;
+      }
+    }
+    // 特殊：100~199 不读"一百"为"百"，仍读"一百"，所以无需调整（与小学读法一致）
+    return result;
+  }
+
+  function celebrate() { game.celebrate(); }
+  function shuffle(a) { for (let i = a.length-1; i>0; i--) { const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+  // ========== 游戏二：读数小达人 ==========
+  const readGame = {
+    n: 0, options: [], correctIdx: 0, score: 0, streak: 0, round: 0, locked: false,
+    newQ() {
+      this.round++;
+      this.locked = false;
+      // 60% 概率出含 0 的数（更有挑战）
+      if (Math.random() < 0.6) {
+        const positions = [
+          () => Math.floor(Math.random()*9+1)*1000 + Math.floor(Math.random()*9+1), // 千_ _个
+          () => Math.floor(Math.random()*9+1)*1000 + Math.floor(Math.random()*9+1)*10, // 千_十0
+          () => Math.floor(Math.random()*9+1)*1000 + Math.floor(Math.random()*9+1)*100, // 千百00
+        ];
+        this.n = positions[Math.floor(Math.random()*3)]();
+      } else {
+        this.n = Math.floor(Math.random()*9000) + 1000;
+      }
+      const correct = readNumber(this.n);
+      // 生成 3 个干扰项
+      const wrongs = new Set();
+      const tries = [this.n+1, this.n-1, this.n+10, this.n-10, this.n+100, this.n-100, this.n+1000, this.n-1000];
+      shuffle(tries);
+      for (const v of tries) {
+        if (v >= 1000 && v <= 9999) {
+          const r = readNumber(v);
+          if (r !== correct) wrongs.add(r);
+        }
+        if (wrongs.size >= 3) break;
+      }
+      this.options = shuffle([correct, ...wrongs]);
+      this.correctIdx = this.options.indexOf(correct);
+      this.render();
+    },
+    render() {
+      document.getElementById('r-num').textContent = this.n;
+      document.getElementById('r-round').textContent = this.round;
+      document.getElementById('r-score').textContent = this.score;
+      document.getElementById('r-streak').textContent = this.streak;
+      const opts = document.querySelectorAll('#r-options .mcq-opt');
+      opts.forEach((el, i) => {
+        el.textContent = this.options[i] || '—';
+        el.className = 'mcq-opt';
+      });
+      const fb = document.getElementById('r-feedback');
+      fb.textContent = '👆 想一想，再点一个选项';
+      fb.className = 'game-feedback hint';
+    },
+    pick(i) {
+      if (this.locked) return;
+      this.locked = true;
+      const opts = document.querySelectorAll('#r-options .mcq-opt');
+      opts.forEach(el => el.classList.add('disabled'));
+      const fb = document.getElementById('r-feedback');
+      if (i === this.correctIdx) {
+        opts[i].classList.add('correct');
+        this.score++; this.streak++;
+        fb.textContent = '🎉 妙想为你点赞！读对啦！';
+        fb.className = 'game-feedback success';
+        celebrate();
+      } else {
+        opts[i].classList.add('wrong');
+        opts[this.correctIdx].classList.add('correct');
+        this.streak = 0;
+        fb.textContent = '😊 没关系！正确答案是：' + this.options[this.correctIdx];
+        fb.className = 'game-feedback hint';
+      }
+      document.getElementById('r-score').textContent = this.score;
+      document.getElementById('r-streak').textContent = this.streak;
+    },
+    init() {
+      document.querySelectorAll('#r-options .mcq-opt').forEach(b =>
+        b.addEventListener('click', () => this.pick(+b.dataset.i)));
+      document.getElementById('r-next').addEventListener('click', () => this.newQ());
+      this.newQ();
+    }
+  };
+  readGame.init();
+
+  // ========== 游戏三：比大小擂台 ==========
+  const compareGame = {
+    a: 0, b: 0, score: 0, streak: 0, round: 0, locked: false,
+    newQ() {
+      this.round++;
+      this.locked = false;
+      do {
+        // 30% 概率出位数不同的数（如 999 vs 1000）让对比更有趣
+        if (Math.random() < 0.3) {
+          this.a = Math.floor(Math.random()*900) + 100;
+          this.b = Math.floor(Math.random()*9000) + 1000;
+          if (Math.random() < 0.5) [this.a, this.b] = [this.b, this.a];
+        } else {
+          this.a = Math.floor(Math.random()*9000) + 1000;
+          this.b = Math.floor(Math.random()*9000) + 1000;
+        }
+      } while (this.a === this.b);
+      this.render();
+    },
+    render() {
+      document.getElementById('c-left-num').textContent = this.a;
+      document.getElementById('c-right-num').textContent = this.b;
+      document.getElementById('c-round').textContent = this.round;
+      document.getElementById('c-score').textContent = this.score;
+      document.getElementById('c-streak').textContent = this.streak;
+      const L = document.getElementById('c-left');
+      const R = document.getElementById('c-right');
+      L.className = 'vs-card'; R.className = 'vs-card';
+      const fb = document.getElementById('c-feedback');
+      fb.textContent = '👆 点一下你觉得更大的那个数';
+      fb.className = 'game-feedback hint';
+    },
+    pick(side) {
+      if (this.locked) return;
+      this.locked = true;
+      const L = document.getElementById('c-left');
+      const R = document.getElementById('c-right');
+      L.classList.add('disabled'); R.classList.add('disabled');
+      const correct = this.a > this.b ? 'left' : 'right';
+      const fb = document.getElementById('c-feedback');
+      if (side === correct) {
+        (side === 'left' ? L : R).classList.add('win');
+        (side === 'left' ? R : L).classList.add('lose');
+        this.score++; this.streak++;
+        fb.textContent = '🎉 没错！' + Math.max(this.a, this.b) + ' 比 ' + Math.min(this.a, this.b) + ' 大！';
+        fb.className = 'game-feedback success';
+        celebrate();
+      } else {
+        (side === 'left' ? L : R).classList.add('lose');
+        (correct === 'left' ? L : R).classList.add('win');
+        this.streak = 0;
+        fb.textContent = '😊 再仔细看看：' + Math.max(this.a, this.b) + ' > ' + Math.min(this.a, this.b);
+        fb.className = 'game-feedback hint';
+      }
+      document.getElementById('c-score').textContent = this.score;
+      document.getElementById('c-streak').textContent = this.streak;
+    },
+    init() {
+      document.getElementById('c-left').addEventListener('click', () => this.pick('left'));
+      document.getElementById('c-right').addEventListener('click', () => this.pick('right'));
+      document.getElementById('c-next').addEventListener('click', () => this.newQ());
+      this.newQ();
+    }
+  };
+  compareGame.init();
+
+  // ========== 游戏四：数字接龙 ==========
+  const seqGame = {
+    seq: [], hiddenIdx: 0, options: [], correctIdx: 0, score: 0, streak: 0, round: 0, locked: false,
+    newQ() {
+      this.round++;
+      this.locked = false;
+      const stepChoices = [1, 1, 10, 10, 100, 100, 1000];
+      const step = stepChoices[Math.floor(Math.random()*stepChoices.length)];
+      // 保证 5 个数都在 1~10000
+      let start;
+      do {
+        start = Math.floor(Math.random()*9000) + 500;
+      } while (start + 4*step > 10000 || start < step);
+      this.seq = [start, start+step, start+2*step, start+3*step, start+4*step];
+      this.hiddenIdx = 1 + Math.floor(Math.random()*3); // 隐藏中间的位置
+      const correct = this.seq[this.hiddenIdx];
+      // 生成干扰项
+      const wrongs = new Set();
+      const cands = [correct+step, correct-step, correct+1, correct-1, correct+10, correct-10];
+      shuffle(cands);
+      for (const v of cands) {
+        if (v > 0 && v !== correct) wrongs.add(v);
+        if (wrongs.size >= 3) break;
+      }
+      this.options = shuffle([correct, ...wrongs]);
+      this.correctIdx = this.options.indexOf(correct);
+      this.render();
+    },
+    render() {
+      const row = document.getElementById('s-row');
+      row.innerHTML = '';
+      for (let i = 0; i < 5; i++) {
+        if (i > 0) {
+          const a = document.createElement('span');
+          a.className = 'seq-arrow';
+          a.textContent = '➡';
+          row.appendChild(a);
+        }
+        const c = document.createElement('div');
+        c.className = 'seq-cell' + (i === this.hiddenIdx ? ' blank' : '');
+        c.textContent = i === this.hiddenIdx ? '?' : this.seq[i];
+        c.id = 's-cell-' + i;
+        row.appendChild(c);
+      }
+      document.getElementById('s-round').textContent = this.round;
+      document.getElementById('s-score').textContent = this.score;
+      document.getElementById('s-streak').textContent = this.streak;
+      const opts = document.querySelectorAll('#s-options .mcq-opt');
+      opts.forEach((el, i) => {
+        el.textContent = this.options[i];
+        el.className = 'mcq-opt';
+      });
+      const fb = document.getElementById('s-feedback');
+      fb.textContent = '👆 看看相邻的数差多少？';
+      fb.className = 'game-feedback hint';
+    },
+    pick(i) {
+      if (this.locked) return;
+      this.locked = true;
+      const opts = document.querySelectorAll('#s-options .mcq-opt');
+      opts.forEach(el => el.classList.add('disabled'));
+      const fb = document.getElementById('s-feedback');
+      const cell = document.getElementById('s-cell-' + this.hiddenIdx);
+      if (i === this.correctIdx) {
+        opts[i].classList.add('correct');
+        cell.textContent = this.seq[this.hiddenIdx];
+        cell.className = 'seq-cell filled';
+        this.score++; this.streak++;
+        fb.textContent = '🎉 厉害！规律找对啦！';
+        fb.className = 'game-feedback success';
+        celebrate();
+      } else {
+        opts[i].classList.add('wrong');
+        opts[this.correctIdx].classList.add('correct');
+        cell.textContent = this.seq[this.hiddenIdx];
+        cell.className = 'seq-cell filled';
+        this.streak = 0;
+        fb.textContent = '😊 正确答案是 ' + this.seq[this.hiddenIdx] + '，再观察下规律吧！';
+        fb.className = 'game-feedback hint';
+      }
+      document.getElementById('s-score').textContent = this.score;
+      document.getElementById('s-streak').textContent = this.streak;
+    },
+    init() {
+      document.querySelectorAll('#s-options .mcq-opt').forEach(b =>
+        b.addEventListener('click', () => this.pick(+b.dataset.i)));
+      document.getElementById('s-next').addEventListener('click', () => this.newQ());
+      this.newQ();
+    }
+  };
+  seqGame.init();
 </script>
 
 </body>
