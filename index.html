@@ -375,6 +375,108 @@
     font-weight: bold;
   }
 
+  /* ===== 妙想角色 ===== */
+  .miaoxiang {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .miaoxiang .avatar {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #ffe5ec, #ffb3c6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 0 #ff6f91, 0 8px 16px rgba(255,111,145,0.2);
+    position: relative;
+    animation: bob 2.5s ease-in-out infinite;
+  }
+  /* 头顶蝴蝶结 */
+  .miaoxiang .avatar::before {
+    content: "🎀";
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+  }
+  .miaoxiang .name {
+    background: linear-gradient(135deg, #ff8fab, #ff6f91);
+    color: #fff;
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-size: 18px;
+    margin-top: -10px;
+    box-shadow: 0 2px 0 #d4577a;
+    font-weight: bold;
+    z-index: 2;
+    position: relative;
+    letter-spacing: 1px;
+  }
+  /* 大号妙想（封面用） */
+  .miaoxiang.big .avatar { width: 180px; height: 180px; font-size: 110px; box-shadow: 0 10px 0 #ff6f91, 0 14px 24px rgba(0,0,0,0.15); }
+  .miaoxiang.big .avatar::before { font-size: 50px; top: -38px; }
+  .miaoxiang.big .name { font-size: 26px; padding: 5px 22px; margin-top: -16px; }
+
+  /* 妙想 + 对话气泡 */
+  .with-bubble {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin: 14px 0;
+  }
+  .bubble {
+    background: #fff;
+    padding: 14px 22px;
+    border-radius: 24px;
+    border: 3px solid #ffb3c6;
+    box-shadow: 0 5px 0 #ffd6e0;
+    font-size: 22px;
+    color: #4a3f55;
+    position: relative;
+    flex: 1;
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+  .bubble::before {
+    content: "";
+    position: absolute;
+    left: -18px;
+    top: 28px;
+    width: 0; height: 0;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-right: 18px solid #ffb3c6;
+  }
+  .bubble::after {
+    content: "";
+    position: absolute;
+    left: -13px;
+    top: 30px;
+    width: 0; height: 0;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-right: 16px solid #fff;
+  }
+  .bubble b { color: #ff4d6d; }
+
+  /* 角落小妙想 */
+  .corner-mascot {
+    position: absolute;
+    bottom: 80px;
+    right: 24px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .corner-mascot .avatar { width: 72px; height: 72px; font-size: 44px; box-shadow: 0 4px 0 #ff6f91, 0 6px 10px rgba(0,0,0,0.1); }
+  .corner-mascot .avatar::before { font-size: 22px; top: -16px; }
+  .corner-mascot .name { font-size: 14px; padding: 1px 10px; margin-top: -8px; }
+
   /* ===== 学习目标 ===== */
   .objective {
     background: #fff;
@@ -414,15 +516,28 @@
 
   <!-- 1. 封面 -->
   <section class="slide cover active">
-    <div class="emoji">🐼💕🐯</div>
-    <h1>保护野生哺乳动物</h1>
+    <div class="miaoxiang big">
+      <div class="avatar">👧</div>
+      <div class="name">妙 想</div>
+    </div>
+    <h1 style="margin-top:30px;">保护野生哺乳动物</h1>
     <div class="meta">🌸 北师大版 · 二年级下册 · 数学 🌸</div>
     <div class="meta">~ 生活中的大数 ~</div>
+    <div style="margin-top:24px;background:#fff;color:#ff4d6d;padding:14px 28px;border-radius:30px;font-size:24px;box-shadow:0 6px 0 #ff6f91;font-weight:bold;">
+      💕 大家好，我是妙想，今天和我一起去看看动物朋友们吧！
+    </div>
   </section>
 
   <!-- 2. 学习目标 -->
   <section class="slide">
     <h2 class="section">📚 学习目标</h2>
+    <div class="with-bubble">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">这节课我们要一起完成 <b>4 个任务</b>，准备好了吗？出发吧！🚀</div>
+    </div>
     <div class="objective"><span class="num-circle">1</span>认识 <span class="highlight">千</span> 和 <span class="highlight">万</span>，知道 10 个一千是一万。</div>
     <div class="objective"><span class="num-circle">2</span>能正确读、写万以内的四位数。</div>
     <div class="objective"><span class="num-circle">3</span>了解数位顺序表，明白每个数位上数字的意义。</div>
@@ -432,7 +547,13 @@
   <!-- 3. 情境导入 -->
   <section class="slide">
     <h2 class="section">🌏 情境导入：我们的动物朋友</h2>
-    <p style="margin-bottom:16px;">同学们，地球上生活着许多珍贵的野生哺乳动物，它们和我们一样需要呵护。来看看这些数字：</p>
+    <div class="with-bubble">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">同学们，地球上生活着许多珍贵的野生哺乳动物，它们和我们一样需要呵护～来看看妙想收集到的数据吧！</div>
+    </div>
     <div class="grid-4">
       <div class="animal">
         <div class="icon">🐼</div>
@@ -461,6 +582,13 @@
   <!-- 4. 认识千 -->
   <section class="slide">
     <h2 class="section">🔢 认识"千"</h2>
+    <div class="with-bubble" style="margin:6px 0 14px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">咦？1864 这么大的数怎么数呢？我们先认识一个新朋友 —— <b>"千"</b>！</div>
+    </div>
     <div class="grid-2">
       <div>
         <div class="card">
@@ -507,6 +635,13 @@
   <!-- 5. 认识万 -->
   <section class="slide">
     <h2 class="section">🔢 认识"万"</h2>
+    <div class="with-bubble" style="margin:6px 0 12px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">认识了"千"，再来一起认识更大的数 —— <b>"万"</b> 吧！</div>
+    </div>
     <div class="card" style="margin-bottom:16px;">
       <h3>10 个一千是多少？</h3>
       <p style="font-size:26px;">1000、2000、3000、4000、5000、6000、7000、8000、9000、<span class="highlight">10000</span></p>
@@ -548,6 +683,10 @@
   <!-- 6. 数位顺序表 -->
   <section class="slide">
     <h2 class="section">📊 数位顺序表</h2>
+    <div class="miaoxiang corner-mascot">
+      <div class="avatar">👧</div>
+      <div class="name">妙 想</div>
+    </div>
     <p>从右往左数，每个数字所在的位置叫做"<b>数位</b>"：</p>
     <table class="place-table">
       <tr>
@@ -573,6 +712,10 @@
   <!-- 7. 写数：1864 -->
   <section class="slide">
     <h2 class="section">✍️ 写数 —— 大熊猫有 1864 只</h2>
+    <div class="miaoxiang corner-mascot">
+      <div class="avatar">👧</div>
+      <div class="name">妙 想</div>
+    </div>
     <div class="card" style="text-align:center;">
       <div class="counter">
         <div class="rod">
@@ -628,7 +771,13 @@
   <!-- 8. 中间有0的数 -->
   <section class="slide">
     <h2 class="section">⚠️ 中间有 0 的数怎么读？</h2>
-    <p>东北虎大约有 <b>2008</b> 只（含野外与人工繁育），看看这个数怎么读？</p>
+    <div class="with-bubble" style="margin:6px 0 12px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">东北虎大约有 <b>2008</b> 只，这个数中间有两个 0，要怎么读呢？快来跟我一起想一想吧！🤔</div>
+    </div>
     <div class="card" style="text-align:center;">
       <div class="counter">
         <div class="rod">
@@ -675,6 +824,10 @@
   <!-- 9. 末尾有0 -->
   <section class="slide">
     <h2 class="section">📖 末尾有 0 的数怎么读？</h2>
+    <div class="miaoxiang corner-mascot">
+      <div class="avatar">👧</div>
+      <div class="name">妙 想</div>
+    </div>
     <div class="grid-2">
       <div class="card">
         <h3>🦌 藏羚羊：7000 只</h3>
@@ -699,6 +852,13 @@
   <!-- 10. 课堂练习一 -->
   <section class="slide">
     <h2 class="section">✏️ 课堂练习（一）：读一读</h2>
+    <div class="with-bubble" style="margin:6px 0 10px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">小朋友们，先自己想一想，再点一点空白处，看妙想说得对不对！💪</div>
+    </div>
     <div class="question">
       <span class="tag">第1题</span>金丝猴大约有 <b>3800</b> 只。
       <br><span style="color:#666;">读作：</span><span class="answer" data-show>三千八百</span>
@@ -721,6 +881,10 @@
   <!-- 11. 课堂练习二 -->
   <section class="slide">
     <h2 class="section">✏️ 课堂练习（二）：写一写</h2>
+    <div class="miaoxiang corner-mascot">
+      <div class="avatar">👧</div>
+      <div class="name">妙 想</div>
+    </div>
     <div class="question">
       <span class="tag">第1题</span>九千八百 　　 写作：<span class="answer" data-show>9800</span>
     </div>
@@ -739,6 +903,10 @@
   <!-- 12. 课堂练习三 -->
   <section class="slide">
     <h2 class="section">🧠 课堂练习（三）：填一填</h2>
+    <div class="miaoxiang corner-mascot">
+      <div class="avatar">👧</div>
+      <div class="name">妙 想</div>
+    </div>
     <div class="question">
       <span class="tag">第1题</span>3056 是由 <b>3</b> 个 <span class="answer" data-show>千</span>、<b>5</b> 个 <span class="answer" data-show>十</span> 和 <b>6</b> 个 <span class="answer" data-show>一</span> 组成的。
     </div>
@@ -914,7 +1082,13 @@
   <!-- 17. 拓展 -->
   <section class="slide">
     <h2 class="section">🌟 拓展提升：比一比</h2>
-    <p>下面这些珍稀哺乳动物，谁的数量最多？谁的数量最少？</p>
+    <div class="with-bubble" style="margin:6px 0 12px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">这么多动物朋友，<b>谁的数量最多？谁最少？</b> 快帮妙想排一排吧！</div>
+    </div>
     <div class="grid-4" style="margin-top:20px;">
       <div class="animal"><div class="icon">🐼</div><div class="name">大熊猫</div><div class="num">1864</div></div>
       <div class="animal"><div class="icon">🐯</div><div class="name">东北虎</div><div class="num">500</div></div>
@@ -932,6 +1106,13 @@
   <!-- 14. 总结 -->
   <section class="slide">
     <h2 class="section">📌 这节课我学到了……</h2>
+    <div class="with-bubble" style="margin:6px 0 12px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">和妙想一起回忆一下，今天我们都学了什么吧～</div>
+    </div>
     <div class="objective"><span class="num-circle">1</span>认识了新的计数单位：<b>千</b> 和 <b>万</b>。</div>
     <div class="objective"><span class="num-circle">2</span>知道 10 个一百是一千，<b>10 个一千是一万</b>。</div>
     <div class="objective"><span class="num-circle">3</span>会读、会写万以内的四位数。</div>
@@ -945,6 +1126,10 @@
   <!-- 15. 作业 -->
   <section class="slide">
     <h2 class="section">📒 课后作业</h2>
+    <div class="miaoxiang corner-mascot">
+      <div class="avatar">👧</div>
+      <div class="name">妙 想</div>
+    </div>
     <div class="card" style="margin-bottom:16px;">
       <h3>📘 基础作业</h3>
       <ul>
@@ -966,11 +1151,15 @@
     </div>
   </section>
 
-  <!-- 16. 结束 -->
+  <!-- 结束 -->
   <section class="slide cover">
-    <div class="emoji">🌳🐾🌷</div>
-    <h1 style="font-size:72px;">谢谢同学们 ♡</h1>
-    <div class="meta">让我们一起守护自然，守护这些可爱的动物朋友 🐾💕</div>
+    <div class="miaoxiang big">
+      <div class="avatar">👧</div>
+      <div class="name">妙 想</div>
+    </div>
+    <h1 style="font-size:64px;margin-top:24px;">谢谢同学们 ♡</h1>
+    <div class="meta">妙想和你们一起，守护可爱的动物朋友 🐾💕</div>
+    <div style="margin-top:20px;font-size:30px;color:#fff;text-shadow:0 3px 0 #ff6f91;">下节课，妙想再来找你们玩！👋</div>
   </section>
 
 </div>
