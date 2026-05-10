@@ -24,35 +24,85 @@
     inset: 0;
     display: none;
     flex-direction: column;
-    padding: 40px 60px 80px;
+    padding: 70px 56px 56px;
     background:
-      radial-gradient(circle at 10% 15%, #ffd6e0 0 60px, transparent 61px),
-      radial-gradient(circle at 92% 12%, #c1f0d6 0 70px, transparent 71px),
-      radial-gradient(circle at 8% 88%, #fff2b3 0 80px, transparent 81px),
-      radial-gradient(circle at 90% 90%, #d6c1f5 0 70px, transparent 71px),
-      linear-gradient(135deg, #fff8fb 0%, #f0fbff 100%);
+      radial-gradient(circle at 92% 18%, #c1f0d6 0 50px, transparent 51px),
+      radial-gradient(circle at 8% 88%, #fff2b3 0 60px, transparent 61px),
+      linear-gradient(135deg, #fffaf8 0%, #f5fbff 100%);
     animation: bounceIn 0.5s cubic-bezier(.68,-0.4,.27,1.55);
     overflow: hidden;
   }
-  /* 可爱小肉垫装饰背景 */
-  .slide::before {
+  /* 装饰小肉垫 */
+  .slide:not(.cover)::after {
     content: "🐾";
     position: absolute;
-    top: -10px;
-    right: 30px;
-    font-size: 70px;
-    opacity: 0.18;
-    transform: rotate(20deg);
-  }
-  .slide::after {
-    content: "🐾";
-    position: absolute;
-    bottom: 70px;
-    left: 30px;
-    font-size: 50px;
-    opacity: 0.15;
+    bottom: 60px;
+    left: 24px;
+    font-size: 40px;
+    opacity: 0.12;
     transform: rotate(-15deg);
+    pointer-events: none;
   }
+
+  /* ===== 课件页眉 / 页脚 chrome ===== */
+  .chrome-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 50px;
+    background: linear-gradient(135deg, #ff8fab 0%, #ffa8c0 100%);
+    color: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 22px;
+    font-size: 15px;
+    z-index: 4;
+    box-shadow: 0 2px 6px rgba(255,111,145,0.25);
+  }
+  .chrome-header .left, .chrome-header .right {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .chrome-subject {
+    background: #fff; color: #ff4d6d;
+    padding: 4px 12px; border-radius: 12px;
+    font-weight: bold; font-size: 14px;
+    box-shadow: 0 2px 0 #d4577a;
+  }
+  .chrome-title { font-weight: bold; letter-spacing: 1px; }
+  .chrome-title b { color: #fff8d6; }
+  .chrome-page {
+    background: rgba(255,255,255,0.28);
+    padding: 4px 12px; border-radius: 12px;
+    font-weight: bold; min-width: 64px; text-align: center;
+  }
+
+  .chrome-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 36px;
+    background: #fff;
+    border-top: 2px dashed #ffd6e0;
+    color: #888;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 22px;
+    font-size: 13px;
+    z-index: 3;
+  }
+  .chrome-stepper { display: flex; gap: 4px; }
+  .step {
+    background: #fff0f3; color: #ff8fab;
+    padding: 2px 10px; border-radius: 10px;
+    font-size: 12px; font-weight: bold;
+    transition: all 0.2s;
+  }
+  .step.active {
+    background: linear-gradient(135deg, #ff8fab, #ff6f91);
+    color: #fff;
+    box-shadow: 0 2px 0 #d4577a;
+  }
+  .chrome-meta { color: #999; }
+
+  /* 封面不显示 chrome */
+  .cover .chrome-header, .cover .chrome-footer { display: none; }
+  .cover { padding: 40px 60px; }
   .slide.active { display: flex; }
   @keyframes bounceIn {
     0% { opacity: 0; transform: scale(0.92) translateY(20px); }
@@ -323,7 +373,7 @@
   /* ===== 控制条 ===== */
   .controls {
     position: fixed;
-    bottom: 16px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -751,21 +801,32 @@
 
   <!-- 1. 封面 -->
   <section class="slide cover active">
-    <div class="miaoxiang big">
+    <div style="position:absolute;top:30px;left:0;right:0;text-align:center;color:#fff;font-size:20px;letter-spacing:6px;font-weight:bold;text-shadow:0 2px 6px rgba(0,0,0,0.15);">
+      北师大版小学数学 · 二年级下册
+    </div>
+    <div style="background:#fff;color:#ff4d6d;padding:6px 22px;border-radius:30px;font-size:18px;font-weight:bold;box-shadow:0 4px 0 #ff6f91;letter-spacing:2px;">
+      第 三 单元 · 生活中的大数 · 第 4 课时
+    </div>
+    <h1 style="margin-top:18px;">保护野生哺乳动物</h1>
+    <div class="meta" style="margin-top:14px;">认识 1000 ~ 10000 以内的数</div>
+
+    <div class="miaoxiang big" style="margin-top:24px;">
       <div class="avatar">👧</div>
       <div class="name">妙 想</div>
     </div>
-    <h1 style="margin-top:30px;">保护野生哺乳动物</h1>
-    <div class="meta">🌸 北师大版 · 二年级下册 · 数学 🌸</div>
-    <div class="meta">~ 生活中的大数 ~</div>
-    <div style="margin-top:24px;background:#fff;color:#ff4d6d;padding:14px 28px;border-radius:30px;font-size:24px;box-shadow:0 6px 0 #ff6f91;font-weight:bold;">
-      💕 大家好，我是妙想，今天和我一起去看看动物朋友们吧！
+    <div style="margin-top:18px;background:#fff;color:#ff4d6d;padding:12px 26px;border-radius:30px;font-size:22px;box-shadow:0 6px 0 #ff6f91;font-weight:bold;">
+      💕 大家好，我是妙想，今天和我一起去看看动物朋友吧！
+    </div>
+
+    <div style="position:absolute;bottom:30px;left:0;right:0;text-align:center;color:#fff;font-size:14px;letter-spacing:4px;opacity:0.85;">
+      执教：__________　|　班级：二（__）班　|　日期：____ 年 __ 月 __ 日
     </div>
   </section>
 
   <!-- 2. 学习目标 -->
   <section class="slide">
     <h2 class="section">📚 学习目标</h2>
+    <p style="color:#888;margin-top:-10px;margin-bottom:14px;font-size:18px;">学完这节课，你将会……</p>
     <div class="with-bubble">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -779,9 +840,65 @@
     <div class="objective"><span class="num-circle">4</span>感受数学与生活的联系，增强保护野生动物的意识。</div>
   </section>
 
-  <!-- 3. 情境导入 -->
+  <!-- 教学重点·难点 -->
   <section class="slide">
-    <h2 class="section">🌏 情境导入：我们的动物朋友</h2>
+    <h2 class="section">🔑 教学重点 · 难点</h2>
+    <div class="grid-2" style="margin-top:8px;">
+      <div class="card" style="border-color:#ffd6e0;box-shadow:0 8px 0 #ffb3c6;">
+        <h3 style="color:#ff4d6d;">🎯 教学重点</h3>
+        <ul style="font-size:22px;">
+          <li>认识计数单位 <b>"千"</b> 和 <b>"万"</b>。</li>
+          <li>掌握万以内数的读法和写法。</li>
+          <li>理解数位顺序及相邻计数单位间的十进关系。</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color:#fff2b3;box-shadow:0 8px 0 #ffd166;">
+        <h3 style="color:#f08c00;">⚠️ 教学难点</h3>
+        <ul style="font-size:22px;">
+          <li>正确读写 <b>中间或末尾含 0</b> 的四位数。</li>
+          <li>理解 <b>0 在数中的占位作用</b>。</li>
+          <li>掌握 <b>10 个一千是一万</b> 的进率关系。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tip" style="margin-top:14px;">
+      <b>课时安排：</b>1 课时（约 40 分钟）　|
+      <b>教学准备：</b>计数器、多媒体课件、练习单、动物图片
+    </div>
+  </section>
+
+  <!-- 一、复习导入 -->
+  <section class="slide">
+    <h2 class="section">一、复习导入 ｜ 唤起旧知</h2>
+    <div class="with-bubble" style="margin:6px 0 12px;">
+      <div class="miaoxiang">
+        <div class="avatar">👧</div>
+        <div class="name">妙 想</div>
+      </div>
+      <div class="bubble">在认识更大的数之前，先和妙想一起复习一下我们学过的数吧！</div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>🔄 复习一：数一数</h3>
+        <p>1 个十是 <span class="answer">10</span>　　10 个一是 <span class="answer">10</span></p>
+        <p>1 个百是 <span class="answer">100</span>　　10 个十是 <span class="answer">100</span></p>
+        <p style="color:#888;font-size:20px;margin-top:8px;">👆 点击空格查看答案</p>
+      </div>
+      <div class="card">
+        <h3>📐 复习二：写一写</h3>
+        <p>八十六　　 写作 <span class="answer">86</span></p>
+        <p>三百二十　 写作 <span class="answer">320</span></p>
+        <p>五百零七　 写作 <span class="answer">507</span></p>
+      </div>
+    </div>
+    <div class="tip">
+      <b>承上启下：</b>我们已经认识了 100 以内的数和几百几十的数。今天，我们要去认识 <span class="highlight">更大的数</span>！
+    </div>
+  </section>
+
+  <!-- 二、情境引入 -->
+  <section class="slide">
+    <h2 class="section">二、情境引入 ｜ 我们的动物朋友</h2>
     <div class="with-bubble">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -816,7 +933,7 @@
 
   <!-- 4. 认识千 -->
   <section class="slide">
-    <h2 class="section">🔢 认识"千"</h2>
+    <h2 class="section">三、探究新知 ｜（一）认识"千"</h2>
     <div class="with-bubble" style="margin:6px 0 14px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -869,7 +986,7 @@
 
   <!-- 5. 认识万 -->
   <section class="slide">
-    <h2 class="section">🔢 认识"万"</h2>
+    <h2 class="section">三、探究新知 ｜（二）认识"万"</h2>
     <div class="with-bubble" style="margin:6px 0 12px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -917,7 +1034,7 @@
 
   <!-- 6. 数位顺序表 -->
   <section class="slide">
-    <h2 class="section">📊 数位顺序表</h2>
+    <h2 class="section">三、探究新知 ｜（三）数位顺序表</h2>
     <div class="miaoxiang corner-mascot">
       <div class="avatar">👧</div>
       <div class="name">妙 想</div>
@@ -946,7 +1063,7 @@
 
   <!-- 7. 写数：1864 -->
   <section class="slide">
-    <h2 class="section">✍️ 写数 —— 大熊猫有 1864 只</h2>
+    <h2 class="section">三、探究新知 ｜（四）写数与读数</h2>
     <div class="miaoxiang corner-mascot">
       <div class="avatar">👧</div>
       <div class="name">妙 想</div>
@@ -1005,7 +1122,7 @@
 
   <!-- 8. 中间有0的数 -->
   <section class="slide">
-    <h2 class="section">⚠️ 中间有 0 的数怎么读？</h2>
+    <h2 class="section">三、探究新知 ｜（五）中间有 0 的数怎么读</h2>
     <div class="with-bubble" style="margin:6px 0 12px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -1058,7 +1175,7 @@
 
   <!-- 9. 末尾有0 -->
   <section class="slide">
-    <h2 class="section">📖 末尾有 0 的数怎么读？</h2>
+    <h2 class="section">三、探究新知 ｜（六）末尾有 0 的数怎么读</h2>
     <div class="miaoxiang corner-mascot">
       <div class="avatar">👧</div>
       <div class="name">妙 想</div>
@@ -1086,7 +1203,7 @@
 
   <!-- 10. 课堂练习一 -->
   <section class="slide">
-    <h2 class="section">✏️ 课堂练习（一）：读一读</h2>
+    <h2 class="section">四、巩固练习 ｜（一）读一读</h2>
     <div class="with-bubble" style="margin:6px 0 10px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -1115,7 +1232,7 @@
 
   <!-- 11. 课堂练习二 -->
   <section class="slide">
-    <h2 class="section">✏️ 课堂练习（二）：写一写</h2>
+    <h2 class="section">四、巩固练习 ｜（二）写一写</h2>
     <div class="miaoxiang corner-mascot">
       <div class="avatar">👧</div>
       <div class="name">妙 想</div>
@@ -1137,7 +1254,7 @@
 
   <!-- 12. 课堂练习三 -->
   <section class="slide">
-    <h2 class="section">🧠 课堂练习（三）：填一填</h2>
+    <h2 class="section">四、巩固练习 ｜（三）填一填</h2>
     <div class="miaoxiang corner-mascot">
       <div class="avatar">👧</div>
       <div class="name">妙 想</div>
@@ -1158,7 +1275,7 @@
 
   <!-- 13. 课堂练习四：看计数器写数 -->
   <section class="slide">
-    <h2 class="section">🧮 课堂练习（四）：看计数器写数</h2>
+    <h2 class="section">四、巩固练习 ｜（四）看计数器写数</h2>
     <p style="margin-bottom:10px;">数一数计数器上每一位有几颗珠子，然后写出这个数：</p>
     <div class="grid-2" style="gap:18px;">
       <div class="card" style="padding:14px;">
@@ -1250,7 +1367,7 @@
 
   <!-- 14. 课堂练习五：找规律填数 -->
   <section class="slide">
-    <h2 class="section">🔍 课堂练习（五）：找规律填一填</h2>
+    <h2 class="section">四、巩固练习 ｜（五）找规律填一填</h2>
     <div class="question">
       <span class="tag">第1题</span>998、999、<span class="answer">1000</span>、<span class="answer">1001</span>、<span class="answer">1002</span>
     </div>
@@ -1271,7 +1388,7 @@
 
   <!-- 15. 课堂练习六：判断对错 -->
   <section class="slide">
-    <h2 class="section">⚖️ 课堂练习（六）：判断对错</h2>
+    <h2 class="section">四、巩固练习 ｜（六）判断对错</h2>
     <p style="margin-bottom:10px;">下面的说法对吗？想一想，再点击"显示答案"看结果。</p>
     <div class="question">
       <span class="tag">第1题</span>10 个一百是一千。　答：<span class="answer">✅ 对</span>
@@ -1295,7 +1412,7 @@
 
   <!-- 16. 课堂练习七：解决问题 -->
   <section class="slide">
-    <h2 class="section">🐾 课堂练习（七）：解决问题</h2>
+    <h2 class="section">四、巩固练习 ｜（七）解决问题</h2>
     <div class="question">
       <span class="tag">第1题</span>🐼 一个自然保护区里大熊猫的数量是：千位上是 1，百位上是 8，十位和个位上都是 0。这个数是多少？<br>
       <span style="color:#888;">答：</span><span class="answer">1800</span>　<span class="answer">读作：一千八百</span>
@@ -1316,7 +1433,7 @@
 
   <!-- 17. 拓展 -->
   <section class="slide">
-    <h2 class="section">🌟 拓展提升：比一比</h2>
+    <h2 class="section">四、巩固练习 ｜（八）拓展：比一比</h2>
     <div class="with-bubble" style="margin:6px 0 12px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -1340,7 +1457,7 @@
 
   <!-- 18. 互动小游戏 -->
   <section class="slide">
-    <h2 class="section">🎮 妙想的拨珠挑战</h2>
+    <h2 class="section">五、闯关游戏 ｜（一）妙想拨珠挑战</h2>
     <div class="with-bubble" style="margin:6px 0 10px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -1399,7 +1516,7 @@
 
   <!-- 游戏 2：读数小达人 -->
   <section class="slide">
-    <h2 class="section">📣 游戏二：读数小达人</h2>
+    <h2 class="section">五、闯关游戏 ｜（二）读数小达人</h2>
     <div class="with-bubble" style="margin:6px 0 8px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -1432,7 +1549,7 @@
 
   <!-- 游戏 3：比大小擂台 -->
   <section class="slide">
-    <h2 class="section">🥊 游戏三：比大小擂台</h2>
+    <h2 class="section">五、闯关游戏 ｜（三）比大小擂台</h2>
     <div class="with-bubble" style="margin:6px 0 8px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -1469,7 +1586,7 @@
 
   <!-- 游戏 4：数字接龙 -->
   <section class="slide">
-    <h2 class="section">🔍 游戏四：数字接龙</h2>
+    <h2 class="section">五、闯关游戏 ｜（四）数字接龙</h2>
     <div class="with-bubble" style="margin:6px 0 8px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -1500,9 +1617,34 @@
     </div>
   </section>
 
+  <!-- 板书设计 -->
+  <section class="slide">
+    <h2 class="section">六、板书设计</h2>
+    <div class="card" style="background:#3a3a3a;border:6px solid #8b4513;border-radius:18px;padding:30px 40px;margin-top:6px;color:#fff;box-shadow:0 8px 0 #5d2f0a;">
+      <h3 style="color:#fff8d6;text-align:center;font-size:30px;margin-top:0;border-bottom:2px solid #fff8d6;padding-bottom:10px;letter-spacing:4px;">保护野生哺乳动物</h3>
+      <p style="text-align:center;color:#ffd6e0;margin-bottom:14px;font-size:16px;">—— 认识 1000 ~ 10000 以内的数 ——</p>
+      <div class="grid-2" style="gap:30px;">
+        <div>
+          <p style="color:#fff8d6;font-size:22px;border-left:4px solid #ffd166;padding-left:10px;">📌 计数单位</p>
+          <p style="font-size:24px;line-height:2;">10 个一　= 一十<br>10 个十　= 一百<br>10 个一百 = <span style="color:#ffd166;">一千</span><br>10 个一千 = <span style="color:#ff8fab;">一万</span></p>
+        </div>
+        <div>
+          <p style="color:#fff8d6;font-size:22px;border-left:4px solid #ffd166;padding-left:10px;">📌 读写法 (例：1864)</p>
+          <table style="font-size:20px;color:#fff;border-collapse:collapse;margin-top:6px;">
+            <tr><td style="padding:4px 12px;border:1px solid #999;">千位</td><td style="padding:4px 12px;border:1px solid #999;">百位</td><td style="padding:4px 12px;border:1px solid #999;">十位</td><td style="padding:4px 12px;border:1px solid #999;">个位</td></tr>
+            <tr><td style="padding:4px 12px;border:1px solid #999;color:#ffd166;font-size:24px;text-align:center;">1</td><td style="padding:4px 12px;border:1px solid #999;color:#ffd166;font-size:24px;text-align:center;">8</td><td style="padding:4px 12px;border:1px solid #999;color:#ffd166;font-size:24px;text-align:center;">6</td><td style="padding:4px 12px;border:1px solid #999;color:#ffd166;font-size:24px;text-align:center;">4</td></tr>
+          </table>
+          <p style="margin-top:8px;font-size:20px;">写作：<span style="color:#ffd166;">1864</span><br>读作：<span style="color:#ffd166;">一千八百六十四</span></p>
+        </div>
+      </div>
+      <p style="margin-top:14px;color:#ff8fab;font-size:20px;border-top:2px dashed #555;padding-top:10px;">⚠ 注意：中间 0 读"零"；末尾 0 不读。</p>
+    </div>
+    <p style="text-align:center;color:#888;margin-top:8px;font-size:16px;">设计意图：左边呈现知识结构（计数单位的递进），右边呈现典型例题（数位、读写、含 0 提醒），便于学生整体回顾。</p>
+  </section>
+
   <!-- 14. 总结 -->
   <section class="slide">
-    <h2 class="section">📌 这节课我学到了……</h2>
+    <h2 class="section">七、课堂小结 ｜ 这节课我学到了……</h2>
     <div class="with-bubble" style="margin:6px 0 12px;">
       <div class="miaoxiang">
         <div class="avatar">👧</div>
@@ -1522,7 +1664,7 @@
 
   <!-- 15. 作业 -->
   <section class="slide">
-    <h2 class="section">📒 课后作业</h2>
+    <h2 class="section">八、布置作业 ｜ 课后任务</h2>
     <div class="miaoxiang corner-mascot">
       <div class="avatar">👧</div>
       <div class="name">妙 想</div>
@@ -1574,6 +1716,47 @@
   const total = slides.length;
   let cur = 0;
   document.getElementById('total').textContent = total;
+
+  // 自动给非封面 slide 注入页眉/页脚（真实课件外框）
+  const stages = [
+    {label:'目标', match:/学习目标|教学重点/},
+    {label:'复习', match:/复习导入/},
+    {label:'情境', match:/情境引入/},
+    {label:'探究', match:/探究新知/},
+    {label:'练习', match:/巩固练习/},
+    {label:'游戏', match:/闯关游戏/},
+    {label:'板书', match:/板书设计/},
+    {label:'小结', match:/课堂小结/},
+    {label:'作业', match:/布置作业/}
+  ];
+  slides.forEach((s, i) => {
+    if (s.classList.contains('cover')) return;
+    const titleEl = s.querySelector('h2.section');
+    const titleText = titleEl ? titleEl.textContent : '';
+    const stageIdx = stages.findIndex(st => st.match.test(titleText));
+    // 页眉
+    const header = document.createElement('div');
+    header.className = 'chrome-header';
+    header.innerHTML = `
+      <div class="left">
+        <span class="chrome-subject">数学</span>
+        <span class="chrome-title">《<b>保护野生哺乳动物</b>》· 北师大版二年级下册 · 生活中的大数</span>
+      </div>
+      <div class="right">
+        <span class="chrome-page">${i+1} / ${total}</span>
+      </div>`;
+    s.prepend(header);
+    // 页脚（含教学环节进度条）
+    const footer = document.createElement('div');
+    footer.className = 'chrome-footer';
+    const stepperHtml = stages.map((st, idx) =>
+      `<span class="step${idx === stageIdx ? ' active' : ''}">${idx+1}.${st.label}</span>`
+    ).join('');
+    footer.innerHTML = `
+      <div class="chrome-stepper">${stepperHtml}</div>
+      <div class="chrome-meta">主讲：妙想　|　© 北师大版小学数学</div>`;
+    s.appendChild(footer);
+  });
 
   function show(i) {
     slides.forEach(s => s.classList.remove('active'));
