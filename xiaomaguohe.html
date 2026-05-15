@@ -677,6 +677,84 @@
   .compare-table td.role-squirrel { background: #fdebe2; color: #b56a47; font-weight: bold; }
   .compare-table td.role-mom { background: #ffe9f0; color: #d4577a; font-weight: bold; }
   .compare-table td.role-horse { background: #fdf0e1; color: #8a5e3e; font-weight: bold; }
+
+  /* ===== 手写画笔 ===== */
+  #pen-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    touch-action: none;
+  }
+  #pen-canvas.on { pointer-events: auto; cursor: crosshair; }
+  .pen-toolbar {
+    position: fixed;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+    background: linear-gradient(135deg, #fff, #eaf6fc);
+    border: 3px solid #91d2ee;
+    border-radius: 30px;
+    padding: 10px 8px;
+    box-shadow: 0 6px 20px rgba(91,160,210,0.3);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .pen-toolbar.open { display: flex; }
+  .pen-toolbar .tool {
+    width: 42px; height: 42px;
+    border: none; border-radius: 50%;
+    background: #eaf6fc;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.1s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pen-toolbar .tool:hover { transform: scale(1.1); }
+  .pen-toolbar .tool.active {
+    background: linear-gradient(135deg, #6cb8e8, #4a9bd1);
+    color: #fff;
+    box-shadow: 0 3px 0 #2e7eb8;
+  }
+  .pen-toolbar .color {
+    width: 28px; height: 28px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding: 0;
+    transition: transform 0.1s;
+  }
+  .pen-toolbar .color:hover { transform: scale(1.15); }
+  .pen-toolbar .color.active {
+    border-color: #2e7eb8;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 2px #2e7eb8, 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .pen-toolbar .sep { width: 28px; height: 2px; background: #b7e1f4; border-radius: 2px; margin: 2px 0; }
+  .pen-toolbar .label { font-size: 11px; color: #2e7eb8; font-weight: bold; margin: -2px 0; }
+
+  /* ===== 朗读高亮 ===== */
+  .speakable {
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .speakable:hover { background: rgba(108,184,232,0.12); border-radius: 8px; }
+  .speakable.speaking {
+    background: rgba(255,209,102,0.35);
+    border-radius: 8px;
+    box-shadow: 0 0 0 3px rgba(255,209,102,0.45);
+  }
+  .speakable::after {
+    content: " 🔊";
+    font-size: 0.75em;
+    opacity: 0.35;
+  }
+  .speakable:hover::after { opacity: 1; }
 </style>
 </head>
 <body>
@@ -1153,6 +1231,30 @@
   <span class="page-info"><span id="cur">1</span> / <span id="total">22</span></span>
   <button id="next" title="下一页">›</button>
   <button id="toggle-ans" class="ans-btn" title="显示/隐藏所有答案">显示答案</button>
+  <button id="speak-toggle" class="ans-btn" title="朗读本页（快捷键 R）" style="color:#2e6b4a;box-shadow:0 3px 0 #95d5b2;">🔊 朗读</button>
+  <button id="pen-toggle" class="ans-btn" title="开启/关闭画笔（快捷键 P）" style="color:#d4577a;box-shadow:0 3px 0 #ffb3c6;">🖊 画笔</button>
+</div>
+
+<!-- 画笔画布 -->
+<canvas id="pen-canvas"></canvas>
+
+<!-- 画笔工具栏 -->
+<div class="pen-toolbar" id="pen-toolbar">
+  <span class="label">工具</span>
+  <button class="tool active" data-mode="pen" title="画笔">🖊</button>
+  <button class="tool" data-mode="highlighter" title="荧光笔">🖍</button>
+  <button class="tool" data-mode="eraser" title="橡皮">🧽</button>
+  <div class="sep"></div>
+  <span class="label">颜色</span>
+  <button class="color active" data-color="#d94e00" style="background:#d94e00" title="红色"></button>
+  <button class="color" data-color="#4895ef" style="background:#4895ef" title="蓝色"></button>
+  <button class="color" data-color="#52b788" style="background:#52b788" title="绿色"></button>
+  <button class="color" data-color="#f8b500" style="background:#f8b500" title="橙色"></button>
+  <button class="color" data-color="#222" style="background:#222" title="黑色"></button>
+  <div class="sep"></div>
+  <span class="label">操作</span>
+  <button class="tool" data-action="undo" title="撤销">↩</button>
+  <button class="tool" data-action="clear" title="清空当前页">🗑</button>
 </div>
 
 <script>
@@ -1206,6 +1308,8 @@
     cur = (i + total) % total;
     slides[cur].classList.add('active');
     document.getElementById('cur').textContent = cur + 1;
+    if (window.tts) tts.stop();
+    if (window.pen && pen.canvas) pen.redraw();
   }
 
   document.getElementById('prev').onclick = () => show(cur - 1);
@@ -1229,6 +1333,260 @@
     a.title = '点击显示答案';
     a.addEventListener('click', e => { e.stopPropagation(); a.classList.toggle('show'); });
   });
+
+  // ========== 中文朗读（Web Speech API） ==========
+  const tts = {
+    synth: window.speechSynthesis,
+    voice: null,
+    queue: [],
+    idx: 0,
+    btn: document.getElementById('speak-toggle'),
+    init() {
+      if (!this.synth) {
+        this.btn.style.display = 'none';
+        return;
+      }
+      const pickVoice = () => {
+        const all = this.synth.getVoices();
+        this.voice = all.find(v => /zh(-|_)CN/i.test(v.lang))
+                  || all.find(v => /zh/i.test(v.lang))
+                  || all.find(v => /Chinese/i.test(v.name))
+                  || null;
+      };
+      pickVoice();
+      if (this.synth.onvoiceschanged !== undefined) {
+        this.synth.onvoiceschanged = pickVoice;
+      }
+      // 给所有课文段、气泡、提示、目标项打上"可朗读"的标记
+      document.querySelectorAll('.wenben p, .bubble, .tip, .goal-item, .ciyu, .question, .hw').forEach(el => {
+        el.classList.add('speakable');
+        el.addEventListener('click', e => {
+          if (e.target.closest('.answer') || e.target.tagName === 'BUTTON') return;
+          this.speakOne(el);
+        });
+      });
+      this.btn.addEventListener('click', () => this.toggle());
+      document.addEventListener('keydown', e => {
+        if ((e.key === 'r' || e.key === 'R') &&
+            e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+          this.toggle();
+          e.preventDefault();
+        }
+      });
+    },
+    text(el) {
+      // 去掉 emoji 和发音注释
+      return el.textContent
+        .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F000}-\u{1F2FF}]/gu, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    },
+    speakOne(el) {
+      this.stop();
+      const t = this.text(el);
+      if (!t) return;
+      const u = new SpeechSynthesisUtterance(t);
+      u.lang = 'zh-CN';
+      u.rate = 0.85;
+      u.pitch = 1.05;
+      if (this.voice) u.voice = this.voice;
+      el.classList.add('speaking');
+      u.onend = () => el.classList.remove('speaking');
+      u.onerror = () => el.classList.remove('speaking');
+      this.synth.speak(u);
+    },
+    toggle() {
+      if (this.synth.speaking) { this.stop(); return; }
+      // 朗读当前页所有 .speakable
+      const slide = slides[cur];
+      const items = Array.from(slide.querySelectorAll('.speakable'));
+      if (!items.length) return;
+      this.queue = items;
+      this.idx = 0;
+      this.btn.textContent = '⏹ 停止';
+      this.next();
+    },
+    next() {
+      if (this.idx >= this.queue.length) {
+        this.btn.textContent = '🔊 朗读';
+        return;
+      }
+      const el = this.queue[this.idx++];
+      const t = this.text(el);
+      if (!t) { this.next(); return; }
+      const u = new SpeechSynthesisUtterance(t);
+      u.lang = 'zh-CN';
+      u.rate = 0.85;
+      u.pitch = 1.05;
+      if (this.voice) u.voice = this.voice;
+      el.classList.add('speaking');
+      u.onend = () => { el.classList.remove('speaking'); this.next(); };
+      u.onerror = () => { el.classList.remove('speaking'); this.next(); };
+      this.synth.speak(u);
+    },
+    stop() {
+      if (!this.synth) return;
+      this.synth.cancel();
+      document.querySelectorAll('.speaking').forEach(el => el.classList.remove('speaking'));
+      this.queue = [];
+      this.idx = 0;
+      this.btn.textContent = '🔊 朗读';
+    }
+  };
+  window.tts = tts;
+  tts.init();
+
+  // ========== 手写画笔（按页保存批注） ==========
+  const pen = {
+    canvas: null, ctx: null,
+    enabled: false,
+    color: '#d94e00',
+    mode: 'pen',
+    drawing: false,
+    current: null,
+    strokes: {},
+    init() {
+      this.canvas = document.getElementById('pen-canvas');
+      this.ctx = this.canvas.getContext('2d');
+      this.resize();
+      window.addEventListener('resize', () => this.resize());
+      const c = this.canvas;
+      c.addEventListener('pointerdown', e => this.start(e));
+      c.addEventListener('pointermove', e => this.move(e));
+      c.addEventListener('pointerup', e => this.end(e));
+      c.addEventListener('pointercancel', e => this.end(e));
+      c.addEventListener('pointerleave', e => this.end(e));
+      document.getElementById('pen-toggle').addEventListener('click', () => this.toggle());
+      document.querySelectorAll('.pen-toolbar .tool[data-mode]').forEach(b =>
+        b.addEventListener('click', () => this.setMode(b.dataset.mode, b)));
+      document.querySelectorAll('.pen-toolbar .color').forEach(b =>
+        b.addEventListener('click', () => this.setColor(b.dataset.color, b)));
+      document.querySelector('.pen-toolbar .tool[data-action="undo"]')
+        .addEventListener('click', () => this.undo());
+      document.querySelector('.pen-toolbar .tool[data-action="clear"]')
+        .addEventListener('click', () => this.clear());
+      document.addEventListener('keydown', e => {
+        if ((e.key === 'p' || e.key === 'P') &&
+            e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+          this.toggle(); e.preventDefault();
+        }
+      });
+    },
+    resize() {
+      const dpr = window.devicePixelRatio || 1;
+      this.canvas.width = window.innerWidth * dpr;
+      this.canvas.height = window.innerHeight * dpr;
+      this.canvas.style.width = window.innerWidth + 'px';
+      this.canvas.style.height = window.innerHeight + 'px';
+      this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      this.redraw();
+    },
+    toggle() {
+      this.enabled = !this.enabled;
+      this.canvas.classList.toggle('on', this.enabled);
+      document.getElementById('pen-toolbar').classList.toggle('open', this.enabled);
+      const btn = document.getElementById('pen-toggle');
+      btn.textContent = this.enabled ? '✋ 关闭画笔' : '🖊 画笔';
+    },
+    setMode(m, el) {
+      this.mode = m;
+      document.querySelectorAll('.pen-toolbar .tool[data-mode]').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+    },
+    setColor(c, el) {
+      this.color = c;
+      document.querySelectorAll('.pen-toolbar .color').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      if (this.mode === 'eraser') {
+        this.mode = 'pen';
+        document.querySelectorAll('.pen-toolbar .tool[data-mode]').forEach(b => b.classList.remove('active'));
+        document.querySelector('.pen-toolbar .tool[data-mode="pen"]').classList.add('active');
+      }
+    },
+    pt(e) {
+      const r = this.canvas.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    },
+    start(e) {
+      e.preventDefault();
+      this.drawing = true;
+      this.current = {
+        color: this.color,
+        mode: this.mode,
+        size: this.mode === 'eraser' ? 32 : (this.mode === 'highlighter' ? 18 : 4),
+        points: [this.pt(e)]
+      };
+    },
+    move(e) {
+      if (!this.drawing) return;
+      e.preventDefault();
+      this.current.points.push(this.pt(e));
+      this.drawSegment(this.current, this.current.points.length - 2);
+    },
+    end() {
+      if (!this.drawing) return;
+      this.drawing = false;
+      if (this.current && this.current.points.length > 1) {
+        if (!this.strokes[cur]) this.strokes[cur] = [];
+        this.strokes[cur].push(this.current);
+      }
+      this.current = null;
+    },
+    setStyle(s) {
+      const ctx = this.ctx;
+      if (s.mode === 'eraser') {
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.strokeStyle = 'rgba(0,0,0,1)';
+      } else {
+        ctx.globalCompositeOperation = s.mode === 'highlighter' ? 'multiply' : 'source-over';
+        ctx.strokeStyle = s.mode === 'highlighter' ? this.alpha(s.color, 0.45) : s.color;
+      }
+      ctx.lineWidth = s.size;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+    },
+    alpha(hex, a) {
+      const h = hex.replace('#','');
+      const r = parseInt(h.length===3?h[0]+h[0]:h.substring(0,2),16);
+      const g = parseInt(h.length===3?h[1]+h[1]:h.substring(2,4),16);
+      const b = parseInt(h.length===3?h[2]+h[2]:h.substring(4,6),16);
+      return `rgba(${r},${g},${b},${a})`;
+    },
+    drawSegment(s, i) {
+      if (i < 0 || i+1 >= s.points.length) return;
+      this.setStyle(s);
+      const ctx = this.ctx;
+      ctx.beginPath();
+      ctx.moveTo(s.points[i].x, s.points[i].y);
+      ctx.lineTo(s.points[i+1].x, s.points[i+1].y);
+      ctx.stroke();
+      ctx.globalCompositeOperation = 'source-over';
+    },
+    drawStroke(s) {
+      this.setStyle(s);
+      const ctx = this.ctx;
+      ctx.beginPath();
+      const p = s.points;
+      ctx.moveTo(p[0].x, p[0].y);
+      for (let i = 1; i < p.length; i++) ctx.lineTo(p[i].x, p[i].y);
+      ctx.stroke();
+      ctx.globalCompositeOperation = 'source-over';
+    },
+    redraw() {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      (this.strokes[cur] || []).forEach(s => this.drawStroke(s));
+    },
+    undo() {
+      const arr = this.strokes[cur];
+      if (arr && arr.length) { arr.pop(); this.redraw(); }
+    },
+    clear() {
+      delete this.strokes[cur];
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+  };
+  window.pen = pen;
+  pen.init();
 </script>
 </body>
 </html>
