@@ -2,16 +2,16 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>保护野生哺乳动物 - 北师大版二年级下册数学课件</title>
+<title>要是你在野外迷了路 - 部编版二年级下册语文课件</title>
 <style>
-  /* ===== 可爱风全局 ===== */
+  /* ===== 可爱·森林风全局 ===== */
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
     height: 100%;
     font-family: "Comic Sans MS", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "STHupo", sans-serif;
-    background: #ffe5ec;
+    background: #e6f5e6;
     overflow: hidden;
-    color: #4a3f55;
+    color: #3d4a3d;
   }
   .deck {
     position: relative;
@@ -26,20 +26,20 @@
     flex-direction: column;
     padding: 70px 56px 56px;
     background:
-      radial-gradient(circle at 92% 18%, #c1f0d6 0 50px, transparent 51px),
+      radial-gradient(circle at 92% 18%, #d4f0c4 0 50px, transparent 51px),
       radial-gradient(circle at 8% 88%, #fff2b3 0 60px, transparent 61px),
-      linear-gradient(135deg, #fffaf8 0%, #f5fbff 100%);
+      linear-gradient(135deg, #f6fff2 0%, #f0faff 100%);
     animation: bounceIn 0.5s cubic-bezier(.68,-0.4,.27,1.55);
     overflow: hidden;
   }
-  /* 装饰小肉垫 */
+  /* 装饰小脚印 */
   .slide:not(.cover)::after {
-    content: "🐾";
+    content: "🌿";
     position: absolute;
     bottom: 60px;
     left: 24px;
     font-size: 40px;
-    opacity: 0.12;
+    opacity: 0.18;
     transform: rotate(-15deg);
     pointer-events: none;
   }
@@ -49,22 +49,22 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 50px;
-    background: linear-gradient(135deg, #ff8fab 0%, #ffa8c0 100%);
+    background: linear-gradient(135deg, #6bbf73 0%, #95d5b2 100%);
     color: #fff;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 22px;
     font-size: 15px;
     z-index: 4;
-    box-shadow: 0 2px 6px rgba(255,111,145,0.25);
+    box-shadow: 0 2px 6px rgba(82,183,136,0.25);
   }
   .chrome-header .left, .chrome-header .right {
     display: flex; align-items: center; gap: 10px;
   }
   .chrome-subject {
-    background: #fff; color: #ff4d6d;
+    background: #fff; color: #2d6a4f;
     padding: 4px 12px; border-radius: 12px;
     font-weight: bold; font-size: 14px;
-    box-shadow: 0 2px 0 #d4577a;
+    box-shadow: 0 2px 0 #4a8a5e;
   }
   .chrome-title { font-weight: bold; letter-spacing: 1px; }
   .chrome-title b { color: #fff8d6; }
@@ -79,7 +79,7 @@
     bottom: 0; left: 0; right: 0;
     height: 36px;
     background: #fff;
-    border-top: 2px dashed #ffd6e0;
+    border-top: 2px dashed #c1f0d6;
     color: #888;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 22px;
@@ -88,15 +88,15 @@
   }
   .chrome-stepper { display: flex; gap: 4px; }
   .step {
-    background: #fff0f3; color: #ff8fab;
+    background: #eef9ee; color: #6bbf73;
     padding: 2px 10px; border-radius: 10px;
     font-size: 12px; font-weight: bold;
     transition: all 0.2s;
   }
   .step.active {
-    background: linear-gradient(135deg, #ff8fab, #ff6f91);
+    background: linear-gradient(135deg, #95d5b2, #52b788);
     color: #fff;
-    box-shadow: 0 2px 0 #d4577a;
+    box-shadow: 0 2px 0 #2d6a4f;
   }
   .chrome-meta { color: #999; }
 
@@ -112,29 +112,29 @@
 
   h1.title {
     font-size: 60px;
-    color: #ff6f91;
+    color: #2d6a4f;
     text-align: center;
     margin-top: 60px;
     letter-spacing: 4px;
   }
   h2.section {
-    font-size: 40px;
-    color: #ff6f91;
+    font-size: 36px;
+    color: #2d6a4f;
     background: #fff;
-    padding: 12px 28px;
+    padding: 10px 26px;
     border-radius: 50px;
-    border: 4px dashed #ffb3c6;
+    border: 4px dashed #95d5b2;
     display: inline-block;
-    margin-bottom: 24px;
-    box-shadow: 0 6px 0 #ffd6e0;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 0 #c1f0d6;
     align-self: flex-start;
   }
   h3 {
-    font-size: 28px;
-    color: #ff6f91;
-    margin: 14px 0 10px;
+    font-size: 26px;
+    color: #2d6a4f;
+    margin: 12px 0 8px;
   }
-  p, li { font-size: 24px; line-height: 1.8; color: #4a3f55; }
+  p, li { font-size: 22px; line-height: 1.8; color: #3d4a3d; }
   ul { padding-left: 36px; }
 
   /* ===== 封面 ===== */
@@ -146,23 +146,24 @@
       radial-gradient(circle at 80% 20%, #fff 0 8px, transparent 9px),
       radial-gradient(circle at 70% 70%, #fff 0 5px, transparent 6px),
       radial-gradient(circle at 30% 80%, #fff 0 7px, transparent 8px),
-      linear-gradient(135deg, #ffb3c6 0%, #ffc8dd 40%, #bde0fe 100%);
+      linear-gradient(135deg, #a8dadc 0%, #b8e0c2 40%, #c8e6c9 100%);
     color: #fff;
   }
   .cover::before, .cover::after { display: none; }
   .cover h1 {
-    font-size: 88px;
+    font-size: 76px;
     color: #fff;
-    text-shadow: 0 4px 0 #ff6f91, 0 6px 20px rgba(0,0,0,0.15);
-    letter-spacing: 10px;
+    text-shadow: 0 4px 0 #2d6a4f, 0 6px 20px rgba(0,0,0,0.15);
+    letter-spacing: 6px;
     background: none;
     border: none;
     padding: 0;
     box-shadow: none;
+    text-align: center;
   }
   .cover .meta {
     margin-top: 24px;
-    font-size: 26px;
+    font-size: 24px;
     color: #fff;
     letter-spacing: 2px;
     background: rgba(255,255,255,0.35);
@@ -171,8 +172,8 @@
     backdrop-filter: blur(4px);
   }
   .cover .emoji {
-    font-size: 140px;
-    margin-bottom: 20px;
+    font-size: 130px;
+    margin-bottom: 16px;
     filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));
     animation: wiggle 2s ease-in-out infinite;
   }
@@ -185,30 +186,30 @@
   .card {
     background: #fff;
     border-radius: 24px;
-    padding: 24px 32px;
-    box-shadow: 0 8px 0 #ffd6e0, 0 12px 24px rgba(255,111,145,0.12);
-    border: 4px solid #ffe5ec;
+    padding: 22px 28px;
+    box-shadow: 0 8px 0 #c1f0d6, 0 12px 24px rgba(82,183,136,0.12);
+    border: 4px solid #e0f5ea;
   }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 
-  /* ===== 动物卡（萌萌哒） ===== */
-  .animal {
+  /* ===== 指南针卡片 ===== */
+  .compass {
     background: #fff;
     border-radius: 30px;
-    padding: 16px 12px;
+    padding: 18px 14px;
     text-align: center;
-    border: 4px solid #ffd6e0;
-    box-shadow: 0 6px 0 #ffb3c6, 0 10px 18px rgba(255,111,145,0.12);
+    border: 4px solid #c1f0d6;
+    box-shadow: 0 6px 0 #95d5b2, 0 10px 18px rgba(82,183,136,0.12);
     transition: transform 0.25s;
   }
-  .animal:nth-child(2) { border-color: #c1f0d6; box-shadow: 0 6px 0 #95d5b2, 0 10px 18px rgba(82,183,136,0.12); }
-  .animal:nth-child(3) { border-color: #fff2b3; box-shadow: 0 6px 0 #ffd166, 0 10px 18px rgba(255,209,102,0.15); }
-  .animal:nth-child(4) { border-color: #c8d9ff; box-shadow: 0 6px 0 #a0bfff, 0 10px 18px rgba(120,150,255,0.12); }
-  .animal:hover { transform: translateY(-6px) rotate(-2deg); }
-  .animal .icon {
-    font-size: 70px;
+  .compass:nth-child(2) { border-color: #ffe5a3; box-shadow: 0 6px 0 #ffd166, 0 10px 18px rgba(255,209,102,0.15); }
+  .compass:nth-child(3) { border-color: #c8d9ff; box-shadow: 0 6px 0 #a0bfff, 0 10px 18px rgba(120,150,255,0.12); }
+  .compass:nth-child(4) { border-color: #ffd6b3; box-shadow: 0 6px 0 #ffa86b, 0 10px 18px rgba(255,168,107,0.15); }
+  .compass:hover { transform: translateY(-6px) rotate(-2deg); }
+  .compass .icon {
+    font-size: 64px;
     display: inline-block;
     animation: bob 2.5s ease-in-out infinite;
   }
@@ -216,112 +217,88 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
   }
-  .animal .name { font-size: 22px; color: #ff6f91; margin: 6px 0; font-weight: bold; }
-  .animal .num {
-    font-size: 30px;
-    color: #ff4d6d;
+  .compass .name { font-size: 22px; color: #2d6a4f; margin: 4px 0; font-weight: bold; }
+  .compass .dir {
+    font-size: 20px;
+    color: #d4577a;
     font-weight: bold;
-    background: linear-gradient(135deg, #fff0f3, #ffe5ec);
-    border-radius: 20px;
-    padding: 6px 0;
-    margin-top: 6px;
-  }
-  .animal .unit { font-size: 18px; color: #888; }
-
-  /* ===== 计数器（果冻风） ===== */
-  .counter {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin: 16px 0;
-  }
-  .rod {
-    width: 90px;
-    text-align: center;
-  }
-  .rod .label {
-    font-size: 22px;
-    color: #fff;
-    background: #ff6f91;
-    border-radius: 20px;
-    padding: 4px 0;
-    margin-bottom: 8px;
-    font-weight: bold;
-    box-shadow: 0 3px 0 #d4577a;
-  }
-  .beads {
-    height: 220px;
-    border: 4px solid #ffb3c6;
-    border-radius: 20px;
-    background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    padding: 8px;
-    gap: 4px;
-    box-shadow: inset 0 -4px 0 #ffe5ec;
-  }
-  .bead {
-    width: 60px;
-    height: 20px;
-    background: radial-gradient(circle at 30% 30%, #ffb3c6, #ff6f91);
-    border-radius: 50%;
-    box-shadow: inset -2px -2px 6px rgba(0,0,0,0.18), 0 2px 0 rgba(0,0,0,0.05);
-  }
-  .bead.blue { background: radial-gradient(circle at 30% 30%, #bde0fe, #4895ef); }
-  .bead.green { background: radial-gradient(circle at 30% 30%, #c1f0d6, #52b788); }
-  .bead.yellow { background: radial-gradient(circle at 30% 30%, #fff2b3, #ffd166); }
-  .rod .digit {
-    margin-top: 8px;
-    font-size: 38px;
-    color: #ff4d6d;
-    font-weight: bold;
-    background: #fff;
-    border-radius: 50%;
-    width: 56px;
-    height: 56px;
-    line-height: 56px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid #ffd6e0;
-    box-shadow: 0 4px 0 #ffd6e0;
-  }
-
-  /* ===== 数位表 ===== */
-  .place-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 6px;
-    margin-top: 14px;
-    font-size: 24px;
-  }
-  .place-table th, .place-table td {
-    border: none;
-    padding: 16px;
-    text-align: center;
-    background: #fff;
+    background: linear-gradient(135deg, #fff8d6, #fff2b3);
     border-radius: 16px;
-    box-shadow: 0 4px 0 #ffd6e0;
+    padding: 4px 0;
+    margin-top: 4px;
   }
-  .place-table th {
-    background: linear-gradient(135deg, #ff8fab, #ff6f91);
-    color: #fff;
-    font-size: 22px;
-    box-shadow: 0 4px 0 #d4577a;
+
+  /* ===== 生字卡（田字格风） ===== */
+  .zi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 8px 0;
   }
-  .place-table td.num {
-    font-size: 36px;
-    color: #ff4d6d;
+  .zi {
+    background: #fff;
+    border: 3px solid #95d5b2;
+    border-radius: 16px;
+    padding: 10px 6px;
+    text-align: center;
+    box-shadow: 0 4px 0 #c1f0d6;
+    position: relative;
+  }
+  .zi .pin { font-size: 16px; color: #6bbf73; font-weight: bold; letter-spacing: 1px; margin-bottom: 4px; }
+  .zi .char {
+    font-size: 48px;
+    color: #2d6a4f;
     font-weight: bold;
+    font-family: "STKaiti", "KaiTi", "楷体", serif;
+    background:
+      linear-gradient(#f8b500, #f8b500) center / 1px 100% no-repeat,
+      linear-gradient(#f8b500, #f8b500) center / 100% 1px no-repeat,
+      #fffbe6;
+    border: 2px dashed #f8b500;
+    border-radius: 10px;
+    width: 70px;
+    height: 70px;
+    line-height: 66px;
+    margin: 0 auto;
+  }
+  .zi .word { font-size: 16px; color: #6bbf73; margin-top: 6px; }
+
+  /* ===== 课文段落 ===== */
+  .poem {
+    background: #fff;
+    border-radius: 24px;
+    padding: 20px 28px;
+    border: 4px solid #e0f5ea;
+    box-shadow: 0 6px 0 #c1f0d6;
+    margin: 10px 0;
+    line-height: 2;
+  }
+  .poem .stanza {
+    padding: 8px 0;
+    border-bottom: 2px dashed #e0f5ea;
+    font-size: 22px;
+    color: #3d4a3d;
+  }
+  .poem .stanza:last-child { border-bottom: none; }
+  .poem .stanza .num {
+    display: inline-flex;
+    width: 30px; height: 30px;
+    background: linear-gradient(135deg, #95d5b2, #52b788);
+    color: #fff;
+    border-radius: 50%;
+    align-items: center; justify-content: center;
+    font-size: 16px; font-weight: bold;
+    margin-right: 10px;
+    box-shadow: 0 2px 0 #2d6a4f;
   }
 
   /* ===== 练习题 ===== */
   .question {
     background: #fff;
-    padding: 18px 24px;
-    border-radius: 24px;
-    margin: 12px 0;
-    font-size: 24px;
+    padding: 16px 22px;
+    border-radius: 22px;
+    margin: 10px 0;
+    font-size: 22px;
     border: 3px solid #fff2b3;
     box-shadow: 0 5px 0 #ffd166;
     position: relative;
@@ -331,12 +308,12 @@
     position: absolute;
     left: -16px;
     top: -10px;
-    font-size: 32px;
+    font-size: 30px;
   }
   .answer {
-    color: #ff4d6d;
+    color: #d4577a;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 22px;
     display: none;
     background: #fff0f3;
     padding: 2px 12px;
@@ -358,16 +335,16 @@
   .tip {
     background: linear-gradient(135deg, #fff8d6, #fff2b3);
     border: 3px dashed #ffd166;
-    padding: 18px 24px;
-    border-radius: 24px;
-    font-size: 22px;
+    padding: 16px 22px;
+    border-radius: 22px;
+    font-size: 20px;
     color: #8a6500;
-    margin: 14px 0;
+    margin: 12px 0;
     box-shadow: 0 5px 0 #ffe79e;
   }
   .tip::before {
     content: "💡 ";
-    font-size: 28px;
+    font-size: 26px;
   }
 
   /* ===== 控制条 ===== */
@@ -379,17 +356,17 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    background: linear-gradient(135deg, #ffb3c6, #ff8fab);
+    background: linear-gradient(135deg, #95d5b2, #52b788);
     color: #fff;
     padding: 8px 18px;
     border-radius: 40px;
     z-index: 100;
-    box-shadow: 0 6px 0 #d4577a, 0 10px 24px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 0 #2d6a4f, 0 10px 24px rgba(0,0,0,0.15);
   }
   .controls button {
     background: #fff;
     border: none;
-    color: #ff6f91;
+    color: #2d6a4f;
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -397,26 +374,11 @@
     cursor: pointer;
     font-weight: bold;
     transition: transform 0.15s;
-    box-shadow: 0 3px 0 #ffd6e0;
+    box-shadow: 0 3px 0 #c1f0d6;
   }
   .controls button:hover { transform: scale(1.15) rotate(-5deg); }
   .controls .page-info { font-size: 18px; min-width: 70px; text-align: center; font-weight: bold; }
 
-  .big-num {
-    font-size: 84px;
-    color: #ff4d6d;
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 12px;
-    margin: 16px 0;
-    text-shadow: 0 4px 0 #ffd6e0;
-  }
-  .read {
-    text-align: center;
-    font-size: 30px;
-    color: #ff6f91;
-    margin-top: 10px;
-  }
   .highlight {
     background: linear-gradient(120deg, #fff2b3 0%, #ffd166 100%);
     padding: 0 8px;
@@ -424,70 +386,82 @@
     color: #8a4a00;
     font-weight: bold;
   }
+  .hl-green {
+    background: linear-gradient(120deg, #d4f0c4 0%, #95d5b2 100%);
+    padding: 0 8px;
+    border-radius: 8px;
+    color: #2d6a4f;
+    font-weight: bold;
+  }
+  .hl-blue {
+    background: linear-gradient(120deg, #c8d9ff 0%, #a0bfff 100%);
+    padding: 0 8px;
+    border-radius: 8px;
+    color: #2d4d99;
+    font-weight: bold;
+  }
 
-  /* ===== 妙想角色 ===== */
-  .miaoxiang {
+  /* ===== 小探险家 ===== */
+  .mascot {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
   }
-  .miaoxiang .avatar {
-    width: 90px;
-    height: 90px;
-    background: linear-gradient(135deg, #ffe5ec, #ffb3c6);
+  .mascot .avatar {
+    width: 86px;
+    height: 86px;
+    background: linear-gradient(135deg, #fff8d6, #ffd166);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 56px;
+    font-size: 50px;
     border: 4px solid #fff;
-    box-shadow: 0 6px 0 #ff6f91, 0 8px 16px rgba(255,111,145,0.2);
+    box-shadow: 0 6px 0 #6bbf73, 0 8px 16px rgba(82,183,136,0.25);
     position: relative;
     animation: bob 2.5s ease-in-out infinite;
   }
-  /* 头顶蝴蝶结 */
-  .miaoxiang .avatar::before {
-    content: "🎀";
+  .mascot .avatar::before {
+    content: "🎒";
     position: absolute;
-    top: -22px;
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 28px;
   }
-  .miaoxiang .name {
-    background: linear-gradient(135deg, #ff8fab, #ff6f91);
+  .mascot .name {
+    background: linear-gradient(135deg, #6bbf73, #52b788);
     color: #fff;
     padding: 3px 14px;
     border-radius: 20px;
     font-size: 18px;
     margin-top: -10px;
-    box-shadow: 0 2px 0 #d4577a;
+    box-shadow: 0 2px 0 #2d6a4f;
     font-weight: bold;
     z-index: 2;
     position: relative;
     letter-spacing: 1px;
   }
-  /* 大号妙想（封面用） */
-  .miaoxiang.big .avatar { width: 180px; height: 180px; font-size: 110px; box-shadow: 0 10px 0 #ff6f91, 0 14px 24px rgba(0,0,0,0.15); }
-  .miaoxiang.big .avatar::before { font-size: 50px; top: -38px; }
-  .miaoxiang.big .name { font-size: 26px; padding: 5px 22px; margin-top: -16px; }
+  .mascot.big .avatar { width: 170px; height: 170px; font-size: 100px; box-shadow: 0 10px 0 #6bbf73, 0 14px 24px rgba(0,0,0,0.15); }
+  .mascot.big .avatar::before { font-size: 48px; top: -34px; }
+  .mascot.big .name { font-size: 24px; padding: 5px 22px; margin-top: -14px; }
 
-  /* 妙想 + 对话气泡 */
+  /* 小探险家 + 对话气泡 */
   .with-bubble {
     display: flex;
     align-items: flex-start;
-    gap: 24px;
-    margin: 14px 0;
+    gap: 22px;
+    margin: 12px 0;
   }
   .bubble {
     background: #fff;
     padding: 14px 22px;
     border-radius: 24px;
-    border: 3px solid #ffb3c6;
-    box-shadow: 0 5px 0 #ffd6e0;
-    font-size: 22px;
-    color: #4a3f55;
+    border: 3px solid #95d5b2;
+    box-shadow: 0 5px 0 #c1f0d6;
+    font-size: 20px;
+    color: #3d4a3d;
     position: relative;
     flex: 1;
     line-height: 1.6;
@@ -497,151 +471,38 @@
     content: "";
     position: absolute;
     left: -18px;
-    top: 28px;
+    top: 26px;
     width: 0; height: 0;
     border-top: 13px solid transparent;
     border-bottom: 13px solid transparent;
-    border-right: 18px solid #ffb3c6;
+    border-right: 18px solid #95d5b2;
   }
   .bubble::after {
     content: "";
     position: absolute;
     left: -13px;
-    top: 30px;
+    top: 28px;
     width: 0; height: 0;
     border-top: 11px solid transparent;
     border-bottom: 11px solid transparent;
     border-right: 16px solid #fff;
   }
-  .bubble b { color: #ff4d6d; }
+  .bubble b { color: #2d6a4f; }
 
-  /* ===== 拨珠互动游戏 ===== */
-  .game-board {
-    background: #fff;
-    border-radius: 24px;
-    padding: 16px 22px;
-    border: 4px solid #ffe5ec;
-    box-shadow: 0 8px 0 #ffd6e0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .game-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .game-target { font-size: 24px; color: #ff4d6d; font-weight: bold; }
-  .game-target .num {
-    font-size: 40px;
-    color: #ff4d6d;
-    background: #fff0f3;
-    padding: 4px 18px;
-    border-radius: 16px;
-    margin-left: 8px;
-    letter-spacing: 6px;
-    box-shadow: 0 4px 0 #ffd6e0;
-  }
-  .game-stats { display: flex; gap: 10px; font-size: 18px; }
-  .stat-pill {
-    background: linear-gradient(135deg, #ffd166, #f8b500);
-    color: #fff;
-    padding: 6px 16px;
-    border-radius: 20px;
-    box-shadow: 0 3px 0 #d99a00;
-    font-weight: bold;
-  }
-  .stat-pill.green { background: linear-gradient(135deg, #95d5b2, #52b788); box-shadow: 0 3px 0 #2d6a4f; }
-  .stat-pill.blue { background: linear-gradient(135deg, #bde0fe, #4895ef); box-shadow: 0 3px 0 #2d4d99; }
-
-  .game-counter { display: flex; justify-content: center; gap: 22px; margin: 4px 0; }
-  .game-rod { width: 100px; text-align: center; }
-  .game-rod .label {
-    font-size: 20px; color: #fff; background: #ff6f91;
-    border-radius: 20px; padding: 4px 0; margin-bottom: 6px;
-    font-weight: bold; box-shadow: 0 3px 0 #d4577a;
-  }
-  .game-btn {
-    width: 64px; height: 32px; border: none; border-radius: 16px;
-    font-size: 20px; font-weight: bold; cursor: pointer;
-    margin: 4px auto; display: block; transition: transform 0.1s;
-  }
-  .game-btn.plus { background: linear-gradient(135deg, #95d5b2, #52b788); color: #fff; box-shadow: 0 3px 0 #2d6a4f; }
-  .game-btn.minus { background: linear-gradient(135deg, #ffb3c6, #ff8fab); color: #fff; box-shadow: 0 3px 0 #d4577a; }
-  .game-btn:active { transform: translateY(2px); }
-  .game-beads {
-    height: 150px;
-    border: 3px solid #ffb3c6; border-radius: 16px;
-    background: linear-gradient(180deg, #fff 0%, #fff8fb 100%);
-    display: flex; flex-direction: column-reverse; align-items: center;
-    padding: 5px; gap: 3px;
-  }
-  .game-beads .bead { width: 50px; height: 14px; }
-  .game-rod .digit-display {
-    margin-top: 6px; font-size: 28px; color: #ff4d6d; font-weight: bold;
-    background: #fff; border-radius: 50%; width: 46px; height: 46px;
-    line-height: 46px; margin-left: auto; margin-right: auto;
-    border: 3px solid #ffd6e0; box-shadow: 0 4px 0 #ffd6e0;
-  }
-  .game-current { text-align: center; margin: 4px 0; font-size: 22px; color: #4a3f55; }
-  .game-current .num { font-size: 32px; color: #4895ef; font-weight: bold; margin: 0 8px; }
-  .game-current .num.correct { color: #52b788; animation: pop 0.4s; }
-  @keyframes pop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.4); }
-    100% { transform: scale(1); }
-  }
-  .game-feedback {
-    text-align: center; font-size: 22px; min-height: 30px; font-weight: bold;
-  }
-  .game-feedback.success { color: #52b788; }
-  .game-feedback.hint { color: #888; }
-  .game-actions { text-align: center; margin-top: 4px; }
-  .next-btn {
-    background: linear-gradient(135deg, #ffd166, #f8b500);
-    color: #fff; border: none; padding: 10px 28px;
-    border-radius: 30px; font-size: 20px; font-weight: bold;
-    cursor: pointer; box-shadow: 0 4px 0 #d99a00; transition: transform 0.1s;
-  }
-  .next-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #d99a00; }
-
-  /* ===== 选择题游戏 ===== */
-  .mcq-prompt {
-    text-align: center;
-    font-size: 24px;
-    color: #4a3f55;
-    margin: 8px 0 4px;
-  }
-  .mcq-big {
-    text-align: center;
-    font-size: 78px;
-    font-weight: bold;
-    color: #ff4d6d;
-    letter-spacing: 12px;
-    background: #fff0f3;
-    padding: 14px 0;
-    border-radius: 24px;
-    margin: 8px auto;
-    width: 60%;
-    box-shadow: 0 6px 0 #ffd6e0;
-    text-shadow: 0 4px 0 #ffd6e0;
-  }
+  /* 选择题 */
   .mcq-options {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
-    margin: 14px 0;
+    margin: 12px 0;
   }
   .mcq-opt {
-    padding: 16px 18px;
-    border-radius: 24px;
-    font-size: 26px;
+    padding: 14px 18px;
+    border-radius: 22px;
+    font-size: 22px;
     background: #fff;
-    border: 4px solid #bde0fe;
-    box-shadow: 0 6px 0 #4895ef;
+    border: 4px solid #c8d9ff;
+    box-shadow: 0 6px 0 #a0bfff;
     cursor: pointer;
     text-align: center;
     font-weight: bold;
@@ -650,161 +511,72 @@
     user-select: none;
   }
   .mcq-opt:hover { transform: translateY(-3px); }
-  .mcq-opt:active { transform: translateY(2px); box-shadow: 0 2px 0 #4895ef; }
+  .mcq-opt:active { transform: translateY(2px); box-shadow: 0 2px 0 #a0bfff; }
   .mcq-opt.correct { background: #d8f5e3; border-color: #52b788; color: #2d6a4f; box-shadow: 0 6px 0 #2d6a4f; animation: pop 0.4s; }
   .mcq-opt.wrong { background: #ffe5e5; border-color: #d62828; color: #d62828; box-shadow: 0 6px 0 #d62828; }
   .mcq-opt.disabled { pointer-events: none; opacity: 0.55; }
-
-  /* ===== 比大小擂台 ===== */
-  .vs-arena {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    margin: 14px 0;
+  @keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
   }
-  .vs-card {
-    flex: 1;
-    max-width: 280px;
-    padding: 28px 18px;
+
+  /* 角落小探险家 */
+  .corner-mascot {
+    position: absolute;
+    bottom: 60px;
+    right: 24px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .corner-mascot .avatar { width: 68px; height: 68px; font-size: 40px; box-shadow: 0 4px 0 #6bbf73, 0 6px 10px rgba(0,0,0,0.1); }
+  .corner-mascot .avatar::before { font-size: 22px; top: -16px; }
+  .corner-mascot .name { font-size: 14px; padding: 1px 10px; margin-top: -8px; }
+
+  /* ===== 学习目标 ===== */
+  .objective {
     background: #fff;
-    border-radius: 30px;
-    border: 4px solid #ffd6e0;
-    box-shadow: 0 8px 0 #ffb3c6;
-    cursor: pointer;
-    text-align: center;
-    color: #ff4d6d;
-    transition: transform 0.2s;
-    user-select: none;
+    padding: 14px 22px;
+    margin: 8px 0;
+    border-radius: 22px;
+    font-size: 22px;
+    box-shadow: 0 5px 0 #c1f0d6;
+    border: 3px solid #e0f5ea;
+    display: flex;
+    align-items: center;
   }
-  .vs-card .vs-emoji { font-size: 60px; display: block; margin-bottom: 4px; }
-  .vs-card .vs-num { font-size: 64px; font-weight: bold; letter-spacing: 6px; }
-  .vs-card:hover { transform: translateY(-6px) scale(1.04); }
-  .vs-card.win { background: linear-gradient(135deg, #d8f5e3, #b7e4c7); border-color: #52b788; box-shadow: 0 8px 0 #2d6a4f; color: #2d6a4f; animation: winShake 0.5s; }
-  .vs-card.lose { opacity: 0.4; transform: scale(0.92); }
-  .vs-card.disabled { pointer-events: none; }
-  .vs-vs {
-    font-size: 44px;
-    color: #ff6f91;
+  .objective:nth-child(odd) { box-shadow: 0 5px 0 #ffd166; border-color: #fff2b3; }
+  .objective .num-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #95d5b2, #52b788);
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 14px;
     font-weight: bold;
-    text-shadow: 0 4px 0 #ffd6e0;
+    flex-shrink: 0;
+    box-shadow: 0 3px 0 #2d6a4f;
   }
-  @keyframes winShake {
-    0%, 100% { transform: scale(1.05); }
-    25% { transform: scale(1.12) rotate(-4deg); }
-    75% { transform: scale(1.12) rotate(4deg); }
+  .objective:nth-child(odd) .num-circle {
+    background: linear-gradient(135deg, #ffd166, #f8b500);
+    box-shadow: 0 3px 0 #d99a00;
   }
 
-  /* ===== 数字接龙 ===== */
-  .seq-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 18px 0;
-    flex-wrap: wrap;
-  }
-  .seq-cell {
-    font-size: 36px;
-    font-weight: bold;
-    padding: 14px 18px;
+  /* 词语解释 */
+  .word-card {
     background: #fff;
     border-radius: 18px;
-    border: 4px solid #ffe5ec;
-    box-shadow: 0 5px 0 #ffd6e0;
-    color: #4a3f55;
-    min-width: 100px;
-    text-align: center;
+    padding: 14px 20px;
+    border-left: 6px solid #52b788;
+    box-shadow: 0 4px 0 #c1f0d6;
+    margin: 8px 0;
   }
-  .seq-cell.blank {
-    background: #fff8d6;
-    border: 4px dashed #ffd166;
-    color: #f8b500;
-    animation: blink 1.2s ease-in-out infinite;
-  }
-  .seq-cell.filled {
-    background: #d8f5e3;
-    border-color: #52b788;
-    color: #2d6a4f;
-    box-shadow: 0 5px 0 #2d6a4f;
-    animation: pop 0.4s;
-  }
-  @keyframes blink {
-    0%, 100% { box-shadow: 0 5px 0 #ffd166; }
-    50% { box-shadow: 0 5px 0 #ffd166, 0 0 20px #ffd166; }
-  }
-  .seq-arrow { font-size: 30px; color: #ffb3c6; font-weight: bold; }
-
-  /* ===== 手写画笔 ===== */
-  #pen-canvas {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    pointer-events: none;
-    touch-action: none;
-  }
-  #pen-canvas.on { pointer-events: auto; cursor: crosshair; }
-  .pen-toolbar {
-    position: fixed;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 200;
-    background: linear-gradient(135deg, #fff, #fff8fb);
-    border: 3px solid #ffb3c6;
-    border-radius: 30px;
-    padding: 10px 8px;
-    box-shadow: 0 6px 20px rgba(255,111,145,0.25);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-  }
-  .pen-toolbar.open { display: flex; }
-  .pen-toolbar .tool {
-    width: 42px; height: 42px;
-    border: none;
-    border-radius: 50%;
-    background: #fff0f3;
-    cursor: pointer;
-    font-size: 20px;
-    transition: transform 0.1s;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .pen-toolbar .tool:hover { transform: scale(1.1); }
-  .pen-toolbar .tool.active {
-    background: linear-gradient(135deg, #ff8fab, #ff6f91);
-    color: #fff;
-    box-shadow: 0 3px 0 #d4577a;
-  }
-  .pen-toolbar .color {
-    width: 28px; height: 28px;
-    border: 3px solid #fff;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    padding: 0;
-    transition: transform 0.1s;
-  }
-  .pen-toolbar .color:hover { transform: scale(1.15); }
-  .pen-toolbar .color.active {
-    border-color: #ff4d6d;
-    transform: scale(1.2);
-    box-shadow: 0 0 0 2px #ff4d6d, 0 2px 6px rgba(0,0,0,0.3);
-  }
-  .pen-toolbar .sep {
-    width: 28px;
-    height: 2px;
-    background: #ffd6e0;
-    border-radius: 2px;
-    margin: 2px 0;
-  }
-  .pen-toolbar .label {
-    font-size: 11px;
-    color: #ff6f91;
-    font-weight: bold;
-    margin: -2px 0;
-  }
+  .word-card .w { font-size: 24px; color: #2d6a4f; font-weight: bold; margin-right: 12px; }
+  .word-card .py { font-size: 18px; color: #6bbf73; margin-right: 10px; }
+  .word-card .ex { font-size: 19px; color: #5a6a5a; }
 
   /* 烟花庆祝 */
   .celebration {
@@ -821,48 +593,126 @@
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
   }
 
-  /* 角落小妙想 */
-  .corner-mascot {
-    position: absolute;
-    bottom: 80px;
-    right: 24px;
-    z-index: 5;
+  /* ===== 手写画笔 ===== */
+  #pen-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
     pointer-events: none;
+    touch-action: none;
   }
-  .corner-mascot .avatar { width: 72px; height: 72px; font-size: 44px; box-shadow: 0 4px 0 #ff6f91, 0 6px 10px rgba(0,0,0,0.1); }
-  .corner-mascot .avatar::before { font-size: 22px; top: -16px; }
-  .corner-mascot .name { font-size: 14px; padding: 1px 10px; margin-top: -8px; }
-
-  /* ===== 学习目标 ===== */
-  .objective {
-    background: #fff;
-    padding: 18px 26px;
-    margin: 10px 0;
-    border-radius: 24px;
-    font-size: 24px;
-    box-shadow: 0 5px 0 #ffd6e0;
-    border: 3px solid #ffe5ec;
-    display: flex;
+  #pen-canvas.on { pointer-events: auto; cursor: crosshair; }
+  .pen-toolbar {
+    position: fixed;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+    background: linear-gradient(135deg, #fff, #f0faf0);
+    border: 3px solid #95d5b2;
+    border-radius: 30px;
+    padding: 10px 8px;
+    box-shadow: 0 6px 20px rgba(82,183,136,0.25);
+    display: none;
+    flex-direction: column;
     align-items: center;
+    gap: 6px;
   }
-  .objective:nth-child(odd) { box-shadow: 0 5px 0 #c1f0d6; border-color: #e0f5ea; }
-  .objective .num-circle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    background: linear-gradient(135deg, #ff8fab, #ff6f91);
-    color: #fff;
+  .pen-toolbar.open { display: flex; }
+  .pen-toolbar .tool {
+    width: 42px; height: 42px;
+    border: none;
     border-radius: 50%;
-    margin-right: 16px;
-    font-weight: bold;
-    flex-shrink: 0;
-    box-shadow: 0 3px 0 #d4577a;
+    background: #eef9ee;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.1s;
+    display: flex; align-items: center; justify-content: center;
   }
-  .objective:nth-child(odd) .num-circle {
+  .pen-toolbar .tool:hover { transform: scale(1.1); }
+  .pen-toolbar .tool.active {
     background: linear-gradient(135deg, #95d5b2, #52b788);
+    color: #fff;
     box-shadow: 0 3px 0 #2d6a4f;
+  }
+  .pen-toolbar .color {
+    width: 28px; height: 28px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding: 0;
+    transition: transform 0.1s;
+  }
+  .pen-toolbar .color:hover { transform: scale(1.15); }
+  .pen-toolbar .color.active {
+    border-color: #2d6a4f;
+    transform: scale(1.2);
+    box-shadow: 0 0 0 2px #2d6a4f, 0 2px 6px rgba(0,0,0,0.3);
+  }
+  .pen-toolbar .sep {
+    width: 28px;
+    height: 2px;
+    background: #c1f0d6;
+    border-radius: 2px;
+    margin: 2px 0;
+  }
+  .pen-toolbar .label {
+    font-size: 11px;
+    color: #2d6a4f;
+    font-weight: bold;
+    margin: -2px 0;
+  }
+
+  /* 大字 */
+  .big-poem-line {
+    font-size: 32px;
+    color: #2d6a4f;
+    text-align: center;
+    font-family: "STKaiti", "KaiTi", "楷体", serif;
+    letter-spacing: 4px;
+    margin: 10px 0;
+    line-height: 1.8;
+  }
+
+  /* 方向图 */
+  .direction-rose {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 6px solid #ffd166;
+    background:
+      radial-gradient(circle at center, #fff 60%, #fff8d6 100%);
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 6px 0 #f8b500, inset 0 0 20px rgba(248,181,0,0.2);
+  }
+  .direction-rose .dir-label {
+    position: absolute;
+    font-size: 26px;
+    font-weight: bold;
+    color: #d4577a;
+  }
+  .direction-rose .n { top: 8px; left: 50%; transform: translateX(-50%); }
+  .direction-rose .s { bottom: 8px; left: 50%; transform: translateX(-50%); }
+  .direction-rose .e { right: 8px; top: 50%; transform: translateY(-50%); }
+  .direction-rose .w { left: 8px; top: 50%; transform: translateY(-50%); }
+  .direction-rose .arrow {
+    position: absolute; top: 50%; left: 50%;
+    width: 8px; height: 90px;
+    background: linear-gradient(to top, #d4577a 50%, #2d6a4f 50%);
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .direction-rose .center-dot {
+    position: absolute; top: 50%; left: 50%;
+    width: 16px; height: 16px;
+    background: #2d6a4f;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #fff;
+    z-index: 2;
   }
 </style>
 </head>
@@ -873,20 +723,23 @@
   <!-- 1. 封面 -->
   <section class="slide cover active">
     <div style="position:absolute;top:30px;left:0;right:0;text-align:center;color:#fff;font-size:20px;letter-spacing:6px;font-weight:bold;text-shadow:0 2px 6px rgba(0,0,0,0.15);">
-      北师大版小学数学 · 二年级下册
+      部编版小学语文 · 二年级下册
     </div>
-    <div style="background:#fff;color:#ff4d6d;padding:6px 22px;border-radius:30px;font-size:18px;font-weight:bold;box-shadow:0 4px 0 #ff6f91;letter-spacing:2px;">
-      第 三 单元 · 生活中的大数 · 第 4 课时
+    <div style="background:#fff;color:#2d6a4f;padding:6px 22px;border-radius:30px;font-size:18px;font-weight:bold;box-shadow:0 4px 0 #6bbf73;letter-spacing:2px;">
+      第 六 单元 · 第 16 课
     </div>
-    <h1 style="margin-top:18px;">保护野生哺乳动物</h1>
-    <div class="meta" style="margin-top:14px;">认识 1000 ~ 10000 以内的数</div>
 
-    <div class="miaoxiang big" style="margin-top:24px;">
-      <div class="avatar">👧</div>
-      <div class="name">妙 想</div>
+    <div class="emoji">🧭</div>
+
+    <h1 style="margin-top:0;">要是你在野外迷了路</h1>
+    <div class="meta" style="margin-top:14px;">认识大自然的天然指南针 🌲☀️⭐</div>
+
+    <div class="mascot big" style="margin-top:20px;">
+      <div class="avatar">🧒</div>
+      <div class="name">小 探</div>
     </div>
-    <div style="margin-top:18px;background:#fff;color:#ff4d6d;padding:12px 26px;border-radius:30px;font-size:22px;box-shadow:0 6px 0 #ff6f91;font-weight:bold;">
-      💕 大家好，我是妙想，今天和我一起去看看动物朋友吧！
+    <div style="margin-top:14px;background:#fff;color:#2d6a4f;padding:12px 26px;border-radius:30px;font-size:22px;box-shadow:0 6px 0 #6bbf73;font-weight:bold;">
+      🌿 同学们好！我是小探，跟我去野外冒险吧！
     </div>
 
     <div style="position:absolute;bottom:30px;left:0;right:0;text-align:center;color:#fff;font-size:14px;letter-spacing:4px;opacity:0.85;">
@@ -897,879 +750,522 @@
   <!-- 2. 学习目标 -->
   <section class="slide">
     <h2 class="section">📚 学习目标</h2>
-    <p style="color:#888;margin-top:-10px;margin-bottom:14px;font-size:18px;">学完这节课，你将会……</p>
-    <div class="with-bubble">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">这节课我们要一起完成 <b>4 个任务</b>，准备好了吗？出发吧！🚀</div>
-    </div>
-    <div class="objective"><span class="num-circle">1</span>认识 <span class="highlight">千</span> 和 <span class="highlight">万</span>，知道 10 个一千是一万。</div>
-    <div class="objective"><span class="num-circle">2</span>能正确读、写万以内的四位数。</div>
-    <div class="objective"><span class="num-circle">3</span>了解数位顺序表，明白每个数位上数字的意义。</div>
-    <div class="objective"><span class="num-circle">4</span>感受数学与生活的联系，增强保护野生动物的意识。</div>
+    <div class="objective"><span class="num-circle">1</span>会认 "慌、辨、忠、盏、阴、稠、稀、针" 等 8 个生字，会写 "慌、辨、积、稠、稀、针、导、忠" 等生字。</div>
+    <div class="objective"><span class="num-circle">2</span>正确、流利、有感情地朗读课文，背诵课文。</div>
+    <div class="objective"><span class="num-circle">3</span>理解课文内容，了解 <b>太阳、北极星、大树、积雪</b> 这四种天然指南针的特点。</div>
+    <div class="objective"><span class="num-circle">4</span>培养留心观察大自然、热爱大自然的情感，学会在遇到困难时冷静思考。</div>
   </section>
 
-  <!-- 教学重点·难点 -->
+  <!-- 3. 情境导入 -->
   <section class="slide">
-    <h2 class="section">🔑 教学重点 · 难点</h2>
-    <div class="grid-2" style="margin-top:8px;">
-      <div class="card" style="border-color:#ffd6e0;box-shadow:0 8px 0 #ffb3c6;">
-        <h3 style="color:#ff4d6d;">🎯 教学重点</h3>
-        <ul style="font-size:22px;">
-          <li>认识计数单位 <b>"千"</b> 和 <b>"万"</b>。</li>
-          <li>掌握万以内数的读法和写法。</li>
-          <li>理解数位顺序及相邻计数单位间的十进关系。</li>
-        </ul>
+    <h2 class="section">一、情境引入 ｜ 你迷路过吗？</h2>
+    <div class="with-bubble">
+      <div class="mascot">
+        <div class="avatar">🧒</div>
+        <div class="name">小 探</div>
       </div>
-      <div class="card" style="border-color:#fff2b3;box-shadow:0 8px 0 #ffd166;">
-        <h3 style="color:#f08c00;">⚠️ 教学难点</h3>
-        <ul style="font-size:22px;">
-          <li>正确读写 <b>中间或末尾含 0</b> 的四位数。</li>
-          <li>理解 <b>0 在数中的占位作用</b>。</li>
-          <li>掌握 <b>10 个一千是一万</b> 的进率关系。</li>
-        </ul>
-      </div>
+      <div class="bubble">同学们，如果有一天你和爸爸妈妈去森林里玩，<b>不小心走散了</b>，你会怎么办呢？是大哭、慌张，还是冷静思考？🌲</div>
+    </div>
+    <div class="grid-3" style="margin-top:14px;">
+      <div class="compass"><div class="icon">😱</div><div class="name">大哭大叫</div><div class="dir">❌ 不可取</div></div>
+      <div class="compass"><div class="icon">🏃</div><div class="name">乱跑乱撞</div><div class="dir">❌ 不可取</div></div>
+      <div class="compass"><div class="icon">🤔</div><div class="name">仔细观察</div><div class="dir">✅ 真聪明</div></div>
     </div>
     <div class="tip" style="margin-top:14px;">
-      <b>课时安排：</b>1 课时（约 40 分钟）　|
-      <b>教学准备：</b>计数器、多媒体课件、练习单、动物图片
+      其实，大自然有很多 <b>天然的指南针</b>，会帮你辨别方向！今天我们就来学习 <b>《要是你在野外迷了路》</b>，一起去发现大自然的秘密吧！
     </div>
   </section>
 
-  <!-- 一、复习导入 -->
+  <!-- 4. 课题解读 -->
   <section class="slide">
-    <h2 class="section">一、复习导入 ｜ 唤起旧知</h2>
-    <div class="with-bubble" style="margin:6px 0 12px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">在认识更大的数之前，先和妙想一起复习一下我们学过的数吧！</div>
-    </div>
-    <div class="grid-2">
-      <div class="card">
-        <h3>🔄 复习一：数一数</h3>
-        <p>1 个十是 <span class="answer">10</span>　　10 个一是 <span class="answer">10</span></p>
-        <p>1 个百是 <span class="answer">100</span>　　10 个十是 <span class="answer">100</span></p>
-        <p style="color:#888;font-size:20px;margin-top:8px;">👆 点击空格查看答案</p>
-      </div>
-      <div class="card">
-        <h3>📐 复习二：写一写</h3>
-        <p>八十六　　 写作 <span class="answer">86</span></p>
-        <p>三百二十　 写作 <span class="answer">320</span></p>
-        <p>五百零七　 写作 <span class="answer">507</span></p>
-      </div>
-    </div>
-    <div class="tip">
-      <b>承上启下：</b>我们已经认识了 100 以内的数和几百几十的数。今天，我们要去认识 <span class="highlight">更大的数</span>！
-    </div>
-  </section>
-
-  <!-- 二、情境引入 -->
-  <section class="slide">
-    <h2 class="section">二、情境引入 ｜ 我们的动物朋友</h2>
-    <div class="with-bubble">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">同学们，地球上生活着许多珍贵的野生哺乳动物，它们和我们一样需要呵护～来看看妙想收集到的数据吧！</div>
-    </div>
-    <div class="grid-4">
-      <div class="animal">
-        <div class="icon">🐼</div>
-        <div class="name">大熊猫</div>
-        <div class="num">1864<div class="unit">只</div></div>
-      </div>
-      <div class="animal">
-        <div class="icon">🐯</div>
-        <div class="name">东北虎</div>
-        <div class="num">500<div class="unit">只</div></div>
-      </div>
-      <div class="animal">
-        <div class="icon">🦌</div>
-        <div class="name">藏羚羊</div>
-        <div class="num">7000<div class="unit">只</div></div>
-      </div>
-      <div class="animal">
-        <div class="icon">🐘</div>
-        <div class="name">亚洲象</div>
-        <div class="num">300<div class="unit">头</div></div>
-      </div>
-    </div>
-    <div class="tip">这些数中，<b>1864、7000</b> 都是四位数，今天我们就一起来认识这些"生活中的大数"！</div>
-  </section>
-
-  <!-- 4. 认识千 -->
-  <section class="slide">
-    <h2 class="section">三、探究新知 ｜（一）认识"千"</h2>
-    <div class="with-bubble" style="margin:6px 0 14px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">咦？1864 这么大的数怎么数呢？我们先认识一个新朋友 —— <b>"千"</b>！</div>
-    </div>
-    <div class="grid-2">
-      <div>
-        <div class="card">
-          <h3>10 个一百是多少？</h3>
-          <p>1 个一百 = 100</p>
-          <p>2 个一百 = 200</p>
-          <p>3 个一百 = 300</p>
-          <p style="color:#999;">…………</p>
-          <p>9 个一百 = 900</p>
-          <p style="color:#d62828;font-weight:bold;font-size:28px;">10 个一百 = <span class="highlight">1000（一千）</span></p>
-        </div>
-      </div>
-      <div>
-        <div class="card" style="text-align:center;">
-          <h3>计数器上的"千"</h3>
-          <div class="counter">
-            <div class="rod">
-              <div class="label">千位</div>
-              <div class="beads"><div class="bead"></div></div>
-              <div class="digit">1</div>
-            </div>
-            <div class="rod">
-              <div class="label">百位</div>
-              <div class="beads"></div>
-              <div class="digit">0</div>
-            </div>
-            <div class="rod">
-              <div class="label">十位</div>
-              <div class="beads"></div>
-              <div class="digit">0</div>
-            </div>
-            <div class="rod">
-              <div class="label">个位</div>
-              <div class="beads"></div>
-              <div class="digit">0</div>
-            </div>
-          </div>
-          <p style="font-size:26px;margin-top:8px;">读作：<b style="color:#2d6a4f;">一千</b></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. 认识万 -->
-  <section class="slide">
-    <h2 class="section">三、探究新知 ｜（二）认识"万"</h2>
-    <div class="with-bubble" style="margin:6px 0 12px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">认识了"千"，再来一起认识更大的数 —— <b>"万"</b> 吧！</div>
-    </div>
-    <div class="card" style="margin-bottom:16px;">
-      <h3>10 个一千是多少？</h3>
-      <p style="font-size:26px;">1000、2000、3000、4000、5000、6000、7000、8000、9000、<span class="highlight">10000</span></p>
-      <p style="font-size:30px;color:#d62828;font-weight:bold;margin-top:10px;">10 个一千 = 10000（一万）</p>
-    </div>
+    <h2 class="section">二、解读课题 ｜ 走进课文</h2>
     <div class="card" style="text-align:center;">
-      <h3>计数器上"万"位的诞生</h3>
-      <div class="counter">
-        <div class="rod">
-          <div class="label">万位</div>
-          <div class="beads"><div class="bead yellow"></div></div>
-          <div class="digit">1</div>
-        </div>
-        <div class="rod">
-          <div class="label">千位</div>
-          <div class="beads"></div>
-          <div class="digit">0</div>
-        </div>
-        <div class="rod">
-          <div class="label">百位</div>
-          <div class="beads"></div>
-          <div class="digit">0</div>
-        </div>
-        <div class="rod">
-          <div class="label">十位</div>
-          <div class="beads"></div>
-          <div class="digit">0</div>
-        </div>
-        <div class="rod">
-          <div class="label">个位</div>
-          <div class="beads"></div>
-          <div class="digit">0</div>
-        </div>
-      </div>
-      <p style="font-size:28px;margin-top:8px;">读作：<b style="color:#2d6a4f;">一万</b></p>
-    </div>
-  </section>
-
-  <!-- 6. 数位顺序表 -->
-  <section class="slide">
-    <h2 class="section">三、探究新知 ｜（三）数位顺序表</h2>
-    <div class="miaoxiang corner-mascot">
-      <div class="avatar">👧</div>
-      <div class="name">妙 想</div>
-    </div>
-    <p>从右往左数，每个数字所在的位置叫做"<b>数位</b>"：</p>
-    <table class="place-table">
-      <tr>
-        <th>数位</th>
-        <th>万位</th>
-        <th>千位</th>
-        <th>百位</th>
-        <th>十位</th>
-        <th>个位</th>
-      </tr>
-      <tr>
-        <th>计数单位</th>
-        <td>万</td>
-        <td>千</td>
-        <td>百</td>
-        <td>十</td>
-        <td>一</td>
-      </tr>
-    </table>
-    <div class="tip">每相邻两个计数单位之间的进率都是 <b>10</b>：10 个一是十，10 个十是一百，10 个一百是一千，10 个一千是一万。</div>
-  </section>
-
-  <!-- 7. 写数：1864 -->
-  <section class="slide">
-    <h2 class="section">三、探究新知 ｜（四）写数与读数</h2>
-    <div class="miaoxiang corner-mascot">
-      <div class="avatar">👧</div>
-      <div class="name">妙 想</div>
-    </div>
-    <div class="card" style="text-align:center;">
-      <div class="counter">
-        <div class="rod">
-          <div class="label">千位</div>
-          <div class="beads">
-            <div class="bead"></div>
-          </div>
-          <div class="digit">1</div>
-        </div>
-        <div class="rod">
-          <div class="label">百位</div>
-          <div class="beads">
-            <div class="bead blue"></div>
-            <div class="bead blue"></div>
-            <div class="bead blue"></div>
-            <div class="bead blue"></div>
-            <div class="bead blue"></div>
-            <div class="bead blue"></div>
-            <div class="bead blue"></div>
-            <div class="bead blue"></div>
-          </div>
-          <div class="digit">8</div>
-        </div>
-        <div class="rod">
-          <div class="label">十位</div>
-          <div class="beads">
-            <div class="bead green"></div>
-            <div class="bead green"></div>
-            <div class="bead green"></div>
-            <div class="bead green"></div>
-            <div class="bead green"></div>
-            <div class="bead green"></div>
-          </div>
-          <div class="digit">6</div>
-        </div>
-        <div class="rod">
-          <div class="label">个位</div>
-          <div class="beads">
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-          </div>
-          <div class="digit">4</div>
-        </div>
+      <div style="font-size:48px;color:#2d6a4f;font-weight:bold;letter-spacing:8px;font-family:'STKaiti','KaiTi','楷体',serif;">
+        要是你在野外迷了路
       </div>
     </div>
-    <div class="big-num">1 8 6 4</div>
-    <p class="read">写作：<b>1864</b>　　读作：<b>一千八百六十四</b></p>
-    <div class="tip">从 <b>高位</b> 到 <b>低位</b>，按照数位顺序依次写出每个数位上的数。</div>
-  </section>
-
-  <!-- 8. 中间有0的数 -->
-  <section class="slide">
-    <h2 class="section">三、探究新知 ｜（五）中间有 0 的数怎么读</h2>
-    <div class="with-bubble" style="margin:6px 0 12px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">东北虎大约有 <b>2008</b> 只，这个数中间有两个 0，要怎么读呢？快来跟我一起想一想吧！🤔</div>
-    </div>
-    <div class="card" style="text-align:center;">
-      <div class="counter">
-        <div class="rod">
-          <div class="label">千位</div>
-          <div class="beads"><div class="bead"></div><div class="bead"></div></div>
-          <div class="digit">2</div>
-        </div>
-        <div class="rod">
-          <div class="label">百位</div>
-          <div class="beads"></div>
-          <div class="digit" style="color:#888;">0</div>
-        </div>
-        <div class="rod">
-          <div class="label">十位</div>
-          <div class="beads"></div>
-          <div class="digit" style="color:#888;">0</div>
-        </div>
-        <div class="rod">
-          <div class="label">个位</div>
-          <div class="beads">
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-            <div class="bead yellow"></div>
-          </div>
-          <div class="digit">8</div>
-        </div>
-      </div>
-    </div>
-    <div class="big-num">2 0 0 8</div>
-    <p class="read">读作：<b>二千零八</b></p>
-    <div class="tip">
-      <b>读数规则：</b><br>
-      ① 从高位读起，按数位顺序读。<br>
-      ② 中间有一个 0 或连续几个 0，都只读 <span class="highlight">一个"零"</span>。<br>
-      ③ 末尾的 0 都不读。
-    </div>
-  </section>
-
-  <!-- 9. 末尾有0 -->
-  <section class="slide">
-    <h2 class="section">三、探究新知 ｜（六）末尾有 0 的数怎么读</h2>
-    <div class="miaoxiang corner-mascot">
-      <div class="avatar">👧</div>
-      <div class="name">妙 想</div>
-    </div>
-    <div class="grid-2">
+    <div class="grid-2" style="margin-top:14px;">
       <div class="card">
-        <h3>🦌 藏羚羊：7000 只</h3>
-        <div class="big-num" style="font-size:60px;">7 0 0 0</div>
-        <p class="read">读作：<b>七千</b></p>
-        <p style="margin-top:10px;color:#666;">末尾的三个 0 都不读 ✓</p>
+        <h3>🔍 字词解读</h3>
+        <p><span class="hl-green">要是</span>：表示假设，相当于"如果"。</p>
+        <p><span class="hl-green">野外</span>：离居民点较远的地方，如山林、田野。</p>
+        <p><span class="hl-green">迷了路</span>：找不到该走的路。</p>
       </div>
       <div class="card">
-        <h3>🐘 亚洲象：300 头</h3>
-        <div class="big-num" style="font-size:60px;">3 0 0</div>
-        <p class="read">读作：<b>三百</b></p>
-        <p style="margin-top:10px;color:#666;">末尾的两个 0 都不读 ✓</p>
+        <h3>💭 思考一下</h3>
+        <p>读完题目，你心里有什么疑问？</p>
+        <ul style="margin-top:6px;">
+          <li>迷路了怎么办？</li>
+          <li>有什么办法可以辨别方向？</li>
+          <li>大自然真的能帮我们吗？</li>
+        </ul>
       </div>
     </div>
-    <div class="card" style="margin-top:20px;">
-      <h3>再来看：3050</h3>
-      <div class="big-num" style="font-size:50px;">3 0 5 0</div>
-      <p class="read">读作：<b>三千零五十</b>　<span style="color:#666;font-size:22px;">（中间的 0 要读，末尾的 0 不读）</span></p>
+  </section>
+
+  <!-- 5. 我会认 -->
+  <section class="slide">
+    <h2 class="section">三、初读识字 ｜ 我会认</h2>
+    <p style="font-size:20px;color:#6bbf73;margin-bottom:8px;">📖 拼一拼，读一读，记住这些好朋友吧！</p>
+    <div class="zi-grid">
+      <div class="zi"><div class="pin">huāng</div><div class="char">慌</div><div class="word">慌张</div></div>
+      <div class="zi"><div class="pin">biàn</div><div class="char">辨</div><div class="word">辨别</div></div>
+      <div class="zi"><div class="pin">zhōng</div><div class="char">忠</div><div class="word">忠实</div></div>
+      <div class="zi"><div class="pin">zhǎn</div><div class="char">盏</div><div class="word">一盏</div></div>
+      <div class="zi"><div class="pin">yīn</div><div class="char">阴</div><div class="word">阴雨</div></div>
+      <div class="zi"><div class="pin">chóu</div><div class="char">稠</div><div class="word">稠密</div></div>
+      <div class="zi"><div class="pin">xī</div><div class="char">稀</div><div class="word">稀少</div></div>
+      <div class="zi"><div class="pin">zhēn</div><div class="char">针</div><div class="word">指南针</div></div>
+    </div>
+    <div class="tip" style="margin-top:8px;">
+      记字小妙招：<b>稠</b> 和 <b>稀</b> 都是 "禾" 字旁，跟庄稼有关，<b>稠</b> 是"多而密"，<b>稀</b> 是"少而疏"，正好相反哦！
     </div>
   </section>
 
-  <!-- 10. 课堂练习一 -->
+  <!-- 6. 我会写 -->
   <section class="slide">
-    <h2 class="section">四、巩固练习 ｜（一）读一读</h2>
-    <div class="with-bubble" style="margin:6px 0 10px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">小朋友们，先自己想一想，再点一点空白处，看妙想说得对不对！💪</div>
-    </div>
-    <div class="question">
-      <span class="tag">第1题</span>金丝猴大约有 <b>3800</b> 只。
-      <br><span style="color:#666;">读作：</span><span class="answer" data-show>三千八百</span>
-    </div>
-    <div class="question">
-      <span class="tag">第2题</span>白鳍豚现存 <b>1000</b> 头左右。
-      <br><span style="color:#666;">读作：</span><span class="answer" data-show>一千</span>
-    </div>
-    <div class="question">
-      <span class="tag">第3题</span>麋鹿在我国已有 <b>5006</b> 只。
-      <br><span style="color:#666;">读作：</span><span class="answer" data-show>五千零六</span>
-    </div>
-    <div class="question">
-      <span class="tag">第4题</span>野生雪豹约 <b>2040</b> 只。
-      <br><span style="color:#666;">读作：</span><span class="answer" data-show>二千零四十</span>
-    </div>
-    <div class="tip">点击右下角"显示答案"按钮，可以一键显示答案哦！</div>
-  </section>
-
-  <!-- 11. 课堂练习二 -->
-  <section class="slide">
-    <h2 class="section">四、巩固练习 ｜（二）写一写</h2>
-    <div class="miaoxiang corner-mascot">
-      <div class="avatar">👧</div>
-      <div class="name">妙 想</div>
-    </div>
-    <div class="question">
-      <span class="tag">第1题</span>九千八百 　　 写作：<span class="answer" data-show>9800</span>
-    </div>
-    <div class="question">
-      <span class="tag">第2题</span>四千零五 　　 写作：<span class="answer" data-show>4005</span>
-    </div>
-    <div class="question">
-      <span class="tag">第3题</span>六千七百二十 　　 写作：<span class="answer" data-show>6720</span>
-    </div>
-    <div class="question">
-      <span class="tag">第4题</span>一万 　　 写作：<span class="answer" data-show>10000</span>
-    </div>
-    <div class="tip">写数时，<b>哪一位上一个也没有，就在那一位上写 0 占位</b>。</div>
-  </section>
-
-  <!-- 12. 课堂练习三 -->
-  <section class="slide">
-    <h2 class="section">四、巩固练习 ｜（三）填一填</h2>
-    <div class="miaoxiang corner-mascot">
-      <div class="avatar">👧</div>
-      <div class="name">妙 想</div>
-    </div>
-    <div class="question">
-      <span class="tag">第1题</span>3056 是由 <b>3</b> 个 <span class="answer" data-show>千</span>、<b>5</b> 个 <span class="answer" data-show>十</span> 和 <b>6</b> 个 <span class="answer" data-show>一</span> 组成的。
-    </div>
-    <div class="question">
-      <span class="tag">第2题</span>一个四位数，最高位是 <span class="answer" data-show>千</span> 位。
-    </div>
-    <div class="question">
-      <span class="tag">第3题</span>10 个 1000 是 <span class="answer" data-show>10000（一万）</span>。
-    </div>
-    <div class="question">
-      <span class="tag">第4题</span>与 9999 相邻的两个数是 <span class="answer" data-show>9998</span> 和 <span class="answer" data-show>10000</span>。
-    </div>
-  </section>
-
-  <!-- 13. 课堂练习四：看计数器写数 -->
-  <section class="slide">
-    <h2 class="section">四、巩固练习 ｜（四）看计数器写数</h2>
-    <p style="margin-bottom:10px;">数一数计数器上每一位有几颗珠子，然后写出这个数：</p>
+    <h2 class="section">四、规范书写 ｜ 我会写</h2>
     <div class="grid-2" style="gap:18px;">
-      <div class="card" style="padding:14px;">
-        <div class="counter" style="margin:6px 0;gap:10px;">
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">千</div>
-            <div class="beads" style="height:140px;"><div class="bead"></div><div class="bead"></div><div class="bead"></div></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">百</div>
-            <div class="beads" style="height:140px;"><div class="bead blue"></div><div class="bead blue"></div><div class="bead blue"></div><div class="bead blue"></div></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">十</div>
-            <div class="beads" style="height:140px;"><div class="bead green"></div><div class="bead green"></div></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">个</div>
-            <div class="beads" style="height:140px;"><div class="bead yellow"></div><div class="bead yellow"></div><div class="bead yellow"></div><div class="bead yellow"></div><div class="bead yellow"></div></div>
+      <div class="card">
+        <h3>✍️ 重点指导：<span style="color:#d4577a;">慌</span></h3>
+        <div style="display:flex;align-items:center;gap:18px;">
+          <div style="font-size:96px;color:#2d6a4f;font-family:'STKaiti','KaiTi','楷体',serif;background:#fffbe6;border:3px dashed #f8b500;border-radius:14px;width:120px;height:120px;line-height:120px;text-align:center;">慌</div>
+          <div style="font-size:20px;line-height:1.8;">
+            部首：<b>忄</b>（竖心旁）<br>
+            结构：<b>左右</b>结构<br>
+            笔画：12 画<br>
+            组词：慌张、惊慌
           </div>
         </div>
-        <p style="text-align:center;font-size:22px;">写作：<span class="answer">3425</span>　读作：<span class="answer">三千四百二十五</span></p>
+        <p style="font-size:18px;color:#888;margin-top:6px;">⚠ 注意："忄"窄"荒"宽，右边不要丢一点。</p>
       </div>
-      <div class="card" style="padding:14px;">
-        <div class="counter" style="margin:6px 0;gap:10px;">
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">千</div>
-            <div class="beads" style="height:140px;"><div class="bead"></div><div class="bead"></div><div class="bead"></div><div class="bead"></div><div class="bead"></div><div class="bead"></div></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">百</div>
-            <div class="beads" style="height:140px;"></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">十</div>
-            <div class="beads" style="height:140px;"></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">个</div>
-            <div class="beads" style="height:140px;"><div class="bead yellow"></div><div class="bead yellow"></div><div class="bead yellow"></div></div>
+      <div class="card">
+        <h3>✍️ 重点指导：<span style="color:#d4577a;">辨</span></h3>
+        <div style="display:flex;align-items:center;gap:18px;">
+          <div style="font-size:96px;color:#2d6a4f;font-family:'STKaiti','KaiTi','楷体',serif;background:#fffbe6;border:3px dashed #f8b500;border-radius:14px;width:120px;height:120px;line-height:120px;text-align:center;">辨</div>
+          <div style="font-size:20px;line-height:1.8;">
+            部首：<b>辛</b><br>
+            结构：<b>左中右</b>结构<br>
+            笔画：16 画<br>
+            组词：辨别、分辨
           </div>
         </div>
-        <p style="text-align:center;font-size:22px;">写作：<span class="answer">6003</span>　读作：<span class="answer">六千零三</span></p>
+        <p style="font-size:18px;color:#888;margin-top:6px;">⚠ 形近字：<b>辨</b>（分辨）、<b>辫</b>（辫子）、<b>辩</b>（辩论）—— 中间不同！</p>
       </div>
-      <div class="card" style="padding:14px;">
-        <div class="counter" style="margin:6px 0;gap:10px;">
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">千</div>
-            <div class="beads" style="height:140px;"><div class="bead"></div><div class="bead"></div></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">百</div>
-            <div class="beads" style="height:140px;"></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">十</div>
-            <div class="beads" style="height:140px;"><div class="bead green"></div><div class="bead green"></div><div class="bead green"></div><div class="bead green"></div></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">个</div>
-            <div class="beads" style="height:140px;"></div>
-          </div>
+    </div>
+    <div class="tip" style="margin-top:12px;">
+      其他要写的字：<b>积、稠、稀、针、导、忠、盏、阴、向</b>。书写时一定要做到 "<span class="hl-green">头正、肩平、身直、足安</span>"！
+    </div>
+  </section>
+
+  <!-- 7. 词语解释 -->
+  <section class="slide">
+    <h2 class="section">五、词语理解 ｜ 词语花园</h2>
+    <div class="grid-2" style="gap:14px;">
+      <div>
+        <div class="word-card">
+          <span class="w">慌张</span><span class="py">huāng zhāng</span>
+          <div class="ex">心里不沉着、动作忙乱。</div>
         </div>
-        <p style="text-align:center;font-size:22px;">写作：<span class="answer">2040</span>　读作：<span class="answer">二千零四十</span></p>
+        <div class="word-card">
+          <span class="w">天然</span><span class="py">tiān rán</span>
+          <div class="ex">自然存在的、自然生成的（不是人造的）。</div>
+        </div>
+        <div class="word-card">
+          <span class="w">忠实</span><span class="py">zhōng shí</span>
+          <div class="ex">忠诚可靠，真实不变。</div>
+        </div>
+        <div class="word-card">
+          <span class="w">向导</span><span class="py">xiàng dǎo</span>
+          <div class="ex">带路的人。</div>
+        </div>
       </div>
-      <div class="card" style="padding:14px;">
-        <div class="counter" style="margin:6px 0;gap:10px;">
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">千</div>
-            <div class="beads" style="height:140px;"><div class="bead"></div><div class="bead"></div><div class="bead"></div><div class="bead"></div></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">百</div>
-            <div class="beads" style="height:140px;"><div class="bead blue"></div><div class="bead blue"></div><div class="bead blue"></div><div class="bead blue"></div><div class="bead blue"></div></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">十</div>
-            <div class="beads" style="height:140px;"></div>
-          </div>
-          <div class="rod" style="width:60px;">
-            <div class="label" style="font-size:16px;">个</div>
-            <div class="beads" style="height:140px;"><div class="bead yellow"></div><div class="bead yellow"></div><div class="bead yellow"></div><div class="bead yellow"></div><div class="bead yellow"></div><div class="bead yellow"></div><div class="bead yellow"></div></div>
-          </div>
+      <div>
+        <div class="word-card">
+          <span class="w">指点</span><span class="py">zhǐ diǎn</span>
+          <div class="ex">指出来使人知道。</div>
         </div>
-        <p style="text-align:center;font-size:22px;">写作：<span class="answer">4507</span>　读作：<span class="answer">四千五百零七</span></p>
+        <div class="word-card">
+          <span class="w">辨别</span><span class="py">biàn bié</span>
+          <div class="ex">根据不同事物的特点加以区别。</div>
+        </div>
+        <div class="word-card">
+          <span class="w">稠 ⇄ 稀</span><span class="py">chóu ⇄ xī</span>
+          <div class="ex">一对反义词：稠 = 多而密；稀 = 少而疏。</div>
+        </div>
+        <div class="word-card">
+          <span class="w">沟渠</span><span class="py">gōu qú</span>
+          <div class="ex">引水排灌的水道。</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 14. 课堂练习五：找规律填数 -->
+  <!-- 8. 朗读课文 -->
   <section class="slide">
-    <h2 class="section">四、巩固练习 ｜（五）找规律填一填</h2>
-    <div class="question">
-      <span class="tag">第1题</span>998、999、<span class="answer">1000</span>、<span class="answer">1001</span>、<span class="answer">1002</span>
-    </div>
-    <div class="question">
-      <span class="tag">第2题</span>1000、2000、3000、<span class="answer">4000</span>、<span class="answer">5000</span>、<span class="answer">6000</span>
-    </div>
-    <div class="question">
-      <span class="tag">第3题</span>9997、9998、<span class="answer">9999</span>、<span class="answer">10000</span>
-    </div>
-    <div class="question">
-      <span class="tag">第4题</span>3050、3060、<span class="answer">3070</span>、<span class="answer">3080</span>、<span class="answer">3090</span>
-    </div>
-    <div class="question">
-      <span class="tag">第5题</span>5400、5300、5200、<span class="answer">5100</span>、<span class="answer">5000</span>　<span style="color:#888;font-size:20px;">（每次少100）</span>
-    </div>
-    <div class="tip">先看相邻两个数相差多少，找到规律就能轻松填出来啦！</div>
-  </section>
-
-  <!-- 15. 课堂练习六：判断对错 -->
-  <section class="slide">
-    <h2 class="section">四、巩固练习 ｜（六）判断对错</h2>
-    <p style="margin-bottom:10px;">下面的说法对吗？想一想，再点击"显示答案"看结果。</p>
-    <div class="question">
-      <span class="tag">第1题</span>10 个一百是一千。　答：<span class="answer">✅ 对</span>
-    </div>
-    <div class="question">
-      <span class="tag">第2题</span>100 个 100 是 1000。　答：<span class="answer">❌ 错（应该是 10000）</span>
-    </div>
-    <div class="question">
-      <span class="tag">第3题</span>读 4060 时要读两个"零"。　答：<span class="answer">❌ 错（中间只读一个"零"）</span>
-    </div>
-    <div class="question">
-      <span class="tag">第4题</span>9999 比 10000 小 1。　答：<span class="answer">✅ 对</span>
-    </div>
-    <div class="question">
-      <span class="tag">第5题</span>三千零五写作 3005。　答：<span class="answer">✅ 对</span>
-    </div>
-    <div class="question">
-      <span class="tag">第6题</span>一个四位数最大是 9999。　答：<span class="answer">✅ 对</span>
+    <h2 class="section">六、朗读课文 ｜ 整体感知</h2>
+    <div class="poem" style="flex:1;overflow-y:auto;">
+      <div class="stanza"><span class="num">1</span>要是你在野外迷了路，<br>　　可千万不要慌张，<br>　　大自然有 <span class="hl-green">很多</span> 天然的指南针，<br>　　会 <span class="hl-green">帮助你辨别方向</span>。</div>
+      <div class="stanza"><span class="num">2</span><span class="highlight">太阳</span> 是个忠实的向导，<br>　　它在天空给你指点方向：<br>　　中午的时候它在 <b>南边</b>，<br>　　地上的树影正指着 <b>北方</b>。</div>
+      <div class="stanza"><span class="num">3</span><span class="hl-blue">北极星</span> 是盏指路灯，<br>　　它永远高挂在 <b>北方</b>。<br>　　要是你能认出它，<br>　　就不会在黑夜里乱闯。</div>
+      <div class="stanza"><span class="num">4</span>要是碰上 <b>阴雨天</b>，<br>　　大树会来帮忙。<br>　　你看那 <span class="hl-green">枝叶稠</span> 的一面，<br>　　那是 <b>太阳</b> 常照的 <b>南方</b>。</div>
+      <div class="stanza"><span class="num">5</span>要是你在 <b>雪地里</b> 迷了路，<br>　　可千万别慌张，<br>　　看看 <span class="hl-green">沟渠里的积雪</span>，<br>　　它会给你 <b>指点方向</b>：<br>　　雪 <span class="highlight">化得快</span> 的是 <b>北</b> 方，<br>　　化得 <span class="highlight">慢</span> 的是 <b>南</b> 方。</div>
+      <div class="stanza"><span class="num">6</span>要是你在野外迷了路，<br>　　大自然有 <span class="hl-green">很多</span> 天然的指南针，<br>　　要你 <span class="highlight">细细观察</span>，<br>　　要你 <span class="highlight">多多去想</span>。</div>
     </div>
   </section>
 
-  <!-- 16. 课堂练习七：解决问题 -->
+  <!-- 9. 课文结构 -->
   <section class="slide">
-    <h2 class="section">四、巩固练习 ｜（七）解决问题</h2>
-    <div class="question">
-      <span class="tag">第1题</span>🐼 一个自然保护区里大熊猫的数量是：千位上是 1，百位上是 8，十位和个位上都是 0。这个数是多少？<br>
-      <span style="color:#888;">答：</span><span class="answer">1800</span>　<span class="answer">读作：一千八百</span>
+    <h2 class="section">七、整体感知 ｜ 课文结构</h2>
+    <div class="with-bubble" style="margin-bottom:8px;">
+      <div class="mascot">
+        <div class="avatar">🧒</div>
+        <div class="name">小 探</div>
+      </div>
+      <div class="bubble">课文一共有 <b>6 个小节</b>，写了 <b>4 种</b> 天然指南针，你能找出来吗？</div>
     </div>
-    <div class="question">
-      <span class="tag">第2题</span>🐯 比 999 大 1 的数是 <span class="answer">1000</span>，比 10000 小 1 的数是 <span class="answer">9999</span>。
+    <div class="grid-4" style="margin-top:8px;">
+      <div class="compass"><div class="icon">☀️</div><div class="name">太阳</div><div class="dir">指南方</div></div>
+      <div class="compass"><div class="icon">⭐</div><div class="name">北极星</div><div class="dir">指北方</div></div>
+      <div class="compass"><div class="icon">🌳</div><div class="name">大树</div><div class="dir">枝叶稠 → 南</div></div>
+      <div class="compass"><div class="icon">❄️</div><div class="name">沟渠积雪</div><div class="dir">化快 → 北</div></div>
     </div>
-    <div class="question">
-      <span class="tag">第3题</span>🦏 一个四位数，最高位是 5，其他各位都是 0，这个数是 <span class="answer">5000</span>，读作 <span class="answer">五千</span>。
-    </div>
-    <div class="question">
-      <span class="tag">第4题</span>🦌 用数字 2、6、0、0 组成一个最大的四位数是 <span class="answer">6200</span>，最小的四位数是 <span class="answer">2006</span>。
-    </div>
-    <div class="question">
-      <span class="tag">第5题</span>🐘 大象妈妈说："我家的门牌号是一个四位数，它最高位是 3，最低位是 5，中间两位都是 0。" 你能猜出来吗？<span class="answer">3005</span>
+    <div class="card" style="margin-top:14px;">
+      <h3>📑 全文脉络</h3>
+      <p>
+        <span class="tag">总</span>第 1 节：提出问题——大自然有很多天然指南针。<br>
+        <span class="tag">分</span>第 2 — 5 节：分别介绍 <b>太阳、北极星、大树、积雪</b> 四种指南针。<br>
+        <span class="tag">总</span>第 6 节：总结全文——细细观察，多多去想。
+      </p>
+      <p style="color:#6bbf73;margin-top:6px;">📌 结构：<b>总——分——总</b></p>
     </div>
   </section>
 
-  <!-- 17. 拓展 -->
+  <!-- 10. 学习第二节 - 太阳 -->
   <section class="slide">
-    <h2 class="section">四、巩固练习 ｜（八）拓展：比一比</h2>
-    <div class="with-bubble" style="margin:6px 0 12px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">这么多动物朋友，<b>谁的数量最多？谁最少？</b> 快帮妙想排一排吧！</div>
-    </div>
-    <div class="grid-4" style="margin-top:20px;">
-      <div class="animal"><div class="icon">🐼</div><div class="name">大熊猫</div><div class="num">1864</div></div>
-      <div class="animal"><div class="icon">🐯</div><div class="name">东北虎</div><div class="num">500</div></div>
-      <div class="animal"><div class="icon">🦌</div><div class="name">藏羚羊</div><div class="num">7000</div></div>
-      <div class="animal"><div class="icon">🐘</div><div class="name">亚洲象</div><div class="num">300</div></div>
-    </div>
-    <div class="card" style="margin-top:20px;">
-      <p>🥇 数量最多：<span class="answer" data-show><b style="color:#d62828;">藏羚羊（7000 只）</b></span></p>
-      <p>🥉 数量最少：<span class="answer" data-show><b style="color:#d62828;">亚洲象（300 头）</b></span></p>
-      <p style="margin-top:10px;">从大到小排序：<span class="answer" data-show><b>7000 &gt; 1864 &gt; 500 &gt; 300</b></span></p>
-    </div>
-    <div class="tip">比较多位数大小：<b>位数多的数大</b>；位数相同时，从高位比起。</div>
-  </section>
-
-  <!-- 18. 互动小游戏 -->
-  <section class="slide">
-    <h2 class="section">五、闯关游戏 ｜（一）妙想拨珠挑战</h2>
-    <div class="with-bubble" style="margin:6px 0 10px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">看看屏幕上的目标数，点 <b style="color:#52b788;">+</b> 加珠子、<b style="color:#ff6f91;">−</b> 去珠子，把它拨出来吧！🎯</div>
-    </div>
-    <div class="game-board">
-      <div class="game-header">
-        <div class="game-target">🎯 目标：<span class="num" id="g-target">3506</span></div>
-        <div class="game-stats">
-          <span class="stat-pill green">⭐ 得分 <span id="g-score">0</span></span>
-          <span class="stat-pill">🔥 连对 <span id="g-streak">0</span></span>
-          <span class="stat-pill blue">🎲 第 <span id="g-round">1</span> 关</span>
+    <h2 class="section">八、品读课文 ｜ ☀️ 太阳指南针</h2>
+    <div class="grid-2" style="gap:18px;">
+      <div>
+        <div class="poem">
+          <p class="big-poem-line">
+            太阳是个忠实的向导，<br>
+            它在天空给你指点方向：<br>
+            中午的时候它在 <span class="highlight">南边</span>，<br>
+            地上的树影正指着 <span class="highlight">北方</span>。
+          </p>
+        </div>
+        <div class="tip" style="margin-top:10px;">
+          <b>"忠实"</b> 一词用得真好！把太阳比作 <b>忠实的向导</b>，说明太阳每天都会按时升起、落下，一直帮我们指路，从不"骗人"！
         </div>
       </div>
-      <div class="game-counter">
-        <div class="game-rod">
-          <div class="label">千位</div>
-          <button class="game-btn plus" data-i="0">+</button>
-          <div class="game-beads" id="g-beads-0"></div>
-          <button class="game-btn minus" data-i="0">−</button>
-          <div class="digit-display" id="g-digit-0">0</div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div style="position:relative;width:300px;height:240px;">
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);font-size:80px;">☀️</div>
+          <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:70px;">🌳</div>
+          <div style="position:absolute;bottom:10px;left:30%;font-size:40px;transform:rotate(20deg);opacity:0.7;color:#3d4a3d;">▌</div>
+          <div style="position:absolute;top:30px;right:20px;font-size:22px;color:#d4577a;font-weight:bold;">南 ↑</div>
+          <div style="position:absolute;bottom:80px;left:20px;font-size:22px;color:#2d4d99;font-weight:bold;">北 ↓</div>
         </div>
-        <div class="game-rod">
-          <div class="label">百位</div>
-          <button class="game-btn plus" data-i="1">+</button>
-          <div class="game-beads" id="g-beads-1"></div>
-          <button class="game-btn minus" data-i="1">−</button>
-          <div class="digit-display" id="g-digit-1">0</div>
+        <div class="card" style="margin-top:8px;padding:12px 18px;">
+          <p style="font-size:20px;">
+            🕛 <b>中午时分</b>：太阳在 <span class="hl-green">南</span>，树影朝 <span class="hl-blue">北</span>。
+          </p>
         </div>
-        <div class="game-rod">
-          <div class="label">十位</div>
-          <button class="game-btn plus" data-i="2">+</button>
-          <div class="game-beads" id="g-beads-2"></div>
-          <button class="game-btn minus" data-i="2">−</button>
-          <div class="digit-display" id="g-digit-2">0</div>
-        </div>
-        <div class="game-rod">
-          <div class="label">个位</div>
-          <button class="game-btn plus" data-i="3">+</button>
-          <div class="game-beads" id="g-beads-3"></div>
-          <button class="game-btn minus" data-i="3">−</button>
-          <div class="digit-display" id="g-digit-3">0</div>
-        </div>
-      </div>
-      <div class="game-current">现在拨出的是 <span class="num" id="g-current">0</span></div>
-      <div class="game-feedback hint" id="g-feedback">👆 试试点上面的按钮拨珠子吧！</div>
-      <div class="game-actions">
-        <button class="next-btn" id="g-next">🎲 换一题</button>
       </div>
     </div>
   </section>
 
-  <div class="celebration" id="celebration"></div>
-
-  <!-- 游戏 2：读数小达人 -->
+  <!-- 11. 学习第三节 - 北极星 -->
   <section class="slide">
-    <h2 class="section">五、闯关游戏 ｜（二）读数小达人</h2>
-    <div class="with-bubble" style="margin:6px 0 8px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">看清这个数，然后从下面 4 个选项中找到正确的读法吧！🔍</div>
-    </div>
-    <div class="game-board">
-      <div class="game-header">
-        <div class="game-target">这个数怎么读？</div>
-        <div class="game-stats">
-          <span class="stat-pill green">⭐ <span id="r-score">0</span></span>
-          <span class="stat-pill">🔥 <span id="r-streak">0</span></span>
-          <span class="stat-pill blue">🎲 第 <span id="r-round">1</span> 题</span>
+    <h2 class="section">九、品读课文 ｜ ⭐ 北极星指南针</h2>
+    <div class="grid-2" style="gap:18px;">
+      <div>
+        <div class="poem">
+          <p class="big-poem-line">
+            北极星是 <span class="highlight">盏指路灯</span>，<br>
+            它永远高挂在 <span class="highlight">北方</span>。<br>
+            要是你能认出它，<br>
+            就不会在黑夜里乱闯。
+          </p>
+        </div>
+        <div class="tip" style="margin-top:10px;">
+          <b>比喻句</b>：把 <b>北极星</b> 比作 <b>"指路灯"</b>。北极星在天空中很亮，能给夜里迷路的人指引方向，就像一盏灯一样！
         </div>
       </div>
-      <div class="mcq-big" id="r-num">4080</div>
-      <div class="mcq-options" id="r-options">
-        <div class="mcq-opt" data-i="0">—</div>
-        <div class="mcq-opt" data-i="1">—</div>
-        <div class="mcq-opt" data-i="2">—</div>
-        <div class="mcq-opt" data-i="3">—</div>
-      </div>
-      <div class="game-feedback hint" id="r-feedback">👆 想一想，再点一个选项</div>
-      <div class="game-actions">
-        <button class="next-btn" id="r-next">🎲 换一题</button>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div style="background:linear-gradient(180deg, #1a2a5a 0%, #2d4d99 100%);width:280px;height:200px;border-radius:20px;position:relative;box-shadow:0 6px 0 #1a2a5a;">
+          <div style="position:absolute;top:20px;left:50%;transform:translateX(-50%);font-size:50px;">⭐</div>
+          <div style="position:absolute;top:80px;left:30%;font-size:18px;color:#fff;opacity:0.6;">·</div>
+          <div style="position:absolute;top:60px;right:25%;font-size:18px;color:#fff;opacity:0.6;">·</div>
+          <div style="position:absolute;bottom:15px;left:50%;transform:translateX(-50%);font-size:18px;color:#ffd166;font-weight:bold;background:rgba(255,255,255,0.2);padding:3px 12px;border-radius:12px;">北方夜空 🌙</div>
+        </div>
+        <div class="card" style="margin-top:8px;padding:12px 18px;">
+          <p style="font-size:20px;">
+            🌙 <b>夜晚</b>：找到北极星 → 朝它就是 <span class="hl-blue">北方</span>！
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 游戏 3：比大小擂台 -->
+  <!-- 12. 学习第四节 - 大树 -->
   <section class="slide">
-    <h2 class="section">五、闯关游戏 ｜（三）比大小擂台</h2>
-    <div class="with-bubble" style="margin:6px 0 8px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">两个数比一比，<b>谁更大？</b> 点击你认为更大的那个！💪</div>
-    </div>
-    <div class="game-board">
-      <div class="game-header">
-        <div class="game-target">🥊 选出更大的数</div>
-        <div class="game-stats">
-          <span class="stat-pill green">⭐ <span id="c-score">0</span></span>
-          <span class="stat-pill">🔥 <span id="c-streak">0</span></span>
-          <span class="stat-pill blue">🎲 第 <span id="c-round">1</span> 关</span>
+    <h2 class="section">十、品读课文 ｜ 🌳 大树指南针</h2>
+    <div class="grid-2" style="gap:18px;">
+      <div>
+        <div class="poem">
+          <p class="big-poem-line">
+            要是碰上 <span class="highlight">阴雨天</span>，<br>
+            大树会来 <span class="highlight">帮忙</span>。<br>
+            你看那 <span class="highlight">枝叶稠</span> 的一面，<br>
+            那是太阳常照的 <span class="highlight">南方</span>。
+          </p>
+        </div>
+        <div class="tip" style="margin-top:10px;">
+          <b>原因</b>：太阳常常照射的一面，<b>阳光充足</b>，所以树叶长得 <b>又多又密（稠）</b>；背面阳光少，叶子稀少。
         </div>
       </div>
-      <div class="vs-arena">
-        <div class="vs-card" id="c-left">
-          <span class="vs-emoji">🐼</span>
-          <div class="vs-num" id="c-left-num">—</div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div style="position:relative;width:280px;height:220px;">
+          <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:140px;">🌳</div>
+          <div style="position:absolute;right:10px;top:30%;background:#fff0f3;color:#d4577a;padding:4px 12px;border-radius:14px;font-weight:bold;font-size:18px;border:2px solid #d4577a;">南 → 枝叶稠 🌿🌿🌿</div>
+          <div style="position:absolute;left:10px;top:60%;background:#e6f0ff;color:#2d4d99;padding:4px 12px;border-radius:14px;font-weight:bold;font-size:18px;border:2px solid #2d4d99;">北 → 枝叶稀 🍃</div>
         </div>
-        <div class="vs-vs">VS</div>
-        <div class="vs-card" id="c-right">
-          <span class="vs-emoji">🐯</span>
-          <div class="vs-num" id="c-right-num">—</div>
+        <div class="card" style="margin-top:8px;padding:12px 18px;">
+          <p style="font-size:20px;">
+            🌧 <b>阴雨天</b>：枝叶 <span class="hl-green">稠 → 南</span>，<span class="hl-blue">稀 → 北</span>
+          </p>
         </div>
-      </div>
-      <div class="game-feedback hint" id="c-feedback">👆 点一下你觉得更大的那个数</div>
-      <div class="game-actions">
-        <button class="next-btn" id="c-next">🎲 换一题</button>
       </div>
     </div>
   </section>
 
-  <!-- 游戏 4：数字接龙 -->
+  <!-- 13. 学习第五节 - 积雪 -->
   <section class="slide">
-    <h2 class="section">五、闯关游戏 ｜（四）数字接龙</h2>
-    <div class="with-bubble" style="margin:6px 0 8px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
-      </div>
-      <div class="bubble">观察一下数字之间的规律，找出问号位置应该填哪个数字！🤔</div>
-    </div>
-    <div class="game-board">
-      <div class="game-header">
-        <div class="game-target">🐾 找出空格里的数</div>
-        <div class="game-stats">
-          <span class="stat-pill green">⭐ <span id="s-score">0</span></span>
-          <span class="stat-pill">🔥 <span id="s-streak">0</span></span>
-          <span class="stat-pill blue">🎲 第 <span id="s-round">1</span> 题</span>
+    <h2 class="section">十一、品读课文 ｜ ❄️ 积雪指南针</h2>
+    <div class="grid-2" style="gap:18px;">
+      <div>
+        <div class="poem">
+          <p class="big-poem-line">
+            要是你在 <span class="highlight">雪地里</span> 迷了路，<br>
+            可千万别慌张，<br>
+            看看 <span class="highlight">沟渠里的积雪</span>，<br>
+            它会给你指点方向：<br>
+            雪 <span class="highlight">化得快</span> 的是 <span class="hl-blue">北</span> 方，<br>
+            化得 <span class="highlight">慢</span> 的是 <span style="background:#ffe5e5;color:#d4577a;padding:0 6px;border-radius:6px;">南</span> 方。
+          </p>
+        </div>
+        <div class="tip" style="margin-top:10px;">
+          ⚠ <b>注意</b>：这里有点和我们想的相反哦！沟渠是凹下去的，<b>沟北面的雪能晒到太阳</b>，化得快；<b>沟南面阳光照不到</b>，化得慢。所以反过来啦！
         </div>
       </div>
-      <div class="seq-row" id="s-row"></div>
-      <div class="mcq-options" id="s-options" style="grid-template-columns: 1fr 1fr 1fr 1fr;">
-        <div class="mcq-opt" data-i="0">—</div>
-        <div class="mcq-opt" data-i="1">—</div>
-        <div class="mcq-opt" data-i="2">—</div>
-        <div class="mcq-opt" data-i="3">—</div>
-      </div>
-      <div class="game-feedback hint" id="s-feedback">👆 看看相邻的数差多少？</div>
-      <div class="game-actions">
-        <button class="next-btn" id="s-next">🎲 换一题</button>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div style="background:#fff;width:280px;height:160px;border-radius:20px;border:4px solid #c8d9ff;box-shadow:0 6px 0 #a0bfff;position:relative;overflow:hidden;">
+          <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(180deg,#fff 0%,#f0f8ff 100%);"></div>
+          <div style="position:absolute;bottom:20px;left:20px;font-size:34px;">🌨️</div>
+          <div style="position:absolute;bottom:20px;right:20px;font-size:34px;">❄️</div>
+          <div style="position:absolute;top:14px;left:20px;background:#e6f0ff;color:#2d4d99;padding:2px 10px;border-radius:10px;font-size:14px;font-weight:bold;">北面（向阳）化得快</div>
+          <div style="position:absolute;top:14px;right:20px;background:#fff0f3;color:#d4577a;padding:2px 10px;border-radius:10px;font-size:14px;font-weight:bold;">南面（背阴）化得慢</div>
+        </div>
+        <div class="card" style="margin-top:8px;padding:12px 18px;">
+          <p style="font-size:20px;">
+            ❄️ <b>大雪天</b>：化快 <span class="hl-blue">→ 北</span>，化慢 → 南
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 板书设计 -->
+  <!-- 14. 学习第六节 - 总结升华 -->
   <section class="slide">
-    <h2 class="section">六、板书设计</h2>
-    <div class="card" style="background:#3a3a3a;border:6px solid #8b4513;border-radius:18px;padding:30px 40px;margin-top:6px;color:#fff;box-shadow:0 8px 0 #5d2f0a;">
-      <h3 style="color:#fff8d6;text-align:center;font-size:30px;margin-top:0;border-bottom:2px solid #fff8d6;padding-bottom:10px;letter-spacing:4px;">保护野生哺乳动物</h3>
-      <p style="text-align:center;color:#ffd6e0;margin-bottom:14px;font-size:16px;">—— 认识 1000 ~ 10000 以内的数 ——</p>
-      <div class="grid-2" style="gap:30px;">
+    <h2 class="section">十二、品读课文 ｜ 🌟 总结升华</h2>
+    <div class="poem" style="margin-bottom:10px;">
+      <p class="big-poem-line">
+        要是你在野外迷了路，<br>
+        大自然有 <span class="highlight">很多</span> 天然的指南针，<br>
+        要你 <span class="highlight">细细观察</span>，<br>
+        要你 <span class="highlight">多多去想</span>。
+      </p>
+    </div>
+    <div class="grid-2" style="gap:14px;">
+      <div class="card">
+        <h3>🔁 首尾呼应</h3>
+        <p>第 <b>1</b> 节和第 <b>6</b> 节都说"要是你在野外迷了路"，让课文 <span class="hl-green">首尾呼应</span>，结构更完整！</p>
+      </div>
+      <div class="card">
+        <h3>💡 课文告诉我们</h3>
+        <p>大自然奥秘无穷，只要我们做生活中的有 <b>心人</b>——<span class="hl-green">细细观察</span>、<span class="hl-green">多多思考</span>，就能发现更多的"天然指南针"！</p>
+      </div>
+    </div>
+    <div class="tip" style="margin-top:10px;">
+      ✨ <b>"很多"</b> 一词说明：大自然里的天然指南针 <b>不止课文里这 4 种</b>，还有很多等着我们去发现哦！
+    </div>
+  </section>
+
+  <!-- 15. 拓展延伸 -->
+  <section class="slide">
+    <h2 class="section">十三、拓展延伸 ｜ 还有什么"指南针"？</h2>
+    <div class="with-bubble">
+      <div class="mascot">
+        <div class="avatar">🧒</div>
+        <div class="name">小 探</div>
+      </div>
+      <div class="bubble">大自然里其实还有 <b>很多很多</b> 天然指南针。一起来看看吧！</div>
+    </div>
+    <div class="grid-3" style="margin-top:8px;">
+      <div class="compass"><div class="icon">🐜</div><div class="name">蚂蚁洞</div><div class="dir">洞口朝南</div></div>
+      <div class="compass"><div class="icon">🌻</div><div class="name">向日葵</div><div class="dir">花朝东方</div></div>
+      <div class="compass"><div class="icon">🌳</div><div class="name">树桩年轮</div><div class="dir">疏一面 → 南</div></div>
+      <div class="compass"><div class="icon">🪨</div><div class="name">岩石苔藓</div><div class="dir">长苔藓 → 北</div></div>
+      <div class="compass"><div class="icon">🐝</div><div class="name">蜜蜂蜂巢</div><div class="dir">入口朝南</div></div>
+      <div class="compass"><div class="icon">🌙</div><div class="name">月亮</div><div class="dir">弯口对东/西</div></div>
+    </div>
+    <div class="tip" style="margin-top:10px;">
+      🌍 你还知道哪些大自然的小秘密？回家跟爸爸妈妈一起查一查吧！
+    </div>
+  </section>
+
+  <!-- 16. 课堂练习 -->
+  <section class="slide">
+    <h2 class="section">十四、闯关游戏 ｜ 练习巩固</h2>
+    <div class="question">
+      <span class="tag">第 1 关</span>选择题：中午时太阳在哪个方向？
+      <div class="mcq-options" id="q1-options">
+        <div class="mcq-opt" data-correct="0">东边</div>
+        <div class="mcq-opt" data-correct="0">西边</div>
+        <div class="mcq-opt" data-correct="1">南边 ☀️</div>
+        <div class="mcq-opt" data-correct="0">北边</div>
+      </div>
+    </div>
+    <div class="question">
+      <span class="tag">第 2 关</span>填空：北极星永远高挂在 <span class="answer">北方</span> 方。
+    </div>
+    <div class="question">
+      <span class="tag">第 3 关</span>判断：阴雨天，大树枝叶稠的一面是北方。<span class="answer">✘ 错（应是"南方"）</span>
+    </div>
+    <div class="question">
+      <span class="tag">第 4 关</span>连一连：把指南针和它指的方向连起来。<br>
+      <span style="font-size:20px;">
+        ☀️ 太阳（中午）—— <span class="answer">南方</span>　|
+        ⭐ 北极星 —— <span class="answer">北方</span>　|
+        🌳 树叶稠 —— <span class="answer">南方</span>　|
+        ❄️ 雪化得快 —— <span class="answer">北方</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- 17. 课堂练习二 - 仿写 -->
+  <section class="slide">
+    <h2 class="section">十五、能力提升 ｜ 仿写诗句</h2>
+    <div class="card" style="margin-bottom:14px;">
+      <h3>📖 仿照课文，再写一节小诗</h3>
+      <div class="poem" style="font-size:22px;font-family:'STKaiti','KaiTi','楷体',serif;">
+        <p>要是碰上 ________ ，<br>__________ 也会来帮忙。<br>__________ 的一面，<br>就是 __________ 。</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3>✨ 小探的范例</h3>
+      <div class="poem" style="font-size:22px;font-family:'STKaiti','KaiTi','楷体',serif;color:#2d6a4f;">
+        <p>要是碰上 <span class="hl-green">大晴天</span> ，<br><span class="hl-green">蚂蚁洞</span> 也会来帮忙。<br><span class="hl-green">洞口大</span> 的一面，<br>就是温暖的 <span class="hl-green">南方</span> 。</p>
+      </div>
+      <p style="color:#888;font-size:18px;margin-top:6px;">💭 你能写出你自己的小诗吗？快试试看！</p>
+    </div>
+  </section>
+
+  <!-- 18. 板书设计 -->
+  <section class="slide">
+    <h2 class="section">十六、板书设计 ｜ 一目了然</h2>
+    <div style="background:#2d3a2d;color:#fff;padding:24px 30px;border-radius:24px;flex:1;box-shadow:0 8px 0 #1a2418;border:6px solid #4a5a4a;">
+      <h3 style="color:#ffd166;text-align:center;border-bottom:3px dashed #ffd166;padding-bottom:8px;font-size:30px;">要是你在野外迷了路</h3>
+      <div class="grid-2" style="margin-top:14px;">
         <div>
-          <p style="color:#fff8d6;font-size:22px;border-left:4px solid #ffd166;padding-left:10px;">📌 计数单位</p>
-          <p style="font-size:24px;line-height:2;">10 个一　= 一十<br>10 个十　= 一百<br>10 个一百 = <span style="color:#ffd166;">一千</span><br>10 个一千 = <span style="color:#ff8fab;">一万</span></p>
+          <p style="color:#95d5b2;font-size:22px;border-left:4px solid #95d5b2;padding-left:10px;">📌 课文结构（总—分—总）</p>
+          <p style="font-size:22px;line-height:2;margin-top:6px;">
+            <b style="color:#ffd166;">总：</b>大自然有很多天然指南针<br>
+            <b style="color:#ffd166;">分：</b><br>
+            　🌞 太阳 → 中午南，树影北<br>
+            　⭐ 北极星 → 永远高挂北方<br>
+            　🌳 大树 → 枝叶稠 = 南<br>
+            　❄️ 积雪 → 化快 = 北<br>
+            <b style="color:#ffd166;">总：</b>细细观察，多多去想
+          </p>
         </div>
         <div>
-          <p style="color:#fff8d6;font-size:22px;border-left:4px solid #ffd166;padding-left:10px;">📌 读写法 (例：1864)</p>
-          <table style="font-size:20px;color:#fff;border-collapse:collapse;margin-top:6px;">
-            <tr><td style="padding:4px 12px;border:1px solid #999;">千位</td><td style="padding:4px 12px;border:1px solid #999;">百位</td><td style="padding:4px 12px;border:1px solid #999;">十位</td><td style="padding:4px 12px;border:1px solid #999;">个位</td></tr>
-            <tr><td style="padding:4px 12px;border:1px solid #999;color:#ffd166;font-size:24px;text-align:center;">1</td><td style="padding:4px 12px;border:1px solid #999;color:#ffd166;font-size:24px;text-align:center;">8</td><td style="padding:4px 12px;border:1px solid #999;color:#ffd166;font-size:24px;text-align:center;">6</td><td style="padding:4px 12px;border:1px solid #999;color:#ffd166;font-size:24px;text-align:center;">4</td></tr>
-          </table>
-          <p style="margin-top:8px;font-size:20px;">写作：<span style="color:#ffd166;">1864</span><br>读作：<span style="color:#ffd166;">一千八百六十四</span></p>
+          <p style="color:#95d5b2;font-size:22px;border-left:4px solid #95d5b2;padding-left:10px;">📌 中心思想</p>
+          <p style="font-size:22px;line-height:1.8;margin-top:6px;">
+            大自然奥秘无穷，<br>
+            只要我们 <span style="color:#ffd166;">留心观察</span>，<br>
+            勤于思考，<br>
+            就能发现 <span style="color:#ffd166;">无穷的智慧</span>。
+          </p>
+          <p style="color:#95d5b2;font-size:22px;border-left:4px solid #95d5b2;padding-left:10px;margin-top:14px;">📌 写作方法</p>
+          <p style="font-size:20px;margin-top:4px;">
+            ① 比喻：北极星 = 指路灯<br>
+            ② 拟人：太阳 = 忠实的向导<br>
+            ③ 首尾呼应：完整严谨
+          </p>
         </div>
       </div>
-      <p style="margin-top:14px;color:#ff8fab;font-size:20px;border-top:2px dashed #555;padding-top:10px;">⚠ 注意：中间 0 读"零"；末尾 0 不读。</p>
     </div>
-    <p style="text-align:center;color:#888;margin-top:8px;font-size:16px;">设计意图：左边呈现知识结构（计数单位的递进），右边呈现典型例题（数位、读写、含 0 提醒），便于学生整体回顾。</p>
   </section>
 
-  <!-- 14. 总结 -->
+  <!-- 19. 课堂小结 -->
   <section class="slide">
-    <h2 class="section">七、课堂小结 ｜ 这节课我学到了……</h2>
+    <h2 class="section">十七、课堂小结 ｜ 收获满满</h2>
     <div class="with-bubble" style="margin:6px 0 12px;">
-      <div class="miaoxiang">
-        <div class="avatar">👧</div>
-        <div class="name">妙 想</div>
+      <div class="mascot">
+        <div class="avatar">🧒</div>
+        <div class="name">小 探</div>
       </div>
-      <div class="bubble">和妙想一起回忆一下，今天我们都学了什么吧～</div>
+      <div class="bubble">和小探一起回忆一下，今天我们都学到了什么吧～</div>
     </div>
-    <div class="objective"><span class="num-circle">1</span>认识了新的计数单位：<b>千</b> 和 <b>万</b>。</div>
-    <div class="objective"><span class="num-circle">2</span>知道 10 个一百是一千，<b>10 个一千是一万</b>。</div>
-    <div class="objective"><span class="num-circle">3</span>会读、会写万以内的四位数。</div>
-    <div class="objective"><span class="num-circle">4</span>读数时：中间有 0 读"零"，末尾的 0 不读。</div>
-    <div class="objective" style="border-color:#d62828;background:#fff5f5;">
-      <span class="num-circle" style="background:#d62828;">❤</span>
-      <b>保护野生哺乳动物，从我做起！</b>
+    <div class="objective"><span class="num-circle">1</span>认识并会写课文中的 <b>生字新词</b>。</div>
+    <div class="objective"><span class="num-circle">2</span>能正确、流利、有感情地 <b>朗读和背诵</b> 课文。</div>
+    <div class="objective"><span class="num-circle">3</span>知道课文写的 <b>四种天然指南针</b>（太阳、北极星、大树、积雪）及它们的特点。</div>
+    <div class="objective"><span class="num-circle">4</span>学会了 <b>留心观察大自然</b>，遇到困难要 <b>冷静思考</b>。</div>
+    <div class="objective" style="border-color:#d4577a;background:#fff5f5;box-shadow:0 5px 0 #ffd6e0;">
+      <span class="num-circle" style="background:#d4577a;box-shadow:0 3px 0 #a83352;">❤</span>
+      <b>大自然是我们最好的老师，让我们一起去发现更多秘密吧！</b>
     </div>
   </section>
 
-  <!-- 15. 作业 -->
+  <!-- 20. 课后作业 -->
   <section class="slide">
-    <h2 class="section">八、布置作业 ｜ 课后任务</h2>
-    <div class="miaoxiang corner-mascot">
-      <div class="avatar">👧</div>
-      <div class="name">妙 想</div>
+    <h2 class="section">十八、布置作业 ｜ 课后任务</h2>
+    <div class="mascot corner-mascot">
+      <div class="avatar">🧒</div>
+      <div class="name">小 探</div>
     </div>
-    <div class="card" style="margin-bottom:16px;">
+    <div class="card" style="margin-bottom:12px;">
       <h3>📘 基础作业</h3>
       <ul>
-        <li>课本第 24 页第 1、2、3 题。</li>
-        <li>用计数器拨出：2345、4080、6500、9009 这四个数。</li>
+        <li>有感情地 <b>朗读并背诵</b> 课文。</li>
+        <li>抄写生字词，每个 3 遍：慌张、辨别、忠实、向导、稠密、稀少、指南针。</li>
       </ul>
     </div>
-    <div class="card" style="margin-bottom:16px;">
+    <div class="card" style="margin-bottom:12px;">
       <h3>🌱 实践作业</h3>
       <ul>
-        <li>查一查：再了解 2 种我国一级保护哺乳动物的数量，记录下来读给爸爸妈妈听。</li>
-        <li>画一张"保护野生动物"的小海报。</li>
+        <li>课文里讲了 4 种天然指南针，<b>仿照课文写一节小诗</b>，介绍一种新的"天然指南针"。</li>
+        <li>和爸爸妈妈一起 <b>查一查、找一找</b>：大自然里还有哪些有趣的小秘密？</li>
       </ul>
     </div>
     <div class="card">
       <h3>🚀 挑战题</h3>
-      <p>用 <b>3、5、0、0</b> 四个数字，可以组成多少个不同的四位数？请写出来并读一读。</p>
-      <p style="margin-top:8px;color:#888;font-size:20px;">提示：0 不能放在最高位。</p>
+      <p>如果你是小作者，给课文 <b>加上第 7 节</b>，写一种你最喜欢的天然指南针。</p>
+      <p style="margin-top:8px;color:#888;font-size:20px;">提示：可以用比喻、拟人，注意末尾要押韵哦～</p>
     </div>
   </section>
 
-  <!-- 结束 -->
+  <!-- 21. 结束页 -->
   <section class="slide cover">
-    <div class="miaoxiang big">
-      <div class="avatar">👧</div>
-      <div class="name">妙 想</div>
+    <div class="mascot big">
+      <div class="avatar">🧒</div>
+      <div class="name">小 探</div>
     </div>
-    <h1 style="font-size:64px;margin-top:24px;">谢谢同学们 ♡</h1>
-    <div class="meta">妙想和你们一起，守护可爱的动物朋友 🐾💕</div>
-    <div style="margin-top:20px;font-size:30px;color:#fff;text-shadow:0 3px 0 #ff6f91;">下节课，妙想再来找你们玩！👋</div>
+    <h1 style="font-size:60px;margin-top:20px;">谢谢同学们 🌿</h1>
+    <div class="meta">愿你成为留心观察的小小探险家 🧭✨</div>
+    <div style="margin-top:18px;font-size:28px;color:#fff;text-shadow:0 3px 0 #2d6a4f;">下节课，小探再带你们去探险！👋</div>
   </section>
 
 </div>
@@ -1777,16 +1273,19 @@
 <!-- 控制条 -->
 <div class="controls">
   <button id="prev" title="上一页">‹</button>
-  <span class="page-info"><span id="cur">1</span> / <span id="total">16</span></span>
+  <span class="page-info"><span id="cur">1</span> / <span id="total">21</span></span>
   <button id="next" title="下一页">›</button>
   <button id="toggle-ans" title="显示/隐藏答案" style="width:auto;padding:0 14px;border-radius:20px;font-size:16px;">显示答案</button>
   <button id="pen-toggle" title="开启/关闭画笔（快捷键 P）" style="width:auto;padding:0 14px;border-radius:20px;font-size:16px;">🖊 画笔</button>
 </div>
 
+<!-- 烟花层 -->
+<div class="celebration" id="celebration"></div>
+
 <!-- 画笔画布 -->
 <canvas id="pen-canvas"></canvas>
 
-<!-- 画笔工具栏（开启画笔时显示） -->
+<!-- 画笔工具栏 -->
 <div class="pen-toolbar" id="pen-toolbar">
   <span class="label">工具</span>
   <button class="tool active" data-mode="pen" title="画笔">🖊</button>
@@ -1794,9 +1293,9 @@
   <button class="tool" data-mode="eraser" title="橡皮">🧽</button>
   <div class="sep"></div>
   <span class="label">颜色</span>
-  <button class="color active" data-color="#ff4d6d" style="background:#ff4d6d" title="红色"></button>
+  <button class="color active" data-color="#2d6a4f" style="background:#2d6a4f" title="森林绿"></button>
+  <button class="color" data-color="#d4577a" style="background:#d4577a" title="红色"></button>
   <button class="color" data-color="#4895ef" style="background:#4895ef" title="蓝色"></button>
-  <button class="color" data-color="#52b788" style="background:#52b788" title="绿色"></button>
   <button class="color" data-color="#f8b500" style="background:#f8b500" title="橙色"></button>
   <button class="color" data-color="#222" style="background:#222" title="黑色"></button>
   <div class="sep"></div>
@@ -1811,14 +1310,15 @@
   let cur = 0;
   document.getElementById('total').textContent = total;
 
-  // 自动给非封面 slide 注入页眉/页脚（真实课件外框）
+  // 自动给非封面 slide 注入页眉/页脚
   const stages = [
-    {label:'目标', match:/学习目标|教学重点/},
-    {label:'复习', match:/复习导入/},
-    {label:'情境', match:/情境引入/},
-    {label:'探究', match:/探究新知/},
-    {label:'练习', match:/巩固练习/},
-    {label:'游戏', match:/闯关游戏/},
+    {label:'目标', match:/学习目标/},
+    {label:'导入', match:/情境引入|解读课题/},
+    {label:'识字', match:/初读识字|规范书写|词语理解/},
+    {label:'朗读', match:/朗读课文|整体感知/},
+    {label:'品读', match:/品读课文/},
+    {label:'拓展', match:/拓展延伸/},
+    {label:'练习', match:/闯关游戏|能力提升/},
     {label:'板书', match:/板书设计/},
     {label:'小结', match:/课堂小结/},
     {label:'作业', match:/布置作业/}
@@ -1833,14 +1333,14 @@
     header.className = 'chrome-header';
     header.innerHTML = `
       <div class="left">
-        <span class="chrome-subject">数学</span>
-        <span class="chrome-title">《<b>保护野生哺乳动物</b>》· 北师大版二年级下册 · 生活中的大数</span>
+        <span class="chrome-subject">语文</span>
+        <span class="chrome-title">《<b>要是你在野外迷了路</b>》· 部编版二年级下册 · 第六单元</span>
       </div>
       <div class="right">
         <span class="chrome-page">${i+1} / ${total}</span>
       </div>`;
     s.prepend(header);
-    // 页脚（含教学环节进度条）
+    // 页脚
     const footer = document.createElement('div');
     footer.className = 'chrome-footer';
     const stepperHtml = stages.map((st, idx) =>
@@ -1848,7 +1348,7 @@
     ).join('');
     footer.innerHTML = `
       <div class="chrome-stepper">${stepperHtml}</div>
-      <div class="chrome-meta">主讲：妙想　|　© 北师大版小学数学</div>`;
+      <div class="chrome-meta">主讲：小探　|　© 部编版小学语文</div>`;
     s.appendChild(footer);
   });
 
@@ -1888,384 +1388,48 @@
     a.addEventListener('click', () => a.classList.toggle('show'));
   });
 
-  // ========== 妙想的拨珠挑战游戏 ==========
-  const game = {
-    target: 0,
-    beads: [0, 0, 0, 0],
-    score: 0,
-    streak: 0,
-    round: 0,
-    locked: false,
-    colors: ['', 'blue', 'green', 'yellow'],
-    randomTarget() {
-      // 随机生成 1000~9999 的四位数
-      return Math.floor(Math.random() * 9000) + 1000;
-    },
-    newRound() {
-      this.round++;
-      this.target = this.randomTarget();
-      this.beads = [0, 0, 0, 0];
-      this.locked = false;
-      document.getElementById('g-target').textContent = this.target;
-      document.getElementById('g-round').textContent = this.round;
-      document.getElementById('g-feedback').textContent = '👆 试试点上面的按钮拨珠子吧！';
-      document.getElementById('g-feedback').className = 'game-feedback hint';
-      this.render();
-    },
-    add(i) {
-      if (this.locked) return;
-      if (this.beads[i] < 9) { this.beads[i]++; this.render(); this.check(); }
-      else { this.flash('每个数位最多 9 颗珠子哦！', 'hint'); }
-    },
-    sub(i) {
-      if (this.locked) return;
-      if (this.beads[i] > 0) { this.beads[i]--; this.render(); this.check(); }
-    },
-    current() {
-      return this.beads[0]*1000 + this.beads[1]*100 + this.beads[2]*10 + this.beads[3];
-    },
-    render() {
-      for (let i = 0; i < 4; i++) {
-        const beadsBox = document.getElementById('g-beads-' + i);
-        beadsBox.innerHTML = '';
-        for (let k = 0; k < this.beads[i]; k++) {
-          const b = document.createElement('div');
-          b.className = 'bead ' + this.colors[i];
-          beadsBox.appendChild(b);
-        }
-        document.getElementById('g-digit-' + i).textContent = this.beads[i];
-      }
-      const cur = this.current();
-      const curEl = document.getElementById('g-current');
-      curEl.textContent = cur;
-      curEl.className = 'num' + (cur === this.target ? ' correct' : '');
-      document.getElementById('g-score').textContent = this.score;
-      document.getElementById('g-streak').textContent = this.streak;
-    },
-    check() {
-      const cur = this.current();
-      if (cur === this.target) {
-        this.score++;
-        this.streak++;
-        this.locked = true;
-        this.flash('🎉 太棒了！妙想为你点赞！点"换一题"挑战下一关！', 'success');
-        this.celebrate();
-      } else {
-        const diff = cur - this.target;
-        if (diff === 0) return;
-        const hint = Math.abs(diff) < 100 ? '快接近啦～再调一调个位/十位！'
-                   : (cur > this.target ? '拨多啦，去掉一些珠子试试！' : '还差一点，再加一些珠子！');
-        this.flash(hint, 'hint');
-      }
-    },
-    flash(msg, type) {
-      const fb = document.getElementById('g-feedback');
-      fb.textContent = msg;
-      fb.className = 'game-feedback ' + type;
-    },
-    miss() {
-      // 点击"换一题"且没成功 → streak 清零
-      if (!this.locked && this.round > 0) this.streak = 0;
-      this.newRound();
-    },
-    celebrate() {
-      const layer = document.getElementById('celebration');
-      layer.innerHTML = '';
-      layer.classList.add('show');
-      const emojis = ['🎉','⭐','🌟','💖','🐼','🌸','🎀','✨'];
-      for (let i = 0; i < 24; i++) {
-        const c = document.createElement('div');
-        c.className = 'confetti';
-        c.textContent = emojis[Math.floor(Math.random()*emojis.length)];
-        c.style.left = (Math.random()*100) + 'vw';
-        c.style.animationDelay = (Math.random()*0.4) + 's';
-        c.style.fontSize = (28 + Math.random()*30) + 'px';
-        layer.appendChild(c);
-      }
-      setTimeout(() => layer.classList.remove('show'), 1800);
-    },
-    init() {
-      document.querySelectorAll('.game-btn.plus').forEach(b =>
-        b.addEventListener('click', () => this.add(+b.dataset.i)));
-      document.querySelectorAll('.game-btn.minus').forEach(b =>
-        b.addEventListener('click', () => this.sub(+b.dataset.i)));
-      document.getElementById('g-next').addEventListener('click', () => this.miss());
-      this.newRound();
+  // 烟花庆祝
+  function celebrate() {
+    const layer = document.getElementById('celebration');
+    layer.innerHTML = '';
+    layer.classList.add('show');
+    const emojis = ['🎉','⭐','🌟','🌿','🍃','🧭','✨','☀️'];
+    for (let i = 0; i < 24; i++) {
+      const c = document.createElement('div');
+      c.className = 'confetti';
+      c.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+      c.style.left = (Math.random()*100) + 'vw';
+      c.style.animationDelay = (Math.random()*0.4) + 's';
+      c.style.fontSize = (28 + Math.random()*30) + 'px';
+      layer.appendChild(c);
     }
-  };
-  game.init();
-
-  // ========== 工具：把四位数转成中文读法 ==========
-  function readNumber(n) {
-    if (n === 10000) return '一万';
-    if (n === 0) return '零';
-    const digits = ['零','一','二','三','四','五','六','七','八','九'];
-    const units = ['','十','百','千'];
-    const s = String(n);
-    let result = '';
-    let zeroFlag = false;
-    for (let i = 0; i < s.length; i++) {
-      const d = parseInt(s[i]);
-      const unit = units[s.length - 1 - i];
-      if (d === 0) {
-        zeroFlag = true;
-      } else {
-        if (zeroFlag) { result += '零'; zeroFlag = false; }
-        result += digits[d] + unit;
-      }
-    }
-    // 特殊：100~199 不读"一百"为"百"，仍读"一百"，所以无需调整（与小学读法一致）
-    return result;
+    setTimeout(() => layer.classList.remove('show'), 1800);
   }
 
-  function celebrate() { game.celebrate(); }
-  function shuffle(a) { for (let i = a.length-1; i>0; i--) { const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
-
-  // ========== 游戏二：读数小达人 ==========
-  const readGame = {
-    n: 0, options: [], correctIdx: 0, score: 0, streak: 0, round: 0, locked: false,
-    newQ() {
-      this.round++;
-      this.locked = false;
-      // 60% 概率出含 0 的数（更有挑战）
-      if (Math.random() < 0.6) {
-        const positions = [
-          () => Math.floor(Math.random()*9+1)*1000 + Math.floor(Math.random()*9+1), // 千_ _个
-          () => Math.floor(Math.random()*9+1)*1000 + Math.floor(Math.random()*9+1)*10, // 千_十0
-          () => Math.floor(Math.random()*9+1)*1000 + Math.floor(Math.random()*9+1)*100, // 千百00
-        ];
-        this.n = positions[Math.floor(Math.random()*3)]();
-      } else {
-        this.n = Math.floor(Math.random()*9000) + 1000;
-      }
-      const correct = readNumber(this.n);
-      // 生成 3 个干扰项
-      const wrongs = new Set();
-      const tries = [this.n+1, this.n-1, this.n+10, this.n-10, this.n+100, this.n-100, this.n+1000, this.n-1000];
-      shuffle(tries);
-      for (const v of tries) {
-        if (v >= 1000 && v <= 9999) {
-          const r = readNumber(v);
-          if (r !== correct) wrongs.add(r);
-        }
-        if (wrongs.size >= 3) break;
-      }
-      this.options = shuffle([correct, ...wrongs]);
-      this.correctIdx = this.options.indexOf(correct);
-      this.render();
-    },
-    render() {
-      document.getElementById('r-num').textContent = this.n;
-      document.getElementById('r-round').textContent = this.round;
-      document.getElementById('r-score').textContent = this.score;
-      document.getElementById('r-streak').textContent = this.streak;
-      const opts = document.querySelectorAll('#r-options .mcq-opt');
-      opts.forEach((el, i) => {
-        el.textContent = this.options[i] || '—';
-        el.className = 'mcq-opt';
-      });
-      const fb = document.getElementById('r-feedback');
-      fb.textContent = '👆 想一想，再点一个选项';
-      fb.className = 'game-feedback hint';
-    },
-    pick(i) {
-      if (this.locked) return;
-      this.locked = true;
-      const opts = document.querySelectorAll('#r-options .mcq-opt');
-      opts.forEach(el => el.classList.add('disabled'));
-      const fb = document.getElementById('r-feedback');
-      if (i === this.correctIdx) {
-        opts[i].classList.add('correct');
-        this.score++; this.streak++;
-        fb.textContent = '🎉 妙想为你点赞！读对啦！';
-        fb.className = 'game-feedback success';
+  // 第 1 关选择题互动
+  document.querySelectorAll('#q1-options .mcq-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      const all = document.querySelectorAll('#q1-options .mcq-opt');
+      all.forEach(o => o.classList.add('disabled'));
+      if (opt.dataset.correct === '1') {
+        opt.classList.add('correct');
         celebrate();
       } else {
-        opts[i].classList.add('wrong');
-        opts[this.correctIdx].classList.add('correct');
-        this.streak = 0;
-        fb.textContent = '😊 没关系！正确答案是：' + this.options[this.correctIdx];
-        fb.className = 'game-feedback hint';
+        opt.classList.add('wrong');
+        all.forEach(o => { if (o.dataset.correct === '1') o.classList.add('correct'); });
       }
-      document.getElementById('r-score').textContent = this.score;
-      document.getElementById('r-streak').textContent = this.streak;
-    },
-    init() {
-      document.querySelectorAll('#r-options .mcq-opt').forEach(b =>
-        b.addEventListener('click', () => this.pick(+b.dataset.i)));
-      document.getElementById('r-next').addEventListener('click', () => this.newQ());
-      this.newQ();
-    }
-  };
-  readGame.init();
-
-  // ========== 游戏三：比大小擂台 ==========
-  const compareGame = {
-    a: 0, b: 0, score: 0, streak: 0, round: 0, locked: false,
-    newQ() {
-      this.round++;
-      this.locked = false;
-      do {
-        // 30% 概率出位数不同的数（如 999 vs 1000）让对比更有趣
-        if (Math.random() < 0.3) {
-          this.a = Math.floor(Math.random()*900) + 100;
-          this.b = Math.floor(Math.random()*9000) + 1000;
-          if (Math.random() < 0.5) [this.a, this.b] = [this.b, this.a];
-        } else {
-          this.a = Math.floor(Math.random()*9000) + 1000;
-          this.b = Math.floor(Math.random()*9000) + 1000;
-        }
-      } while (this.a === this.b);
-      this.render();
-    },
-    render() {
-      document.getElementById('c-left-num').textContent = this.a;
-      document.getElementById('c-right-num').textContent = this.b;
-      document.getElementById('c-round').textContent = this.round;
-      document.getElementById('c-score').textContent = this.score;
-      document.getElementById('c-streak').textContent = this.streak;
-      const L = document.getElementById('c-left');
-      const R = document.getElementById('c-right');
-      L.className = 'vs-card'; R.className = 'vs-card';
-      const fb = document.getElementById('c-feedback');
-      fb.textContent = '👆 点一下你觉得更大的那个数';
-      fb.className = 'game-feedback hint';
-    },
-    pick(side) {
-      if (this.locked) return;
-      this.locked = true;
-      const L = document.getElementById('c-left');
-      const R = document.getElementById('c-right');
-      L.classList.add('disabled'); R.classList.add('disabled');
-      const correct = this.a > this.b ? 'left' : 'right';
-      const fb = document.getElementById('c-feedback');
-      if (side === correct) {
-        (side === 'left' ? L : R).classList.add('win');
-        (side === 'left' ? R : L).classList.add('lose');
-        this.score++; this.streak++;
-        fb.textContent = '🎉 没错！' + Math.max(this.a, this.b) + ' 比 ' + Math.min(this.a, this.b) + ' 大！';
-        fb.className = 'game-feedback success';
-        celebrate();
-      } else {
-        (side === 'left' ? L : R).classList.add('lose');
-        (correct === 'left' ? L : R).classList.add('win');
-        this.streak = 0;
-        fb.textContent = '😊 再仔细看看：' + Math.max(this.a, this.b) + ' > ' + Math.min(this.a, this.b);
-        fb.className = 'game-feedback hint';
-      }
-      document.getElementById('c-score').textContent = this.score;
-      document.getElementById('c-streak').textContent = this.streak;
-    },
-    init() {
-      document.getElementById('c-left').addEventListener('click', () => this.pick('left'));
-      document.getElementById('c-right').addEventListener('click', () => this.pick('right'));
-      document.getElementById('c-next').addEventListener('click', () => this.newQ());
-      this.newQ();
-    }
-  };
-  compareGame.init();
-
-  // ========== 游戏四：数字接龙 ==========
-  const seqGame = {
-    seq: [], hiddenIdx: 0, options: [], correctIdx: 0, score: 0, streak: 0, round: 0, locked: false,
-    newQ() {
-      this.round++;
-      this.locked = false;
-      const stepChoices = [1, 1, 10, 10, 100, 100, 1000];
-      const step = stepChoices[Math.floor(Math.random()*stepChoices.length)];
-      // 保证 5 个数都在 1~10000
-      let start;
-      do {
-        start = Math.floor(Math.random()*9000) + 500;
-      } while (start + 4*step > 10000 || start < step);
-      this.seq = [start, start+step, start+2*step, start+3*step, start+4*step];
-      this.hiddenIdx = 1 + Math.floor(Math.random()*3); // 隐藏中间的位置
-      const correct = this.seq[this.hiddenIdx];
-      // 生成干扰项
-      const wrongs = new Set();
-      const cands = [correct+step, correct-step, correct+1, correct-1, correct+10, correct-10];
-      shuffle(cands);
-      for (const v of cands) {
-        if (v > 0 && v !== correct) wrongs.add(v);
-        if (wrongs.size >= 3) break;
-      }
-      this.options = shuffle([correct, ...wrongs]);
-      this.correctIdx = this.options.indexOf(correct);
-      this.render();
-    },
-    render() {
-      const row = document.getElementById('s-row');
-      row.innerHTML = '';
-      for (let i = 0; i < 5; i++) {
-        if (i > 0) {
-          const a = document.createElement('span');
-          a.className = 'seq-arrow';
-          a.textContent = '➡';
-          row.appendChild(a);
-        }
-        const c = document.createElement('div');
-        c.className = 'seq-cell' + (i === this.hiddenIdx ? ' blank' : '');
-        c.textContent = i === this.hiddenIdx ? '?' : this.seq[i];
-        c.id = 's-cell-' + i;
-        row.appendChild(c);
-      }
-      document.getElementById('s-round').textContent = this.round;
-      document.getElementById('s-score').textContent = this.score;
-      document.getElementById('s-streak').textContent = this.streak;
-      const opts = document.querySelectorAll('#s-options .mcq-opt');
-      opts.forEach((el, i) => {
-        el.textContent = this.options[i];
-        el.className = 'mcq-opt';
-      });
-      const fb = document.getElementById('s-feedback');
-      fb.textContent = '👆 看看相邻的数差多少？';
-      fb.className = 'game-feedback hint';
-    },
-    pick(i) {
-      if (this.locked) return;
-      this.locked = true;
-      const opts = document.querySelectorAll('#s-options .mcq-opt');
-      opts.forEach(el => el.classList.add('disabled'));
-      const fb = document.getElementById('s-feedback');
-      const cell = document.getElementById('s-cell-' + this.hiddenIdx);
-      if (i === this.correctIdx) {
-        opts[i].classList.add('correct');
-        cell.textContent = this.seq[this.hiddenIdx];
-        cell.className = 'seq-cell filled';
-        this.score++; this.streak++;
-        fb.textContent = '🎉 厉害！规律找对啦！';
-        fb.className = 'game-feedback success';
-        celebrate();
-      } else {
-        opts[i].classList.add('wrong');
-        opts[this.correctIdx].classList.add('correct');
-        cell.textContent = this.seq[this.hiddenIdx];
-        cell.className = 'seq-cell filled';
-        this.streak = 0;
-        fb.textContent = '😊 正确答案是 ' + this.seq[this.hiddenIdx] + '，再观察下规律吧！';
-        fb.className = 'game-feedback hint';
-      }
-      document.getElementById('s-score').textContent = this.score;
-      document.getElementById('s-streak').textContent = this.streak;
-    },
-    init() {
-      document.querySelectorAll('#s-options .mcq-opt').forEach(b =>
-        b.addEventListener('click', () => this.pick(+b.dataset.i)));
-      document.getElementById('s-next').addEventListener('click', () => this.newQ());
-      this.newQ();
-    }
-  };
-  seqGame.init();
+    });
+  });
 
   // ========== 手写画笔（按页保存批注） ==========
   const pen = {
     canvas: null, ctx: null,
     enabled: false,
-    color: '#ff4d6d',
+    color: '#2d6a4f',
     mode: 'pen',
     drawing: false,
     current: null,
-    strokes: {}, // {pageIdx: [strokes]}
+    strokes: {},
     init() {
       this.canvas = document.getElementById('pen-canvas');
       this.ctx = this.canvas.getContext('2d');
@@ -2289,7 +1453,6 @@
       document.querySelector('.pen-toolbar .tool[data-action="clear"]')
         .addEventListener('click', () => this.clear());
 
-      // 快捷键 P 切换画笔
       document.addEventListener('keydown', e => {
         if (e.key === 'p' || e.key === 'P') {
           if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
@@ -2300,7 +1463,6 @@
       });
     },
     resize() {
-      // 用 device pixel ratio 让画笔更清晰
       const dpr = window.devicePixelRatio || 1;
       this.canvas.width = window.innerWidth * dpr;
       this.canvas.height = window.innerHeight * dpr;
@@ -2326,7 +1488,6 @@
       this.color = c;
       document.querySelectorAll('.pen-toolbar .color').forEach(b => b.classList.remove('active'));
       el.classList.add('active');
-      // 选颜色时自动切回画笔模式（除非当前是橡皮）
       if (this.mode === 'eraser') {
         this.mode = 'pen';
         document.querySelectorAll('.pen-toolbar .tool[data-mode]').forEach(b => b.classList.remove('active'));
@@ -2352,7 +1513,6 @@
       e.preventDefault();
       const p = this.pt(e);
       this.current.points.push(p);
-      // 增量绘制最近两点
       this.drawSegment(this.current, this.current.points.length - 2);
     },
     end(e) {
