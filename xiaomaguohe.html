@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>小马过河 - 部编版二年级下册语文课件</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    font-family: "Comic Sans MS", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "STHupo", sans-serif;
+    background: #d8f0ff;
+    overflow: hidden;
+    color: #3d4a55;
+  }
+  .deck {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    padding: 70px 56px 56px;
+    background:
+      radial-gradient(circle at 92% 18%, #fff2b3 0 50px, transparent 51px),
+      radial-gradient(circle at 8% 88%, #c1f0d6 0 60px, transparent 61px),
+      linear-gradient(135deg, #fffdf5 0%, #eef9ff 100%);
+    animation: bounceIn 0.5s cubic-bezier(.68,-0.4,.27,1.55);
+    overflow: hidden;
+  }
+  .slide:not(.cover)::after {
+    content: "🐎";
+    position: absolute;
+    bottom: 56px;
+    left: 24px;
+    font-size: 38px;
+    opacity: 0.18;
+    transform: rotate(-10deg);
+    pointer-events: none;
+  }
+
+  /* 页眉 / 页脚 */
+  .chrome-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 50px;
+    background: linear-gradient(135deg, #6cb8e8 0%, #91d2ee 100%);
+    color: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 22px;
+    font-size: 15px;
+    z-index: 4;
+    box-shadow: 0 2px 6px rgba(91,160,210,0.3);
+  }
+  .chrome-header .left, .chrome-header .right { display: flex; align-items: center; gap: 10px; }
+  .chrome-subject {
+    background: #fff; color: #2e7eb8;
+    padding: 4px 12px; border-radius: 12px;
+    font-weight: bold; font-size: 14px;
+    box-shadow: 0 2px 0 #4a9bd1;
+  }
+  .chrome-title { font-weight: bold; letter-spacing: 1px; }
+  .chrome-title b { color: #fff8d6; }
+  .chrome-page {
+    background: rgba(255,255,255,0.32);
+    padding: 4px 12px; border-radius: 12px;
+    font-weight: bold; min-width: 64px; text-align: center;
+  }
+  .chrome-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 36px;
+    background: #fff;
+    border-top: 2px dashed #b7e1f4;
+    color: #888;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 22px;
+    font-size: 13px;
+    z-index: 3;
+  }
+  .chrome-stepper { display: flex; gap: 4px; flex-wrap: wrap; }
+  .step {
+    background: #eaf6fc; color: #4a9bd1;
+    padding: 2px 10px; border-radius: 10px;
+    font-size: 12px; font-weight: bold;
+    transition: all 0.2s;
+  }
+  .step.active {
+    background: linear-gradient(135deg, #6cb8e8, #4a9bd1);
+    color: #fff;
+    box-shadow: 0 2px 0 #2e7eb8;
+  }
+  .chrome-meta { color: #999; }
+
+  .cover .chrome-header, .cover .chrome-footer { display: none; }
+  .cover { padding: 40px 60px; }
+  .slide.active { display: flex; }
+
+  @keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.92) translateY(20px); }
+    60% { opacity: 1; transform: scale(1.02) translateY(-4px); }
+    100% { transform: scale(1) translateY(0); }
+  }
+
+  h2.section {
+    font-size: 38px;
+    color: #2e7eb8;
+    background: #fff;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 4px dashed #91d2ee;
+    display: inline-block;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 0 #b7e1f4;
+    align-self: flex-start;
+  }
+  h3 { font-size: 26px; color: #2e7eb8; margin: 10px 0 8px; }
+  p, li { font-size: 23px; line-height: 1.75; color: #3d4a55; }
+  ul { padding-left: 36px; }
+
+  /* 封面 */
+  .cover {
+    justify-content: center;
+    align-items: center;
+    background:
+      radial-gradient(circle at 20% 30%, #fff 0 6px, transparent 7px),
+      radial-gradient(circle at 80% 20%, #fff 0 8px, transparent 9px),
+      radial-gradient(circle at 70% 70%, #fff 0 5px, transparent 6px),
+      radial-gradient(circle at 30% 80%, #fff 0 7px, transparent 8px),
+      linear-gradient(180deg, #b7e1f4 0%, #d8f0ff 45%, #c1f0d6 100%);
+    color: #fff;
+    position: relative;
+  }
+  .cover .emoji-row {
+    font-size: 120px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.15));
+  }
+  .cover .emoji-row span { display: inline-block; animation: bob 2.5s ease-in-out infinite; }
+  .cover .emoji-row span:nth-child(2) { animation-delay: 0.3s; }
+  .cover .emoji-row span:nth-child(3) { animation-delay: 0.6s; }
+  .cover h1 {
+    font-size: 86px;
+    color: #fff;
+    text-shadow: 0 4px 0 #2e7eb8, 0 6px 20px rgba(0,0,0,0.15);
+    letter-spacing: 12px;
+  }
+  .cover .subtitle {
+    margin-top: 10px;
+    font-size: 26px;
+    color: #2e7eb8;
+    letter-spacing: 3px;
+    font-weight: bold;
+  }
+  .cover .meta {
+    margin-top: 22px;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 2px;
+    background: rgba(74,155,209,0.85);
+    padding: 8px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 0 #2e7eb8;
+  }
+  .cover .lesson-no {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    background: #ffd166;
+    color: #8a4a00;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 22px; font-weight: bold;
+    box-shadow: 0 8px 0 #f8b500, 0 14px 24px rgba(0,0,0,0.18);
+    transform: rotate(-12deg);
+    line-height: 1.3;
+  }
+  .cover .lesson-no .num { font-size: 42px; color: #d94e00; }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  /* 卡片 */
+  .card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 20px 26px;
+    box-shadow: 0 8px 0 #b7e1f4, 0 12px 24px rgba(91,160,210,0.12);
+    border: 4px solid #eaf6fc;
+  }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+
+  /* 学习目标 */
+  .goal-list { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+  .goal-item {
+    background: #fff;
+    padding: 16px 22px;
+    border-radius: 20px;
+    border-left: 8px solid #6cb8e8;
+    box-shadow: 0 4px 0 #b7e1f4;
+    display: flex; align-items: center; gap: 14px;
+    font-size: 22px;
+  }
+  .goal-item:nth-child(2) { border-left-color: #95d5b2; box-shadow: 0 4px 0 #c1f0d6; }
+  .goal-item:nth-child(3) { border-left-color: #ffd166; box-shadow: 0 4px 0 #fff2b3; }
+  .goal-item:nth-child(4) { border-left-color: #ff8fab; box-shadow: 0 4px 0 #ffd6e0; }
+  .goal-item .ic {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #b7e1f4, #6cb8e8);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: bold;
+    box-shadow: 0 3px 0 #4a9bd1;
+    flex-shrink: 0;
+  }
+
+  /* 生字卡 */
+  .hanzi {
+    background: #fff;
+    border: 4px solid #b7e1f4;
+    border-radius: 18px;
+    padding: 10px 6px;
+    text-align: center;
+    box-shadow: 0 5px 0 #eaf6fc;
+    transition: transform 0.2s;
+  }
+  .hanzi:hover { transform: translateY(-4px) rotate(-2deg); }
+  .hanzi .pinyin { font-size: 18px; color: #4a9bd1; letter-spacing: 1px; }
+  .hanzi .zi {
+    font-size: 48px; color: #2e7eb8; font-weight: bold;
+    line-height: 1.2;
+    font-family: "KaiTi", "STKaiti", "楷体", serif;
+  }
+  .hanzi.write {
+    border-color: #ffd166;
+    box-shadow: 0 5px 0 #fff2b3;
+  }
+  .hanzi.write .zi { color: #d94e00; }
+  .hanzi.write .pinyin { color: #d94e00; }
+
+  /* 田字格 */
+  .tianzi-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+  .tianzi {
+    width: 110px;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .tianzi .pinyin { font-size: 18px; color: #d94e00; margin-bottom: 4px; }
+  .tianzi .grid {
+    width: 90px; height: 90px;
+    background:
+      linear-gradient(to right, transparent 49%, #ffb3c6 49%, #ffb3c6 51%, transparent 51%),
+      linear-gradient(to bottom, transparent 49%, #ffb3c6 49%, #ffb3c6 51%, transparent 51%),
+      #fff;
+    border: 3px solid #ff8fab;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 52px; color: #d94e00;
+    font-family: "KaiTi", "STKaiti", "楷体", serif;
+    font-weight: bold;
+  }
+  .tianzi .info { font-size: 14px; color: #888; margin-top: 4px; text-align: center; line-height: 1.4; }
+  .tianzi .info b { color: #d94e00; }
+
+  /* 词语 */
+  .ciyu {
+    background: linear-gradient(135deg, #fff, #fff8d6);
+    border: 3px solid #ffd166;
+    border-radius: 18px;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 22px;
+    color: #8a4a00;
+    box-shadow: 0 4px 0 #f8b500;
+    font-weight: bold;
+  }
+  .ciyu .py { font-size: 15px; color: #b56a00; display: block; letter-spacing: 1px; font-weight: normal; }
+
+  /* 角色对话气泡 */
+  .role-row { display: flex; align-items: flex-start; gap: 18px; margin: 12px 0; }
+  .role-row.right { flex-direction: row-reverse; }
+  .role-ava {
+    width: 88px; height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff8d6, #ffd166);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 54px;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 0 #d99a00, 0 8px 16px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    animation: bob 3s ease-in-out infinite;
+  }
+  .role-ava.horse { background: linear-gradient(135deg, #f5d7b8, #c89070); box-shadow: 0 5px 0 #8a5e3e, 0 8px 16px rgba(0,0,0,0.1); }
+  .role-ava.cow { background: linear-gradient(135deg, #e6f0ff, #c8d9ff); box-shadow: 0 5px 0 #6f8ccc, 0 8px 16px rgba(0,0,0,0.1); }
+  .role-ava.squirrel { background: linear-gradient(135deg, #f8e0d6, #e9a784); box-shadow: 0 5px 0 #b56a47, 0 8px 16px rgba(0,0,0,0.1); }
+  .role-ava.mom { background: linear-gradient(135deg, #ffe5ec, #ffb3c6); box-shadow: 0 5px 0 #d4577a, 0 8px 16px rgba(0,0,0,0.1); }
+  .role-name {
+    background: #fff;
+    color: #d94e00;
+    padding: 3px 12px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -8px;
+    border: 2px solid #ffd166;
+    z-index: 2;
+    position: relative;
+  }
+  .role-side { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+  .role-side.horse .role-name { color: #8a5e3e; border-color: #c89070; }
+  .role-side.cow .role-name { color: #4a6cb5; border-color: #a0bfff; }
+  .role-side.squirrel .role-name { color: #b56a47; border-color: #e9a784; }
+  .role-side.mom .role-name { color: #d4577a; border-color: #ffb3c6; }
+
+  .bubble {
+    background: #fff;
+    padding: 14px 22px;
+    border-radius: 22px;
+    border: 3px solid #ffd166;
+    box-shadow: 0 5px 0 #fff2b3;
+    font-size: 22px;
+    color: #4a3f55;
+    flex: 1;
+    line-height: 1.7;
+    position: relative;
+  }
+  .bubble.horse { border-color: #c89070; box-shadow: 0 5px 0 #f5d7b8; }
+  .bubble.cow { border-color: #a0bfff; box-shadow: 0 5px 0 #c8d9ff; }
+  .bubble.squirrel { border-color: #e9a784; box-shadow: 0 5px 0 #f8e0d6; }
+  .bubble.mom { border-color: #ffb3c6; box-shadow: 0 5px 0 #ffe5ec; }
+  .bubble .who { font-size: 18px; color: #888; margin-bottom: 4px; font-weight: bold; }
+
+  /* 提示 */
+  .tip {
+    background: linear-gradient(135deg, #fff8d6, #fff2b3);
+    border: 3px dashed #ffd166;
+    padding: 14px 22px;
+    border-radius: 22px;
+    font-size: 21px;
+    color: #8a4a00;
+    margin: 10px 0;
+    box-shadow: 0 5px 0 #ffe79e;
+    line-height: 1.7;
+  }
+  .tip::before { content: "💡 "; font-size: 24px; }
+  .tip.green {
+    background: linear-gradient(135deg, #eaf9f0, #c1f0d6);
+    border-color: #95d5b2;
+    color: #2e6b4a;
+    box-shadow: 0 5px 0 #c1f0d6;
+  }
+  .tip.green::before { content: "🌱 "; }
+  .tip.blue {
+    background: linear-gradient(135deg, #eaf6fc, #c8e7f5);
+    border-color: #6cb8e8;
+    color: #2e5e7e;
+    box-shadow: 0 5px 0 #c8e7f5;
+  }
+  .tip.blue::before { content: "📖 "; }
+
+  /* 课文段落 */
+  .wenben {
+    background: #fffbf3;
+    border: 3px solid #ffe79e;
+    border-radius: 22px;
+    padding: 18px 24px;
+    font-size: 22px;
+    line-height: 2;
+    color: #4a3f55;
+    font-family: "KaiTi", "STKaiti", "楷体", "PingFang SC", serif;
+    box-shadow: inset 0 0 0 6px #fff8d6;
+  }
+  .wenben .hl { background: #ffd166; padding: 0 6px; border-radius: 6px; color: #8a4a00; font-weight: bold; }
+  .wenben .hl-blue { background: #b7e1f4; padding: 0 6px; border-radius: 6px; color: #2e5e7e; font-weight: bold; }
+  .wenben .hl-green { background: #c1f0d6; padding: 0 6px; border-radius: 6px; color: #2e6b4a; font-weight: bold; }
+  .wenben .hl-pink { background: #ffd6e0; padding: 0 6px; border-radius: 6px; color: #d4577a; font-weight: bold; }
+  .wenben p { font-size: 22px; line-height: 2; margin-bottom: 6px; }
+  .wenben .indent { text-indent: 2em; }
+
+  /* 河流场景 */
+  .river-scene {
+    position: relative;
+    height: 130px;
+    background:
+      linear-gradient(180deg, transparent 0%, transparent 40%, #6cb8e8 41%, #4a9bd1 100%);
+    border-radius: 18px;
+    margin: 14px 0;
+    overflow: hidden;
+    box-shadow: inset 0 -4px 8px rgba(0,0,0,0.1);
+  }
+  .river-scene::before {
+    content: "～～～～～～～～～～～～～";
+    position: absolute;
+    top: 40%; left: 0; right: 0;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 6px;
+    text-align: center;
+  }
+  .river-scene .item {
+    position: absolute;
+    font-size: 44px;
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+  .river-scene .left-bank { left: 4%; bottom: 55%; font-size: 60px; }
+  .river-scene .right-bank { right: 4%; bottom: 55%; font-size: 60px; }
+  .river-scene .label {
+    position: absolute;
+    background: #fff;
+    color: #2e7eb8;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 0 #b7e1f4;
+  }
+
+  /* 情绪变化图 */
+  .mood-path { display: flex; align-items: center; justify-content: space-between; margin: 14px 0; }
+  .mood-step {
+    background: #fff;
+    border: 3px solid #ffd166;
+    border-radius: 18px;
+    padding: 12px 14px;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 5px 0 #fff2b3;
+    margin: 0 4px;
+    font-size: 18px;
+    color: #8a4a00;
+    font-weight: bold;
+    position: relative;
+  }
+  .mood-step .emoji { font-size: 40px; display: block; margin-bottom: 4px; }
+  .mood-step .lbl { font-size: 16px; color: #555; font-weight: normal; margin-top: 4px; display: block; }
+  .mood-arrow { font-size: 30px; color: #ffd166; flex-shrink: 0; }
+
+  /* 练习题 */
+  .question {
+    background: #fff;
+    padding: 16px 22px;
+    border-radius: 22px;
+    margin: 10px 0;
+    font-size: 22px;
+    border: 3px solid #fff2b3;
+    box-shadow: 0 5px 0 #ffd166;
+    position: relative;
+    line-height: 1.8;
+  }
+  .question::before {
+    content: "⭐";
+    position: absolute;
+    left: -14px;
+    top: -10px;
+    font-size: 30px;
+  }
+  .question .q-num {
+    display: inline-block;
+    background: linear-gradient(135deg, #ffd166, #f8b500);
+    color: #fff;
+    padding: 2px 12px;
+    border-radius: 14px;
+    font-size: 17px;
+    margin-right: 8px;
+    box-shadow: 0 2px 0 #d99a00;
+    font-weight: bold;
+  }
+  .answer {
+    color: #d94e00;
+    font-weight: bold;
+    font-size: 22px;
+    display: none;
+    background: #fff8d6;
+    padding: 2px 12px;
+    border-radius: 12px;
+  }
+  .answer.show { display: inline-block; }
+  .blank {
+    display: inline-block;
+    min-width: 90px;
+    border-bottom: 2px solid #888;
+    margin: 0 4px;
+    text-align: center;
+    color: #d94e00;
+    font-weight: bold;
+  }
+
+  /* 控制条 */
+  .controls {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #91d2ee, #6cb8e8);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 40px;
+    z-index: 100;
+    box-shadow: 0 6px 0 #2e7eb8, 0 10px 24px rgba(0,0,0,0.15);
+  }
+  .controls button {
+    background: #fff;
+    border: none;
+    color: #2e7eb8;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.15s;
+    box-shadow: 0 3px 0 #b7e1f4;
+  }
+  .controls button:hover { transform: scale(1.15) rotate(-5deg); }
+  .controls .page-info { font-size: 18px; min-width: 70px; text-align: center; font-weight: bold; }
+  .controls .ans-btn {
+    background: #fff;
+    color: #d94e00;
+    border-radius: 22px;
+    width: auto;
+    padding: 0 16px;
+    font-size: 16px;
+    height: 36px;
+    box-shadow: 0 3px 0 #ffd166;
+  }
+
+  /* 思维导图 / 板书 */
+  .mindmap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 10px; }
+  .mm-center {
+    background: linear-gradient(135deg, #6cb8e8, #4a9bd1);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-size: 26px;
+    font-weight: bold;
+    box-shadow: 0 5px 0 #2e7eb8;
+  }
+  .mm-row { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+  .mm-node {
+    background: #fff;
+    padding: 10px 18px;
+    border-radius: 22px;
+    border: 3px solid #ffd166;
+    box-shadow: 0 4px 0 #fff2b3;
+    font-size: 18px;
+    text-align: center;
+    color: #8a4a00;
+    font-weight: bold;
+    min-width: 140px;
+  }
+  .mm-node.green { border-color: #95d5b2; box-shadow: 0 4px 0 #c1f0d6; color: #2e6b4a; }
+  .mm-node.blue { border-color: #6cb8e8; box-shadow: 0 4px 0 #b7e1f4; color: #2e5e7e; }
+  .mm-node.pink { border-color: #ffb3c6; box-shadow: 0 4px 0 #ffd6e0; color: #d4577a; }
+  .mm-node .sub { display: block; font-size: 14px; color: #888; font-weight: normal; margin-top: 2px; }
+
+  /* 作业卡 */
+  .hw {
+    background: #fff;
+    border-radius: 22px;
+    padding: 16px 22px;
+    border: 4px solid #c1f0d6;
+    box-shadow: 0 6px 0 #95d5b2;
+    position: relative;
+  }
+  .hw::before {
+    content: "✏️";
+    position: absolute;
+    top: -18px; left: 16px;
+    font-size: 32px;
+    background: #fff;
+    padding: 0 6px;
+    border-radius: 50%;
+  }
+  .hw .lvl {
+    display: inline-block;
+    background: linear-gradient(135deg, #95d5b2, #52b788);
+    color: #fff;
+    padding: 3px 14px;
+    border-radius: 14px;
+    font-size: 16px;
+    margin-right: 8px;
+    box-shadow: 0 2px 0 #2e6b4a;
+    font-weight: bold;
+  }
+  .hw.b { border-color: #fff2b3; box-shadow: 0 6px 0 #ffd166; }
+  .hw.b .lvl { background: linear-gradient(135deg, #ffd166, #f8b500); box-shadow: 0 2px 0 #d99a00; }
+  .hw.c { border-color: #ffb3c6; box-shadow: 0 6px 0 #ff8fab; }
+  .hw.c .lvl { background: linear-gradient(135deg, #ff8fab, #ff6f91); box-shadow: 0 2px 0 #d4577a; }
+
+  /* 结束 */
+  .ending {
+    align-items: center; justify-content: center;
+    background:
+      radial-gradient(circle at 20% 30%, #fff 0 6px, transparent 7px),
+      radial-gradient(circle at 80% 70%, #fff 0 8px, transparent 9px),
+      linear-gradient(180deg, #b7e1f4 0%, #c1f0d6 100%);
+  }
+  .ending .big {
+    font-size: 96px;
+    color: #2e7eb8;
+    text-shadow: 0 4px 0 #fff, 0 6px 16px rgba(0,0,0,0.15);
+    letter-spacing: 10px;
+    font-weight: bold;
+  }
+  .ending .sub {
+    font-size: 32px;
+    color: #fff;
+    background: #6cb8e8;
+    padding: 8px 30px;
+    border-radius: 30px;
+    margin-top: 18px;
+    box-shadow: 0 5px 0 #2e7eb8;
+    letter-spacing: 3px;
+  }
+  .ending .emoji-big { font-size: 140px; animation: wiggle 2s ease-in-out infinite; }
+
+  /* 流程时间线 */
+  .timeline { display: flex; align-items: center; gap: 6px; margin: 10px 0; }
+  .tl-step {
+    background: #fff;
+    border: 3px solid #6cb8e8;
+    border-radius: 20px;
+    padding: 8px 12px;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 4px 0 #b7e1f4;
+    font-size: 16px;
+    color: #2e5e7e;
+    font-weight: bold;
+  }
+  .tl-step .emoji { font-size: 30px; display: block; }
+  .tl-arrow { color: #6cb8e8; font-size: 22px; flex-shrink: 0; }
+
+  /* 对比表格 */
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px;
+    margin-top: 10px;
+  }
+  .compare-table th, .compare-table td {
+    background: #fff;
+    padding: 12px;
+    border-radius: 14px;
+    box-shadow: 0 3px 0 #b7e1f4;
+    text-align: center;
+    font-size: 20px;
+  }
+  .compare-table th {
+    background: linear-gradient(135deg, #6cb8e8, #4a9bd1);
+    color: #fff;
+    font-size: 19px;
+    box-shadow: 0 3px 0 #2e7eb8;
+  }
+  .compare-table td.role-cow { background: #eaf3ff; color: #4a6cb5; font-weight: bold; }
+  .compare-table td.role-squirrel { background: #fdebe2; color: #b56a47; font-weight: bold; }
+  .compare-table td.role-mom { background: #ffe9f0; color: #d4577a; font-weight: bold; }
+  .compare-table td.role-horse { background: #fdf0e1; color: #8a5e3e; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1. 封面 -->
+  <section class="slide cover active">
+    <div class="lesson-no"><span>第</span><span class="num">14</span><span>课</span></div>
+    <div class="emoji-row"><span>🐎</span><span>🌊</span><span>🌳</span></div>
+    <h1>小马过河</h1>
+    <div class="subtitle">部编版 · 二年级下册 · 语文</div>
+    <div class="meta">遇事多动脑　亲自试一试</div>
+  </section>
+
+  <!-- 2. 学习目标 -->
+  <section class="slide">
+    <h2 class="section">学习目标</h2>
+    <div class="goal-list">
+      <div class="goal-item"><div class="ic">1</div><div>认识"棚、驮、磨、坊"等14个生字，会写"愿、意、麦、该"等8个字。</div></div>
+      <div class="goal-item"><div class="ic">2</div><div>能正确、流利、有感情地<b>分角色朗读</b>课文，读出小马、老牛、松鼠、妈妈说话的语气。</div></div>
+      <div class="goal-item"><div class="ic">3</div><div>读懂故事内容，了解小马过河的<b>经过和心情变化</b>。</div></div>
+      <div class="goal-item"><div class="ic">4</div><div>明白"遇到事情要<b>开动脑筋</b>，<b>亲自试一试</b>"的道理。</div></div>
+    </div>
+  </section>
+
+  <!-- 3. 情境引入 -->
+  <section class="slide">
+    <h2 class="section">情境引入</h2>
+    <div class="grid-2" style="gap:24px;">
+      <div class="card">
+        <h3>🐎 猜一猜，他是谁？</h3>
+        <p>四条腿，跑得快，</p>
+        <p>身上能驮重东西，</p>
+        <p>嘶儿——嘶儿——叫得欢，</p>
+        <p>帮人拉车又耕田。</p>
+        <p style="text-align:center;margin-top:14px;font-size:46px;">🐴</p>
+        <p style="text-align:center;color:#d94e00;font-weight:bold;">谜底：<span class="answer">马</span></p>
+      </div>
+      <div class="card">
+        <h3>📚 听一听，想一想</h3>
+        <p>有一匹可爱的小马，第一次出远门，要驮着麦子过一条小河——</p>
+        <div class="river-scene">
+          <span class="left-bank">🐴</span>
+          <span class="right-bank">🏠</span>
+          <span class="label" style="left:38%; top:8%;">河水深还是浅？</span>
+        </div>
+        <p style="text-align:center;color:#2e7eb8;font-weight:bold;">让我们走进课文，去看看小马的故事吧！</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 走近作者 -->
+  <section class="slide">
+    <h2 class="section">走近作者</h2>
+    <div class="grid-2" style="gap:24px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:120px;">👨‍🏫</div>
+        <h3 style="color:#d94e00;font-size:32px;">彭文席</h3>
+        <p style="color:#888;">（1925—2003）</p>
+        <p style="margin-top:10px;">浙江温州人，著名儿童文学作家。</p>
+      </div>
+      <div class="card">
+        <h3>📖 关于这篇课文</h3>
+        <p>《小马过河》是<span class="hl-pink" style="background:#ffd6e0;padding:0 6px;border-radius:6px;">著名的儿童寓言故事</span>，发表于1955年。</p>
+        <p>这个故事曾被译成英、法、日等多种文字，成为陪伴几代小朋友长大的经典童话。</p>
+        <div class="tip green">寓言：用<b>简短的故事</b>，讲<b>一个大道理</b>。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 我会认 -->
+  <section class="slide">
+    <h2 class="section">字词学习 · 我会认</h2>
+    <p style="margin-bottom:10px;color:#888;">读准字音，认清字形 👇</p>
+    <div class="grid-6">
+      <div class="hanzi"><div class="pinyin">péng</div><div class="zi">棚</div></div>
+      <div class="hanzi"><div class="pinyin">tuó</div><div class="zi">驮</div></div>
+      <div class="hanzi"><div class="pinyin">mò</div><div class="zi">磨</div></div>
+      <div class="hanzi"><div class="pinyin">fáng</div><div class="zi">坊</div></div>
+      <div class="hanzi"><div class="pinyin">tǎng</div><div class="zi">挡</div></div>
+      <div class="hanzi"><div class="pinyin">bó</div><div class="zi">伯</div></div>
+      <div class="hanzi"><div class="pinyin">cāi</div><div class="zi">猜</div></div>
+      <div class="hanzi"><div class="pinyin">tí</div><div class="zi">蹄</div></div>
+      <div class="hanzi"><div class="pinyin">cāng</div><div class="zi">刚</div></div>
+      <div class="hanzi"><div class="pinyin">qiǎn</div><div class="zi">浅</div></div>
+      <div class="hanzi"><div class="pinyin">tū</div><div class="zi">突</div></div>
+      <div class="hanzi"><div class="pinyin">mǎi</div><div class="zi">买</div></div>
+      <div class="hanzi"><div class="pinyin">dǐ</div><div class="zi">底</div></div>
+      <div class="hanzi"><div class="pinyin">shēn</div><div class="zi">深</div></div>
+    </div>
+    <div class="tip blue" style="margin-top:14px;">小窍门：<b>"磨坊"</b>读 mò fáng，是把麦子磨成面粉的地方。</div>
+  </section>
+
+  <!-- 6. 我会写 -->
+  <section class="slide">
+    <h2 class="section">字词学习 · 我会写</h2>
+    <p style="margin-bottom:8px;color:#888;">看清结构，认真书写，把字写漂亮 ✍️</p>
+    <div class="tianzi-row">
+      <div class="tianzi"><div class="pinyin">yuàn</div><div class="grid">愿</div><div class="info">半包围结构<br><b>"原"</b>下加心</div></div>
+      <div class="tianzi"><div class="pinyin">yì</div><div class="grid">意</div><div class="info">上中下结构<br>立+日+心</div></div>
+      <div class="tianzi"><div class="pinyin">mài</div><div class="grid">麦</div><div class="info">上下结构<br>"麦"非"夫"</div></div>
+      <div class="tianzi"><div class="pinyin">gāi</div><div class="grid">该</div><div class="info">左右结构<br>言字旁</div></div>
+    </div>
+    <div class="tianzi-row" style="margin-top:14px;">
+      <div class="tianzi"><div class="pinyin">tāng</div><div class="grid">趟</div><div class="info">左右结构<br>走字旁</div></div>
+      <div class="tianzi"><div class="pinyin">gū</div><div class="grid">伯</div><div class="info">左右结构<br>单人旁</div></div>
+      <div class="tianzi"><div class="pinyin">bàn</div><div class="grid">伴</div><div class="info">左右结构<br>单人旁</div></div>
+      <div class="tianzi"><div class="pinyin">tāng</div><div class="grid">淌</div><div class="info">左右结构<br>三点水</div></div>
+    </div>
+    <div class="tip" style="margin-top:14px;">"愿"是<b>半包围结构</b>，"厂"要写得舒展，里面的"原"要写得紧凑哦！</div>
+  </section>
+
+  <!-- 7. 词语花园 -->
+  <section class="slide">
+    <h2 class="section">词语花园</h2>
+    <div class="grid-4" style="gap:14px;">
+      <div class="ciyu">磨坊<span class="py">mò fáng</span></div>
+      <div class="ciyu">愿意<span class="py">yuàn yì</span></div>
+      <div class="ciyu">麦子<span class="py">mài zi</span></div>
+      <div class="ciyu">挡住<span class="py">dǎng zhù</span></div>
+      <div class="ciyu">伯伯<span class="py">bó bo</span></div>
+      <div class="ciyu">蹄子<span class="py">tí zi</span></div>
+      <div class="ciyu">突然<span class="py">tū rán</span></div>
+      <div class="ciyu">拦住<span class="py">lán zhù</span></div>
+      <div class="ciyu">难为情<span class="py">nán wéi qíng</span></div>
+      <div class="ciyu">动脑筋<span class="py">dòng nǎo jīn</span></div>
+      <div class="ciyu">没过头顶<span class="py">méi guò tóu dǐng</span></div>
+      <div class="ciyu">小心地<span class="py">xiǎo xīn de</span></div>
+    </div>
+    <div class="tip green" style="margin-top:14px;">"难为情" = 不好意思；"动脑筋" = 认真思考。</div>
+  </section>
+
+  <!-- 8. 整体感知 -->
+  <section class="slide">
+    <h2 class="section">整体感知 · 故事脉络</h2>
+    <p style="margin-bottom:6px;">默读课文，想一想故事的<b>起因、经过、结果</b>👇</p>
+    <div class="timeline">
+      <div class="tl-step"><span class="emoji">🌾</span>妈妈让<br>驮麦子</div>
+      <span class="tl-arrow">➡️</span>
+      <div class="tl-step"><span class="emoji">🌊</span>遇到<br>小河挡路</div>
+      <span class="tl-arrow">➡️</span>
+      <div class="tl-step"><span class="emoji">🐄</span>问老牛<br>说水浅</div>
+      <span class="tl-arrow">➡️</span>
+      <div class="tl-step"><span class="emoji">🐿️</span>问松鼠<br>说水深</div>
+      <span class="tl-arrow">➡️</span>
+      <div class="tl-step"><span class="emoji">🏠</span>回家<br>问妈妈</div>
+      <span class="tl-arrow">➡️</span>
+      <div class="tl-step"><span class="emoji">✨</span>自己<br>试着过河</div>
+    </div>
+    <div class="grid-3" style="margin-top:18px;">
+      <div class="card" style="border-color:#fff2b3;box-shadow:0 6px 0 #ffd166;">
+        <h3 style="color:#d94e00;">📍 起因</h3>
+        <p>妈妈让小马把<b>半口袋麦子</b>驮到磨坊去。</p>
+      </div>
+      <div class="card" style="border-color:#c1f0d6;box-shadow:0 6px 0 #95d5b2;">
+        <h3 style="color:#2e6b4a;">📍 经过</h3>
+        <p>小河挡路，小马<b>问了老牛和松鼠</b>，他们的话不一样，小马没主意了。</p>
+      </div>
+      <div class="card" style="border-color:#ffb3c6;box-shadow:0 6px 0 #ff8fab;">
+        <h3 style="color:#d4577a;">📍 结果</h3>
+        <p>在妈妈的鼓励下，小马<b>亲自试了试</b>，过了河。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. 课文朗读 起因 -->
+  <section class="slide">
+    <h2 class="section">朗读课文 · 起因（一）</h2>
+    <div class="wenben">
+      <p class="indent">马棚里住着<span class="hl">一匹老马和一匹小马</span>。</p>
+      <p class="indent">有一天，老马对小马说："你已经长大了，能帮妈妈做点事吗？"小马连蹦带跳地说："怎么不能？我很愿意帮您做事。"老马高兴地说："那好啊，你把这<span class="hl">半口袋麦子</span>驮到磨坊去吧。"</p>
+    </div>
+    <div class="role-row">
+      <div class="role-side mom"><div class="role-ava mom">🐴</div><div class="role-name">老马妈妈</div></div>
+      <div class="bubble mom"><div class="who">温和地问</div>你已经长大了，能帮妈妈做点事吗？</div>
+    </div>
+    <div class="role-row right">
+      <div class="role-side horse"><div class="role-ava horse">🐎</div><div class="role-name">小马</div></div>
+      <div class="bubble horse"><div class="who">连蹦带跳，很高兴</div>怎么不能？我很愿意帮您做事！</div>
+    </div>
+    <div class="tip">"<b>连蹦带跳</b>"说明小马<b>很开心、很兴奋</b>，要读出活泼的语气哟！</div>
+  </section>
+
+  <!-- 10. 老牛说水浅 -->
+  <section class="slide">
+    <h2 class="section">朗读课文 · 老牛说水浅</h2>
+    <div class="wenben">
+      <p class="indent">小马驮起口袋，飞快地往磨坊跑去。跑着跑着，<span class="hl-blue">一条小河挡住了去路</span>，河水哗哗地流着。小马为难了，<span class="hl-pink">过不去吧，怎么回家向妈妈交代呢</span>？</p>
+      <p class="indent">小马向四周望望，看见一头老牛在河边吃草。小马问道："牛伯伯，请您告诉我，这条河，我能蹚过去吗？"</p>
+      <p class="indent">老牛说："水<span class="hl-blue">很浅</span>，刚没小腿，能蹚过去。"</p>
+    </div>
+    <div class="role-row">
+      <div class="role-side cow"><div class="role-ava cow">🐄</div><div class="role-name">老牛伯伯</div></div>
+      <div class="bubble cow"><div class="who">慢吞吞地，很自信</div>水很浅，刚没小腿，能蹚过去。</div>
+    </div>
+    <div class="tip blue">老牛个子<b>高</b>，腿<b>长</b>，所以觉得水浅。</div>
+  </section>
+
+  <!-- 11. 松鼠说水深 -->
+  <section class="slide">
+    <h2 class="section">朗读课文 · 松鼠说水深</h2>
+    <div class="wenben">
+      <p class="indent">小马听了老牛的话，立刻跑到河边，准备过去。突然，从树上跳下一只松鼠，拦住他大叫："<span class="hl-pink">小马！别过河，别过河，河水会淹死你的！</span>"</p>
+      <p class="indent">小马吃惊地问："水很深吗？"松鼠认真地说："<span class="hl-pink">深得很哩！</span>昨天，我的一个伙伴就掉在这条河里淹死了！"</p>
+    </div>
+    <div class="role-row">
+      <div class="role-side squirrel"><div class="role-ava squirrel">🐿️</div><div class="role-name">小松鼠</div></div>
+      <div class="bubble squirrel"><div class="who">着急地大叫</div>小马！别过河，别过河，河水会淹死你的！深得很哩！</div>
+    </div>
+    <div class="tip">朗读小松鼠时，要读出<b>着急、害怕</b>的语气。"别过河，别过河"读得<b>急促有力</b>！</div>
+    <div class="tip blue">松鼠个子<b>矮</b>，身体<b>小</b>，所以觉得水深。</div>
+  </section>
+
+  <!-- 12. 妈妈的话 -->
+  <section class="slide">
+    <h2 class="section">朗读课文 · 妈妈的话</h2>
+    <div class="wenben">
+      <p class="indent">小马连忙收住脚步，<span class="hl">不知道怎么办才好</span>。他叹了口气说："唉！还是回家问问妈妈吧！"</p>
+      <p class="indent">小马甩甩尾巴跑回家去。妈妈问他："怎么回来啦？"小马难为情地说："一条河挡住了去路，我……我过不去。"</p>
+      <p class="indent">妈妈说："那条河不是很浅吗？"小马说："是呀！牛伯伯也这么说。可是松鼠说河水很深，还淹死过他的伙伴呢！"</p>
+      <p class="indent">妈妈说："<span class="hl-pink">那么河水到底是深是浅呢？你仔细想过他们的话吗？</span>"</p>
+      <p class="indent">小马低下了头，说："没……没想过。"</p>
+      <p class="indent">妈妈亲切地对小马说："<span class="hl-pink">孩子，光听别人说，自己不动脑筋，不去试试，是不行的。河水是深是浅，你去试一试，就知道了。</span>"</p>
+    </div>
+  </section>
+
+  <!-- 13. 小马过河 -->
+  <section class="slide">
+    <h2 class="section">朗读课文 · 小马过河</h2>
+    <div class="wenben">
+      <p class="indent">小马跑到河边，刚刚抬起前蹄，松鼠又大叫起来："怎么？你不要命啦！"小马说："让我试试吧！"</p>
+      <p class="indent">他下了河，<span class="hl">小心地蹚到了对岸</span>。原来河水既不像老牛说的那样浅，也不像松鼠说的那样深。</p>
+    </div>
+    <div class="grid-2" style="margin-top:14px;">
+      <div class="card" style="border-color:#c1f0d6;box-shadow:0 8px 0 #95d5b2;">
+        <h3 style="color:#2e6b4a;">🌟 关键发现</h3>
+        <p>河水<b>不像老牛说的那样浅</b>，也<b>不像松鼠说的那样深</b>。</p>
+        <p style="margin-top:8px;color:#d94e00;font-weight:bold;">原来——别人说的不一定就是真的！</p>
+      </div>
+      <div class="card">
+        <div class="river-scene" style="height:120px;">
+          <span class="left-bank" style="font-size:50px;">🌳</span>
+          <span class="right-bank" style="font-size:50px;">🏭</span>
+          <span class="item" style="left:48%; bottom:30%; font-size:46px;">🐎</span>
+          <span class="label" style="left:38%; top:6%;">小马小心地蹚过去</span>
+        </div>
+        <p style="text-align:center;color:#2e7eb8;font-weight:bold;margin-top:10px;">小马终于过河啦！🎉</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. 角色对比 -->
+  <section class="slide">
+    <h2 class="section">角色对话 · 对比分析</h2>
+    <p style="margin-bottom:8px;color:#888;">同一条河，三个角色说的话却不一样，为什么呢？🤔</p>
+    <table class="compare-table">
+      <thead>
+        <tr><th>角色</th><th>怎么说</th><th>语气</th><th>为什么这么说</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="role-cow">🐄 老牛</td>
+          <td>水"<b>很浅</b>"，刚没小腿</td>
+          <td>慢、稳、有把握</td>
+          <td>身材<b>高大</b>，腿长</td>
+        </tr>
+        <tr>
+          <td class="role-squirrel">🐿️ 松鼠</td>
+          <td>"<b>深得很</b>"，会淹死</td>
+          <td>急切、害怕</td>
+          <td>身材<b>矮小</b>，腿短</td>
+        </tr>
+        <tr>
+          <td class="role-mom">🐴 妈妈</td>
+          <td>"<b>自己去试一试</b>"</td>
+          <td>亲切、温和</td>
+          <td>有<b>智慧</b>，引导孩子思考</td>
+        </tr>
+        <tr>
+          <td class="role-horse">🐎 小马</td>
+          <td>"<b>让我试试吧</b>"</td>
+          <td>坚定、勇敢</td>
+          <td><b>不高不矮</b>，亲自实践</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tip green" style="margin-top:14px;">小朋友看：<b>老牛个子高，水就浅；松鼠个子小，水就深</b>。同一条河，他们说的都没错，只是不一样！</div>
+  </section>
+
+  <!-- 15. 小马心理变化 -->
+  <section class="slide">
+    <h2 class="section">小马的心情变化</h2>
+    <p style="margin-bottom:6px;color:#888;">跟着课文一起，体会小马的心情吧 💗</p>
+    <div class="mood-path">
+      <div class="mood-step"><span class="emoji">😄</span>开心兴奋<span class="lbl">妈妈让我做事</span></div>
+      <span class="mood-arrow">➡️</span>
+      <div class="mood-step"><span class="emoji">😟</span>为难发愁<span class="lbl">小河挡住路</span></div>
+      <span class="mood-arrow">➡️</span>
+      <div class="mood-step"><span class="emoji">😊</span>有了信心<span class="lbl">老牛说能过</span></div>
+      <span class="mood-arrow">➡️</span>
+      <div class="mood-step"><span class="emoji">😨</span>害怕犹豫<span class="lbl">松鼠说会淹</span></div>
+      <span class="mood-arrow">➡️</span>
+      <div class="mood-step"><span class="emoji">😳</span>难为情<span class="lbl">回家问妈妈</span></div>
+      <span class="mood-arrow">➡️</span>
+      <div class="mood-step"><span class="emoji">💪</span>勇敢坚定<span class="lbl">让我试试吧</span></div>
+    </div>
+    <div class="tip" style="margin-top:18px;">小马从<b>"听别人的"</b>到<b>"自己试一试"</b>，长大了，也更勇敢了！分角色朗读时要读出这些变化哦~</div>
+  </section>
+
+  <!-- 16. 故事道理 -->
+  <section class="slide">
+    <h2 class="section">明理 · 故事告诉我们</h2>
+    <div class="card" style="background:linear-gradient(135deg,#fff8d6,#fff2b3);border-color:#ffd166;box-shadow:0 8px 0 #f8b500;text-align:center;padding:28px;">
+      <div style="font-size:60px;margin-bottom:8px;">🌟</div>
+      <p style="font-size:30px;color:#8a4a00;font-weight:bold;line-height:1.6;">遇到事情，不能光听别人说，</p>
+      <p style="font-size:30px;color:#8a4a00;font-weight:bold;line-height:1.6;">要 <span class="hl">动脑筋思考</span>，<span class="hl">亲自试一试</span>，</p>
+      <p style="font-size:30px;color:#8a4a00;font-weight:bold;line-height:1.6;">才能 <span class="hl">找到答案</span>！</p>
+    </div>
+    <div class="grid-3" style="margin-top:18px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:54px;">🧠</div>
+        <h3>多想想</h3>
+        <p style="font-size:19px;">别人说啥<br>别马上就信</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:54px;">👀</div>
+        <h3>看一看</h3>
+        <p style="font-size:19px;">每个人不一样<br>说的也不一样</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:54px;">💪</div>
+        <h3>试一试</h3>
+        <p style="font-size:19px;">自己动手做<br>才能知道</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 17. 课堂练习 一 -->
+  <section class="slide">
+    <h2 class="section">课堂练习（一）· 字词</h2>
+    <div class="question">
+      <span class="q-num">1</span>读拼音，写词语。
+      <p style="margin-top:8px;font-size:24px;">
+        mài zi <span class="blank"><span class="answer">麦子</span></span>
+        yuàn yì <span class="blank"><span class="answer">愿意</span></span>
+        bó bo <span class="blank"><span class="answer">伯伯</span></span>
+        yīng gāi <span class="blank"><span class="answer">应该</span></span>
+      </p>
+    </div>
+    <div class="question">
+      <span class="q-num">2</span>选字填空。
+      <p style="margin-top:8px;">
+        <b>挡　趟</b>　：小河（<span class="blank"><span class="answer">挡</span></span>）住了去路；小马第一次出远门，走了一（<span class="blank"><span class="answer">趟</span></span>）路。
+      </p>
+    </div>
+    <div class="question">
+      <span class="q-num">3</span>给加点字选择正确读音。
+      <p style="margin-top:8px;">
+        磨（mó / <u>mò</u>）坊
+        没（méi / <u>mò</u>）过头顶
+        难（nán / nàn）为情
+      </p>
+      <p style="font-size:20px;color:#888;">参考答案：<span class="answer">磨坊 mò、没过头顶 méi、难为情 nán</span></p>
+    </div>
+  </section>
+
+  <!-- 18. 课堂练习 二 -->
+  <section class="slide">
+    <h2 class="section">课堂练习（二）· 课文理解</h2>
+    <div class="question">
+      <span class="q-num">1</span>判断对错（对的打 ✓，错的打 ✗）：
+      <ul style="margin-top:6px;font-size:21px;">
+        <li>老牛说河水很浅，松鼠说河水很深，他们都骗了小马。 (<span class="answer">✗</span>)</li>
+        <li>小马最后是听了妈妈的话，自己试着过河的。 (<span class="answer">✓</span>)</li>
+        <li>故事告诉我们：遇事要动脑筋，亲自试一试。 (<span class="answer">✓</span>)</li>
+      </ul>
+    </div>
+    <div class="question">
+      <span class="q-num">2</span>选词填空：
+      <p style="margin-top:6px;">老牛说水<b>很浅</b>，是因为它的身子&nbsp;<span class="blank"><span class="answer">高大</span></span>&nbsp;；松鼠说水<b>很深</b>，是因为它的身子&nbsp;<span class="blank"><span class="answer">矮小</span></span>&nbsp;。</p>
+    </div>
+    <div class="question">
+      <span class="q-num">3</span>读了这个故事，你想对小马说些什么？
+      <p style="margin-top:6px;color:#888;font-size:20px;">参考：<span class="answer">小马，你真棒！遇到困难能听妈妈的话，自己去试一试，找到了答案，我也要像你一样勇敢！</span></p>
+    </div>
+  </section>
+
+  <!-- 19. 拓展延伸 -->
+  <section class="slide">
+    <h2 class="section">拓展延伸 · 想一想</h2>
+    <div class="grid-2" style="gap:24px;">
+      <div class="card" style="border-color:#fff2b3;box-shadow:0 8px 0 #ffd166;">
+        <h3 style="color:#d94e00;">🤔 生活中的"小马过河"</h3>
+        <p style="font-size:21px;">你在生活中有没有遇到过这样的事——</p>
+        <ul style="font-size:20px;">
+          <li>同学说这道题很难，自己一试，原来不难。</li>
+          <li>别人说这种菜不好吃，自己尝尝，其实很香。</li>
+          <li>朋友说那本书没意思，看了才知道很有趣。</li>
+        </ul>
+        <div class="tip green" style="font-size:19px;margin-top:8px;">这些都是"小马过河"呢！</div>
+      </div>
+      <div class="card" style="border-color:#c1f0d6;box-shadow:0 8px 0 #95d5b2;">
+        <h3 style="color:#2e6b4a;">📚 推荐阅读</h3>
+        <p style="font-size:21px;">同类型小故事，课后读一读：</p>
+        <ul style="font-size:21px;">
+          <li>《乌鸦喝水》——动脑筋</li>
+          <li>《狐狸和乌鸦》——别轻信</li>
+          <li>《坐井观天》——眼界要开阔</li>
+          <li>《揠苗助长》——不能急于求成</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20. 课堂小结 / 板书 -->
+  <section class="slide">
+    <h2 class="section">课堂小结 · 板书设计</h2>
+    <div class="mindmap">
+      <div class="mm-center">小 马 过 河</div>
+      <div class="mm-row">
+        <div class="mm-node blue">🐄 老牛<span class="sub">水很浅 · 个子高</span></div>
+        <div class="mm-node">🐿️ 松鼠<span class="sub">水很深 · 个子矮</span></div>
+        <div class="mm-node pink">🐴 妈妈<span class="sub">自己试一试</span></div>
+        <div class="mm-node green">🐎 小马<span class="sub">不深也不浅</span></div>
+      </div>
+      <div style="font-size:30px;color:#6cb8e8;margin:6px 0;">⬇️</div>
+      <div class="mm-node" style="background:linear-gradient(135deg,#fff8d6,#ffd166);color:#8a4a00;font-size:22px;padding:14px 28px;border:none;min-width:auto;">
+        遇事多动脑　亲自试一试
+      </div>
+    </div>
+    <div class="tip" style="margin-top:14px;">这节课我们学会了：<b>分角色朗读</b>、<b>体会人物心情</b>、<b>理解寓言道理</b>。掌声送给自己 👏👏</div>
+  </section>
+
+  <!-- 21. 课后作业 -->
+  <section class="slide">
+    <h2 class="section">布置作业 · 分层超市</h2>
+    <div class="hw">
+      <span class="lvl">基础</span>
+      <span style="font-size:22px;font-weight:bold;color:#2e6b4a;">读一读　写一写</span>
+      <ul style="margin-top:6px;">
+        <li>有感情地朗读课文 3 遍，把会写的字"愿、意、麦、该"各写 2 行。</li>
+        <li>把"磨坊、麦子、伯伯、突然、难为情"抄写两遍。</li>
+      </ul>
+    </div>
+    <div class="hw b" style="margin-top:14px;">
+      <span class="lvl">提升</span>
+      <span style="font-size:22px;font-weight:bold;color:#8a4a00;">演一演　讲一讲</span>
+      <ul style="margin-top:6px;">
+        <li>和爸爸妈妈一起<b>分角色朗读</b>课文，注意读出不同角色的语气。</li>
+        <li>试着把这个故事<b>讲给家人听</b>，并告诉他们故事里的道理。</li>
+      </ul>
+    </div>
+    <div class="hw c" style="margin-top:14px;">
+      <span class="lvl">挑战</span>
+      <span style="font-size:22px;font-weight:bold;color:#d4577a;">想一想　写一写</span>
+      <ul style="margin-top:6px;">
+        <li>如果是<b>小象、小白兔、小蚂蚁</b>来过这条河，他们会说什么？想一想，写两三句话。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 22. 结束页 -->
+  <section class="slide ending cover">
+    <div class="emoji-big">🐎</div>
+    <div class="big">谢 谢 大 家</div>
+    <div class="sub">勇敢去试一试吧 ✨</div>
+  </section>
+
+</div>
+
+<!-- 控制条 -->
+<div class="controls">
+  <button id="prev" title="上一页">‹</button>
+  <span class="page-info"><span id="cur">1</span> / <span id="total">22</span></span>
+  <button id="next" title="下一页">›</button>
+  <button id="toggle-ans" class="ans-btn" title="显示/隐藏所有答案">显示答案</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let cur = 0;
+  document.getElementById('total').textContent = total;
+
+  const stages = [
+    {label:'目标', match:/学习目标/},
+    {label:'导入', match:/情境引入|走近作者/},
+    {label:'字词', match:/我会认|我会写|词语花园/},
+    {label:'朗读', match:/朗读课文|整体感知/},
+    {label:'品析', match:/对比分析|心情变化/},
+    {label:'明理', match:/明理|故事告诉我们/},
+    {label:'练习', match:/课堂练习/},
+    {label:'拓展', match:/拓展延伸/},
+    {label:'小结', match:/课堂小结|板书设计/},
+    {label:'作业', match:/布置作业/}
+  ];
+
+  slides.forEach((s, i) => {
+    if (s.classList.contains('cover')) return;
+    const titleEl = s.querySelector('h2.section');
+    const titleText = titleEl ? titleEl.textContent : '';
+    const stageIdx = stages.findIndex(st => st.match.test(titleText));
+    const header = document.createElement('div');
+    header.className = 'chrome-header';
+    header.innerHTML = `
+      <div class="left">
+        <span class="chrome-subject">语文</span>
+        <span class="chrome-title">《<b>小马过河</b>》· 部编版二年级下册 · 第14课</span>
+      </div>
+      <div class="right">
+        <span class="chrome-page">${i+1} / ${total}</span>
+      </div>`;
+    s.prepend(header);
+    const footer = document.createElement('div');
+    footer.className = 'chrome-footer';
+    const stepperHtml = stages.map((st, idx) =>
+      `<span class="step${idx === stageIdx ? ' active' : ''}">${idx+1}.${st.label}</span>`
+    ).join('');
+    footer.innerHTML = `
+      <div class="chrome-stepper">${stepperHtml}</div>
+      <div class="chrome-meta">主讲：彭老师　|　© 部编版小学语文</div>`;
+    s.appendChild(footer);
+  });
+
+  function show(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    cur = (i + total) % total;
+    slides[cur].classList.add('active');
+    document.getElementById('cur').textContent = cur + 1;
+  }
+
+  document.getElementById('prev').onclick = () => show(cur - 1);
+  document.getElementById('next').onclick = () => show(cur + 1);
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) show(cur + 1);
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) show(cur - 1);
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(total - 1);
+  });
+
+  let answersShown = false;
+  document.getElementById('toggle-ans').onclick = () => {
+    answersShown = !answersShown;
+    document.querySelectorAll('.answer').forEach(a => a.classList.toggle('show', answersShown));
+    document.getElementById('toggle-ans').textContent = answersShown ? '隐藏答案' : '显示答案';
+  };
+
+  document.querySelectorAll('.answer').forEach(a => {
+    a.style.cursor = 'pointer';
+    a.title = '点击显示答案';
+    a.addEventListener('click', e => { e.stopPropagation(); a.classList.toggle('show'); });
+  });
+</script>
+</body>
+</html>
