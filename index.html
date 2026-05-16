@@ -2,16 +2,16 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>要是你在野外迷了路 - 部编版二年级下册语文课件</title>
+<title>要是你在野外迷了路 - 部编版二年级下册语文课件（蓬蓬狗版）</title>
 <style>
-  /* ===== 可爱·森林风全局 ===== */
+  /* ===== 蓬蓬狗·清爽蓝白风全局 ===== */
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
     height: 100%;
     font-family: "Comic Sans MS", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "STHupo", sans-serif;
-    background: #e6f5e6;
+    background: #dff2fc;
     overflow: hidden;
-    color: #3d4a3d;
+    color: #3a4a55;
   }
   .deck {
     position: relative;
@@ -26,15 +26,15 @@
     flex-direction: column;
     padding: 70px 56px 56px;
     background:
-      radial-gradient(circle at 92% 18%, #d4f0c4 0 50px, transparent 51px),
+      radial-gradient(circle at 92% 18%, #c9ecfb 0 50px, transparent 51px),
       radial-gradient(circle at 8% 88%, #fff2b3 0 60px, transparent 61px),
-      linear-gradient(135deg, #f6fff2 0%, #f0faff 100%);
+      linear-gradient(135deg, #f7fcff 0%, #eef8ff 100%);
     animation: bounceIn 0.5s cubic-bezier(.68,-0.4,.27,1.55);
     overflow: hidden;
   }
-  /* 装饰小脚印 */
+  /* 装饰小爪印 */
   .slide:not(.cover)::after {
-    content: "🌿";
+    content: "🐾";
     position: absolute;
     bottom: 60px;
     left: 24px;
@@ -49,22 +49,22 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 50px;
-    background: linear-gradient(135deg, #6bbf73 0%, #95d5b2 100%);
+    background: linear-gradient(135deg, #4fc3f7 0%, #81d4fa 100%);
     color: #fff;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 22px;
     font-size: 15px;
     z-index: 4;
-    box-shadow: 0 2px 6px rgba(82,183,136,0.25);
+    box-shadow: 0 2px 6px rgba(79,195,247,0.3);
   }
   .chrome-header .left, .chrome-header .right {
     display: flex; align-items: center; gap: 10px;
   }
   .chrome-subject {
-    background: #fff; color: #2d6a4f;
+    background: #fff; color: #0277bd;
     padding: 4px 12px; border-radius: 12px;
     font-weight: bold; font-size: 14px;
-    box-shadow: 0 2px 0 #4a8a5e;
+    box-shadow: 0 2px 0 #29b6f6;
   }
   .chrome-title { font-weight: bold; letter-spacing: 1px; }
   .chrome-title b { color: #fff8d6; }
@@ -79,7 +79,7 @@
     bottom: 0; left: 0; right: 0;
     height: 36px;
     background: #fff;
-    border-top: 2px dashed #c1f0d6;
+    border-top: 2px dashed #bfe9fb;
     color: #888;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 22px;
@@ -88,15 +88,15 @@
   }
   .chrome-stepper { display: flex; gap: 4px; }
   .step {
-    background: #eef9ee; color: #6bbf73;
+    background: #eaf7fd; color: #4fc3f7;
     padding: 2px 10px; border-radius: 10px;
     font-size: 12px; font-weight: bold;
     transition: all 0.2s;
   }
   .step.active {
-    background: linear-gradient(135deg, #95d5b2, #52b788);
+    background: linear-gradient(135deg, #81d4fa, #29b6f6);
     color: #fff;
-    box-shadow: 0 2px 0 #2d6a4f;
+    box-shadow: 0 2px 0 #0277bd;
   }
   .chrome-meta { color: #999; }
 
@@ -112,29 +112,29 @@
 
   h1.title {
     font-size: 60px;
-    color: #2d6a4f;
+    color: #0277bd;
     text-align: center;
     margin-top: 60px;
     letter-spacing: 4px;
   }
   h2.section {
     font-size: 36px;
-    color: #2d6a4f;
+    color: #0277bd;
     background: #fff;
     padding: 10px 26px;
     border-radius: 50px;
-    border: 4px dashed #95d5b2;
+    border: 4px dashed #81d4fa;
     display: inline-block;
     margin-bottom: 18px;
-    box-shadow: 0 6px 0 #c1f0d6;
+    box-shadow: 0 6px 0 #bfe9fb;
     align-self: flex-start;
   }
   h3 {
     font-size: 26px;
-    color: #2d6a4f;
+    color: #0277bd;
     margin: 12px 0 8px;
   }
-  p, li { font-size: 22px; line-height: 1.8; color: #3d4a3d; }
+  p, li { font-size: 22px; line-height: 1.8; color: #3a4a55; }
   ul { padding-left: 36px; }
 
   /* ===== 封面 ===== */
@@ -146,14 +146,14 @@
       radial-gradient(circle at 80% 20%, #fff 0 8px, transparent 9px),
       radial-gradient(circle at 70% 70%, #fff 0 5px, transparent 6px),
       radial-gradient(circle at 30% 80%, #fff 0 7px, transparent 8px),
-      linear-gradient(135deg, #a8dadc 0%, #b8e0c2 40%, #c8e6c9 100%);
+      linear-gradient(135deg, #4fc3f7 0%, #81d4fa 45%, #b3e5fc 100%);
     color: #fff;
   }
   .cover::before, .cover::after { display: none; }
   .cover h1 {
     font-size: 76px;
     color: #fff;
-    text-shadow: 0 4px 0 #2d6a4f, 0 6px 20px rgba(0,0,0,0.15);
+    text-shadow: 0 4px 0 #0277bd, 0 6px 20px rgba(0,0,0,0.15);
     letter-spacing: 6px;
     background: none;
     border: none;
@@ -187,8 +187,8 @@
     background: #fff;
     border-radius: 24px;
     padding: 22px 28px;
-    box-shadow: 0 8px 0 #c1f0d6, 0 12px 24px rgba(82,183,136,0.12);
-    border: 4px solid #e0f5ea;
+    box-shadow: 0 8px 0 #bfe9fb, 0 12px 24px rgba(79,195,247,0.14);
+    border: 4px solid #e1f4fc;
   }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
@@ -200,8 +200,8 @@
     border-radius: 30px;
     padding: 18px 14px;
     text-align: center;
-    border: 4px solid #c1f0d6;
-    box-shadow: 0 6px 0 #95d5b2, 0 10px 18px rgba(82,183,136,0.12);
+    border: 4px solid #bfe9fb;
+    box-shadow: 0 6px 0 #81d4fa, 0 10px 18px rgba(79,195,247,0.14);
     transition: transform 0.25s;
   }
   .compass:nth-child(2) { border-color: #ffe5a3; box-shadow: 0 6px 0 #ffd166, 0 10px 18px rgba(255,209,102,0.15); }
@@ -217,10 +217,10 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
   }
-  .compass .name { font-size: 22px; color: #2d6a4f; margin: 4px 0; font-weight: bold; }
+  .compass .name { font-size: 22px; color: #0277bd; margin: 4px 0; font-weight: bold; }
   .compass .dir {
     font-size: 20px;
-    color: #d4577a;
+    color: #e8770f;
     font-weight: bold;
     background: linear-gradient(135deg, #fff8d6, #fff2b3);
     border-radius: 16px;
@@ -237,17 +237,17 @@
   }
   .zi {
     background: #fff;
-    border: 3px solid #95d5b2;
+    border: 3px solid #81d4fa;
     border-radius: 16px;
     padding: 10px 6px;
     text-align: center;
-    box-shadow: 0 4px 0 #c1f0d6;
+    box-shadow: 0 4px 0 #bfe9fb;
     position: relative;
   }
-  .zi .pin { font-size: 16px; color: #6bbf73; font-weight: bold; letter-spacing: 1px; margin-bottom: 4px; }
+  .zi .pin { font-size: 16px; color: #4fc3f7; font-weight: bold; letter-spacing: 1px; margin-bottom: 4px; }
   .zi .char {
     font-size: 48px;
-    color: #2d6a4f;
+    color: #0277bd;
     font-weight: bold;
     font-family: "STKaiti", "KaiTi", "楷体", serif;
     background:
@@ -261,35 +261,35 @@
     line-height: 66px;
     margin: 0 auto;
   }
-  .zi .word { font-size: 16px; color: #6bbf73; margin-top: 6px; }
+  .zi .word { font-size: 16px; color: #4fc3f7; margin-top: 6px; }
 
   /* ===== 课文段落 ===== */
   .poem {
     background: #fff;
     border-radius: 24px;
     padding: 20px 28px;
-    border: 4px solid #e0f5ea;
-    box-shadow: 0 6px 0 #c1f0d6;
+    border: 4px solid #e1f4fc;
+    box-shadow: 0 6px 0 #bfe9fb;
     margin: 10px 0;
     line-height: 2;
   }
   .poem .stanza {
     padding: 8px 0;
-    border-bottom: 2px dashed #e0f5ea;
+    border-bottom: 2px dashed #e1f4fc;
     font-size: 22px;
-    color: #3d4a3d;
+    color: #3a4a55;
   }
   .poem .stanza:last-child { border-bottom: none; }
   .poem .stanza .num {
     display: inline-flex;
     width: 30px; height: 30px;
-    background: linear-gradient(135deg, #95d5b2, #52b788);
+    background: linear-gradient(135deg, #81d4fa, #29b6f6);
     color: #fff;
     border-radius: 50%;
     align-items: center; justify-content: center;
     font-size: 16px; font-weight: bold;
     margin-right: 10px;
-    box-shadow: 0 2px 0 #2d6a4f;
+    box-shadow: 0 2px 0 #0277bd;
   }
 
   /* ===== 练习题 ===== */
@@ -304,18 +304,18 @@
     position: relative;
   }
   .question::before {
-    content: "🌟";
+    content: "🐾";
     position: absolute;
     left: -16px;
     top: -10px;
     font-size: 30px;
   }
   .answer {
-    color: #d4577a;
+    color: #e8770f;
     font-weight: bold;
     font-size: 22px;
     display: none;
-    background: #fff0f3;
+    background: #fff5e6;
     padding: 2px 12px;
     border-radius: 12px;
   }
@@ -343,8 +343,8 @@
     box-shadow: 0 5px 0 #ffe79e;
   }
   .tip::before {
-    content: "💡 ";
-    font-size: 26px;
+    content: "🦴 ";
+    font-size: 24px;
   }
 
   /* ===== 控制条 ===== */
@@ -356,17 +356,17 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    background: linear-gradient(135deg, #95d5b2, #52b788);
+    background: linear-gradient(135deg, #81d4fa, #29b6f6);
     color: #fff;
     padding: 8px 18px;
     border-radius: 40px;
     z-index: 100;
-    box-shadow: 0 6px 0 #2d6a4f, 0 10px 24px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 0 #0277bd, 0 10px 24px rgba(0,0,0,0.15);
   }
   .controls button {
     background: #fff;
     border: none;
-    color: #2d6a4f;
+    color: #0277bd;
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -374,7 +374,7 @@
     cursor: pointer;
     font-weight: bold;
     transition: transform 0.15s;
-    box-shadow: 0 3px 0 #c1f0d6;
+    box-shadow: 0 3px 0 #bfe9fb;
   }
   .controls button:hover { transform: scale(1.15) rotate(-5deg); }
   .controls .page-info { font-size: 18px; min-width: 70px; text-align: center; font-weight: bold; }
@@ -387,21 +387,21 @@
     font-weight: bold;
   }
   .hl-green {
-    background: linear-gradient(120deg, #d4f0c4 0%, #95d5b2 100%);
+    background: linear-gradient(120deg, #c8f0e0 0%, #6fd6b8 100%);
     padding: 0 8px;
     border-radius: 8px;
-    color: #2d6a4f;
+    color: #1b6e58;
     font-weight: bold;
   }
   .hl-blue {
-    background: linear-gradient(120deg, #c8d9ff 0%, #a0bfff 100%);
+    background: linear-gradient(120deg, #c8e4ff 0%, #7fb8f5 100%);
     padding: 0 8px;
     border-radius: 8px;
-    color: #2d4d99;
+    color: #1b4d8a;
     font-weight: bold;
   }
 
-  /* ===== 小探险家 ===== */
+  /* ===== 蓬蓬狗 mascot ===== */
   .mascot {
     display: inline-flex;
     flex-direction: column;
@@ -411,43 +411,45 @@
   .mascot .avatar {
     width: 86px;
     height: 86px;
-    background: linear-gradient(135deg, #fff8d6, #ffd166);
+    background: linear-gradient(135deg, #ffffff, #e8f6fc);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 50px;
-    border: 4px solid #fff;
-    box-shadow: 0 6px 0 #6bbf73, 0 8px 16px rgba(82,183,136,0.25);
+    border: 4px solid #4fc3f7;
+    box-shadow: 0 6px 0 #29b6f6, 0 8px 16px rgba(79,195,247,0.28);
     position: relative;
     animation: bob 2.5s ease-in-out infinite;
   }
+  /* 蓬蓬狗的小蓝领结 */
   .mascot .avatar::before {
-    content: "🎒";
+    content: "🎀";
     position: absolute;
-    top: -20px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 28px;
+    font-size: 24px;
+    filter: hue-rotate(160deg);
   }
   .mascot .name {
-    background: linear-gradient(135deg, #6bbf73, #52b788);
+    background: linear-gradient(135deg, #4fc3f7, #29b6f6);
     color: #fff;
     padding: 3px 14px;
     border-radius: 20px;
     font-size: 18px;
-    margin-top: -10px;
-    box-shadow: 0 2px 0 #2d6a4f;
+    margin-top: 6px;
+    box-shadow: 0 2px 0 #0277bd;
     font-weight: bold;
     z-index: 2;
     position: relative;
     letter-spacing: 1px;
   }
-  .mascot.big .avatar { width: 170px; height: 170px; font-size: 100px; box-shadow: 0 10px 0 #6bbf73, 0 14px 24px rgba(0,0,0,0.15); }
-  .mascot.big .avatar::before { font-size: 48px; top: -34px; }
-  .mascot.big .name { font-size: 24px; padding: 5px 22px; margin-top: -14px; }
+  .mascot.big .avatar { width: 170px; height: 170px; font-size: 100px; box-shadow: 0 10px 0 #29b6f6, 0 14px 24px rgba(0,0,0,0.15); }
+  .mascot.big .avatar::before { font-size: 44px; bottom: -18px; }
+  .mascot.big .name { font-size: 24px; padding: 5px 22px; margin-top: 10px; }
 
-  /* 小探险家 + 对话气泡 */
+  /* 蓬蓬狗 + 对话气泡 */
   .with-bubble {
     display: flex;
     align-items: flex-start;
@@ -458,10 +460,10 @@
     background: #fff;
     padding: 14px 22px;
     border-radius: 24px;
-    border: 3px solid #95d5b2;
-    box-shadow: 0 5px 0 #c1f0d6;
+    border: 3px solid #81d4fa;
+    box-shadow: 0 5px 0 #bfe9fb;
     font-size: 20px;
-    color: #3d4a3d;
+    color: #3a4a55;
     position: relative;
     flex: 1;
     line-height: 1.6;
@@ -475,7 +477,7 @@
     width: 0; height: 0;
     border-top: 13px solid transparent;
     border-bottom: 13px solid transparent;
-    border-right: 18px solid #95d5b2;
+    border-right: 18px solid #81d4fa;
   }
   .bubble::after {
     content: "";
@@ -487,7 +489,7 @@
     border-bottom: 11px solid transparent;
     border-right: 16px solid #fff;
   }
-  .bubble b { color: #2d6a4f; }
+  .bubble b { color: #0277bd; }
 
   /* 选择题 */
   .mcq-options {
@@ -521,7 +523,7 @@
     100% { transform: scale(1); }
   }
 
-  /* 角落小探险家 */
+  /* 角落小蓬蓬狗 */
   .corner-mascot {
     position: absolute;
     bottom: 60px;
@@ -529,9 +531,9 @@
     z-index: 5;
     pointer-events: none;
   }
-  .corner-mascot .avatar { width: 68px; height: 68px; font-size: 40px; box-shadow: 0 4px 0 #6bbf73, 0 6px 10px rgba(0,0,0,0.1); }
-  .corner-mascot .avatar::before { font-size: 22px; top: -16px; }
-  .corner-mascot .name { font-size: 14px; padding: 1px 10px; margin-top: -8px; }
+  .corner-mascot .avatar { width: 68px; height: 68px; font-size: 40px; box-shadow: 0 4px 0 #29b6f6, 0 6px 10px rgba(0,0,0,0.1); }
+  .corner-mascot .avatar::before { font-size: 20px; bottom: -8px; }
+  .corner-mascot .name { font-size: 14px; padding: 1px 10px; margin-top: 4px; }
 
   /* ===== 学习目标 ===== */
   .objective {
@@ -540,8 +542,8 @@
     margin: 8px 0;
     border-radius: 22px;
     font-size: 22px;
-    box-shadow: 0 5px 0 #c1f0d6;
-    border: 3px solid #e0f5ea;
+    box-shadow: 0 5px 0 #bfe9fb;
+    border: 3px solid #e1f4fc;
     display: flex;
     align-items: center;
   }
@@ -552,13 +554,13 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #95d5b2, #52b788);
+    background: linear-gradient(135deg, #81d4fa, #29b6f6);
     color: #fff;
     border-radius: 50%;
     margin-right: 14px;
     font-weight: bold;
     flex-shrink: 0;
-    box-shadow: 0 3px 0 #2d6a4f;
+    box-shadow: 0 3px 0 #0277bd;
   }
   .objective:nth-child(odd) .num-circle {
     background: linear-gradient(135deg, #ffd166, #f8b500);
@@ -570,13 +572,13 @@
     background: #fff;
     border-radius: 18px;
     padding: 14px 20px;
-    border-left: 6px solid #52b788;
-    box-shadow: 0 4px 0 #c1f0d6;
+    border-left: 6px solid #29b6f6;
+    box-shadow: 0 4px 0 #bfe9fb;
     margin: 8px 0;
   }
-  .word-card .w { font-size: 24px; color: #2d6a4f; font-weight: bold; margin-right: 12px; }
-  .word-card .py { font-size: 18px; color: #6bbf73; margin-right: 10px; }
-  .word-card .ex { font-size: 19px; color: #5a6a5a; }
+  .word-card .w { font-size: 24px; color: #0277bd; font-weight: bold; margin-right: 12px; }
+  .word-card .py { font-size: 18px; color: #4fc3f7; margin-right: 10px; }
+  .word-card .ex { font-size: 19px; color: #5a6675; }
 
   /* 烟花庆祝 */
   .celebration {
@@ -608,11 +610,11 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 200;
-    background: linear-gradient(135deg, #fff, #f0faf0);
-    border: 3px solid #95d5b2;
+    background: linear-gradient(135deg, #fff, #eef8ff);
+    border: 3px solid #81d4fa;
     border-radius: 30px;
     padding: 10px 8px;
-    box-shadow: 0 6px 20px rgba(82,183,136,0.25);
+    box-shadow: 0 6px 20px rgba(79,195,247,0.28);
     display: none;
     flex-direction: column;
     align-items: center;
@@ -623,7 +625,7 @@
     width: 42px; height: 42px;
     border: none;
     border-radius: 50%;
-    background: #eef9ee;
+    background: #eaf7fd;
     cursor: pointer;
     font-size: 20px;
     transition: transform 0.1s;
@@ -631,9 +633,9 @@
   }
   .pen-toolbar .tool:hover { transform: scale(1.1); }
   .pen-toolbar .tool.active {
-    background: linear-gradient(135deg, #95d5b2, #52b788);
+    background: linear-gradient(135deg, #81d4fa, #29b6f6);
     color: #fff;
-    box-shadow: 0 3px 0 #2d6a4f;
+    box-shadow: 0 3px 0 #0277bd;
   }
   .pen-toolbar .color {
     width: 28px; height: 28px;
@@ -646,20 +648,20 @@
   }
   .pen-toolbar .color:hover { transform: scale(1.15); }
   .pen-toolbar .color.active {
-    border-color: #2d6a4f;
+    border-color: #0277bd;
     transform: scale(1.2);
-    box-shadow: 0 0 0 2px #2d6a4f, 0 2px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 0 0 2px #0277bd, 0 2px 6px rgba(0,0,0,0.3);
   }
   .pen-toolbar .sep {
     width: 28px;
     height: 2px;
-    background: #c1f0d6;
+    background: #bfe9fb;
     border-radius: 2px;
     margin: 2px 0;
   }
   .pen-toolbar .label {
     font-size: 11px;
-    color: #2d6a4f;
+    color: #0277bd;
     font-weight: bold;
     margin: -2px 0;
   }
@@ -667,7 +669,7 @@
   /* 大字 */
   .big-poem-line {
     font-size: 32px;
-    color: #2d6a4f;
+    color: #0277bd;
     text-align: center;
     font-family: "STKaiti", "KaiTi", "楷体", serif;
     letter-spacing: 4px;
@@ -691,7 +693,7 @@
     position: absolute;
     font-size: 26px;
     font-weight: bold;
-    color: #d4577a;
+    color: #e8770f;
   }
   .direction-rose .n { top: 8px; left: 50%; transform: translateX(-50%); }
   .direction-rose .s { bottom: 8px; left: 50%; transform: translateX(-50%); }
@@ -700,7 +702,7 @@
   .direction-rose .arrow {
     position: absolute; top: 50%; left: 50%;
     width: 8px; height: 90px;
-    background: linear-gradient(to top, #d4577a 50%, #2d6a4f 50%);
+    background: linear-gradient(to top, #e8770f 50%, #0277bd 50%);
     transform: translate(-50%, -50%);
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
@@ -708,7 +710,7 @@
   .direction-rose .center-dot {
     position: absolute; top: 50%; left: 50%;
     width: 16px; height: 16px;
-    background: #2d6a4f;
+    background: #0277bd;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     border: 3px solid #fff;
@@ -725,21 +727,21 @@
     <div style="position:absolute;top:30px;left:0;right:0;text-align:center;color:#fff;font-size:20px;letter-spacing:6px;font-weight:bold;text-shadow:0 2px 6px rgba(0,0,0,0.15);">
       部编版小学语文 · 二年级下册
     </div>
-    <div style="background:#fff;color:#2d6a4f;padding:6px 22px;border-radius:30px;font-size:18px;font-weight:bold;box-shadow:0 4px 0 #6bbf73;letter-spacing:2px;">
+    <div style="background:#fff;color:#0277bd;padding:6px 22px;border-radius:30px;font-size:18px;font-weight:bold;box-shadow:0 4px 0 #4fc3f7;letter-spacing:2px;">
       第 六 单元 · 第 16 课
     </div>
 
-    <div class="emoji">🧭</div>
+    <div class="emoji">🐶</div>
 
     <h1 style="margin-top:0;">要是你在野外迷了路</h1>
-    <div class="meta" style="margin-top:14px;">认识大自然的天然指南针 🌲☀️⭐</div>
+    <div class="meta" style="margin-top:14px;">认识大自然的天然指南针 🐾☀️⭐</div>
 
     <div class="mascot big" style="margin-top:20px;">
-      <div class="avatar">🧒</div>
-      <div class="name">小 探</div>
+      <div class="avatar">🐶</div>
+      <div class="name">蓬蓬狗</div>
     </div>
-    <div style="margin-top:14px;background:#fff;color:#2d6a4f;padding:12px 26px;border-radius:30px;font-size:22px;box-shadow:0 6px 0 #6bbf73;font-weight:bold;">
-      🌿 同学们好！我是小探，跟我去野外冒险吧！
+    <div style="margin-top:14px;background:#fff;color:#0277bd;padding:12px 26px;border-radius:30px;font-size:22px;box-shadow:0 6px 0 #4fc3f7;font-weight:bold;">
+      🐾 汪！我是蓬蓬狗，最爱散步啦，跟我去野外冒险吧！
     </div>
 
     <div style="position:absolute;bottom:30px;left:0;right:0;text-align:center;color:#fff;font-size:14px;letter-spacing:4px;opacity:0.85;">
@@ -761,10 +763,10 @@
     <h2 class="section">一、情境引入 ｜ 你迷路过吗？</h2>
     <div class="with-bubble">
       <div class="mascot">
-        <div class="avatar">🧒</div>
-        <div class="name">小 探</div>
+        <div class="avatar">🐶</div>
+        <div class="name">蓬蓬狗</div>
       </div>
-      <div class="bubble">同学们，如果有一天你和爸爸妈妈去森林里玩，<b>不小心走散了</b>，你会怎么办呢？是大哭、慌张，还是冷静思考？🌲</div>
+      <div class="bubble">小朋友，如果有一天你和爸爸妈妈去森林里玩，<b>不小心走散了</b>，你会怎么办呢？是大哭、慌张，还是冷静思考？🐾</div>
     </div>
     <div class="grid-3" style="margin-top:14px;">
       <div class="compass"><div class="icon">😱</div><div class="name">大哭大叫</div><div class="dir">❌ 不可取</div></div>
@@ -780,7 +782,7 @@
   <section class="slide">
     <h2 class="section">二、解读课题 ｜ 走进课文</h2>
     <div class="card" style="text-align:center;">
-      <div style="font-size:48px;color:#2d6a4f;font-weight:bold;letter-spacing:8px;font-family:'STKaiti','KaiTi','楷体',serif;">
+      <div style="font-size:48px;color:#0277bd;font-weight:bold;letter-spacing:8px;font-family:'STKaiti','KaiTi','楷体',serif;">
         要是你在野外迷了路
       </div>
     </div>
@@ -806,7 +808,7 @@
   <!-- 5. 我会认 -->
   <section class="slide">
     <h2 class="section">三、初读识字 ｜ 我会认</h2>
-    <p style="font-size:20px;color:#6bbf73;margin-bottom:8px;">📖 拼一拼，读一读，记住这些好朋友吧！</p>
+    <p style="font-size:20px;color:#4fc3f7;margin-bottom:8px;">📖 拼一拼，读一读，记住这些好朋友吧！</p>
     <div class="zi-grid">
       <div class="zi"><div class="pin">huāng</div><div class="char">慌</div><div class="word">慌张</div></div>
       <div class="zi"><div class="pin">biàn</div><div class="char">辨</div><div class="word">辨别</div></div>
@@ -827,9 +829,9 @@
     <h2 class="section">四、规范书写 ｜ 我会写</h2>
     <div class="grid-2" style="gap:18px;">
       <div class="card">
-        <h3>✍️ 重点指导：<span style="color:#d4577a;">慌</span></h3>
+        <h3>✍️ 重点指导：<span style="color:#e8770f;">慌</span></h3>
         <div style="display:flex;align-items:center;gap:18px;">
-          <div style="font-size:96px;color:#2d6a4f;font-family:'STKaiti','KaiTi','楷体',serif;background:#fffbe6;border:3px dashed #f8b500;border-radius:14px;width:120px;height:120px;line-height:120px;text-align:center;">慌</div>
+          <div style="font-size:96px;color:#0277bd;font-family:'STKaiti','KaiTi','楷体',serif;background:#fffbe6;border:3px dashed #f8b500;border-radius:14px;width:120px;height:120px;line-height:120px;text-align:center;">慌</div>
           <div style="font-size:20px;line-height:1.8;">
             部首：<b>忄</b>（竖心旁）<br>
             结构：<b>左右</b>结构<br>
@@ -840,9 +842,9 @@
         <p style="font-size:18px;color:#888;margin-top:6px;">⚠ 注意："忄"窄"荒"宽，右边不要丢一点。</p>
       </div>
       <div class="card">
-        <h3>✍️ 重点指导：<span style="color:#d4577a;">辨</span></h3>
+        <h3>✍️ 重点指导：<span style="color:#e8770f;">辨</span></h3>
         <div style="display:flex;align-items:center;gap:18px;">
-          <div style="font-size:96px;color:#2d6a4f;font-family:'STKaiti','KaiTi','楷体',serif;background:#fffbe6;border:3px dashed #f8b500;border-radius:14px;width:120px;height:120px;line-height:120px;text-align:center;">辨</div>
+          <div style="font-size:96px;color:#0277bd;font-family:'STKaiti','KaiTi','楷体',serif;background:#fffbe6;border:3px dashed #f8b500;border-radius:14px;width:120px;height:120px;line-height:120px;text-align:center;">辨</div>
           <div style="font-size:20px;line-height:1.8;">
             部首：<b>辛</b><br>
             结构：<b>左中右</b>结构<br>
@@ -919,10 +921,10 @@
     <h2 class="section">七、整体感知 ｜ 课文结构</h2>
     <div class="with-bubble" style="margin-bottom:8px;">
       <div class="mascot">
-        <div class="avatar">🧒</div>
-        <div class="name">小 探</div>
+        <div class="avatar">🐶</div>
+        <div class="name">蓬蓬狗</div>
       </div>
-      <div class="bubble">课文一共有 <b>6 个小节</b>，写了 <b>4 种</b> 天然指南针，你能找出来吗？</div>
+      <div class="bubble">课文一共有 <b>6 个小节</b>，写了 <b>4 种</b> 天然指南针，你能找出来吗？汪汪！</div>
     </div>
     <div class="grid-4" style="margin-top:8px;">
       <div class="compass"><div class="icon">☀️</div><div class="name">太阳</div><div class="dir">指南方</div></div>
@@ -937,7 +939,7 @@
         <span class="tag">分</span>第 2 — 5 节：分别介绍 <b>太阳、北极星、大树、积雪</b> 四种指南针。<br>
         <span class="tag">总</span>第 6 节：总结全文——细细观察，多多去想。
       </p>
-      <p style="color:#6bbf73;margin-top:6px;">📌 结构：<b>总——分——总</b></p>
+      <p style="color:#4fc3f7;margin-top:6px;">📌 结构：<b>总——分——总</b></p>
     </div>
   </section>
 
@@ -962,9 +964,9 @@
         <div style="position:relative;width:300px;height:240px;">
           <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);font-size:80px;">☀️</div>
           <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-size:70px;">🌳</div>
-          <div style="position:absolute;bottom:10px;left:30%;font-size:40px;transform:rotate(20deg);opacity:0.7;color:#3d4a3d;">▌</div>
-          <div style="position:absolute;top:30px;right:20px;font-size:22px;color:#d4577a;font-weight:bold;">南 ↑</div>
-          <div style="position:absolute;bottom:80px;left:20px;font-size:22px;color:#2d4d99;font-weight:bold;">北 ↓</div>
+          <div style="position:absolute;bottom:10px;left:30%;font-size:40px;transform:rotate(20deg);opacity:0.7;color:#3a4a55;">▌</div>
+          <div style="position:absolute;top:30px;right:20px;font-size:22px;color:#e8770f;font-weight:bold;">南 ↑</div>
+          <div style="position:absolute;bottom:80px;left:20px;font-size:22px;color:#1b4d8a;font-weight:bold;">北 ↓</div>
         </div>
         <div class="card" style="margin-top:8px;padding:12px 18px;">
           <p style="font-size:20px;">
@@ -1028,8 +1030,8 @@
       <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
         <div style="position:relative;width:280px;height:220px;">
           <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:140px;">🌳</div>
-          <div style="position:absolute;right:10px;top:30%;background:#fff0f3;color:#d4577a;padding:4px 12px;border-radius:14px;font-weight:bold;font-size:18px;border:2px solid #d4577a;">南 → 枝叶稠 🌿🌿🌿</div>
-          <div style="position:absolute;left:10px;top:60%;background:#e6f0ff;color:#2d4d99;padding:4px 12px;border-radius:14px;font-weight:bold;font-size:18px;border:2px solid #2d4d99;">北 → 枝叶稀 🍃</div>
+          <div style="position:absolute;right:10px;top:30%;background:#fff5e6;color:#e8770f;padding:4px 12px;border-radius:14px;font-weight:bold;font-size:18px;border:2px solid #e8770f;">南 → 枝叶稠 🌿🌿🌿</div>
+          <div style="position:absolute;left:10px;top:60%;background:#e6f0ff;color:#1b4d8a;padding:4px 12px;border-radius:14px;font-weight:bold;font-size:18px;border:2px solid #1b4d8a;">北 → 枝叶稀 🍃</div>
         </div>
         <div class="card" style="margin-top:8px;padding:12px 18px;">
           <p style="font-size:20px;">
@@ -1064,8 +1066,8 @@
           <div style="position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(180deg,#fff 0%,#f0f8ff 100%);"></div>
           <div style="position:absolute;bottom:20px;left:20px;font-size:34px;">🌨️</div>
           <div style="position:absolute;bottom:20px;right:20px;font-size:34px;">❄️</div>
-          <div style="position:absolute;top:14px;left:20px;background:#e6f0ff;color:#2d4d99;padding:2px 10px;border-radius:10px;font-size:14px;font-weight:bold;">北面（向阳）化得快</div>
-          <div style="position:absolute;top:14px;right:20px;background:#fff0f3;color:#d4577a;padding:2px 10px;border-radius:10px;font-size:14px;font-weight:bold;">南面（背阴）化得慢</div>
+          <div style="position:absolute;top:14px;left:20px;background:#e6f0ff;color:#1b4d8a;padding:2px 10px;border-radius:10px;font-size:14px;font-weight:bold;">北面（向阳）化得快</div>
+          <div style="position:absolute;top:14px;right:20px;background:#fff5e6;color:#e8770f;padding:2px 10px;border-radius:10px;font-size:14px;font-weight:bold;">南面（背阴）化得慢</div>
         </div>
         <div class="card" style="margin-top:8px;padding:12px 18px;">
           <p style="font-size:20px;">
@@ -1107,10 +1109,10 @@
     <h2 class="section">十三、拓展延伸 ｜ 还有什么"指南针"？</h2>
     <div class="with-bubble">
       <div class="mascot">
-        <div class="avatar">🧒</div>
-        <div class="name">小 探</div>
+        <div class="avatar">🐶</div>
+        <div class="name">蓬蓬狗</div>
       </div>
-      <div class="bubble">大自然里其实还有 <b>很多很多</b> 天然指南针。一起来看看吧！</div>
+      <div class="bubble">大自然里其实还有 <b>很多很多</b> 天然指南针。我用鼻子闻一闻就知道啦，一起来看看吧！</div>
     </div>
     <div class="grid-3" style="margin-top:8px;">
       <div class="compass"><div class="icon">🐜</div><div class="name">蚂蚁洞</div><div class="dir">洞口朝南</div></div>
@@ -1164,8 +1166,8 @@
       </div>
     </div>
     <div class="card">
-      <h3>✨ 小探的范例</h3>
-      <div class="poem" style="font-size:22px;font-family:'STKaiti','KaiTi','楷体',serif;color:#2d6a4f;">
+      <h3>✨ 蓬蓬狗的范例</h3>
+      <div class="poem" style="font-size:22px;font-family:'STKaiti','KaiTi','楷体',serif;color:#0277bd;">
         <p>要是碰上 <span class="hl-green">大晴天</span> ，<br><span class="hl-green">蚂蚁洞</span> 也会来帮忙。<br><span class="hl-green">洞口大</span> 的一面，<br>就是温暖的 <span class="hl-green">南方</span> 。</p>
       </div>
       <p style="color:#888;font-size:18px;margin-top:6px;">💭 你能写出你自己的小诗吗？快试试看！</p>
@@ -1175,11 +1177,11 @@
   <!-- 18. 板书设计 -->
   <section class="slide">
     <h2 class="section">十六、板书设计 ｜ 一目了然</h2>
-    <div style="background:#2d3a2d;color:#fff;padding:24px 30px;border-radius:24px;flex:1;box-shadow:0 8px 0 #1a2418;border:6px solid #4a5a4a;">
+    <div style="background:#0d3550;color:#fff;padding:24px 30px;border-radius:24px;flex:1;box-shadow:0 8px 0 #072234;border:6px solid #1a587f;">
       <h3 style="color:#ffd166;text-align:center;border-bottom:3px dashed #ffd166;padding-bottom:8px;font-size:30px;">要是你在野外迷了路</h3>
       <div class="grid-2" style="margin-top:14px;">
         <div>
-          <p style="color:#95d5b2;font-size:22px;border-left:4px solid #95d5b2;padding-left:10px;">📌 课文结构（总—分—总）</p>
+          <p style="color:#81d4fa;font-size:22px;border-left:4px solid #81d4fa;padding-left:10px;">📌 课文结构（总—分—总）</p>
           <p style="font-size:22px;line-height:2;margin-top:6px;">
             <b style="color:#ffd166;">总：</b>大自然有很多天然指南针<br>
             <b style="color:#ffd166;">分：</b><br>
@@ -1191,14 +1193,14 @@
           </p>
         </div>
         <div>
-          <p style="color:#95d5b2;font-size:22px;border-left:4px solid #95d5b2;padding-left:10px;">📌 中心思想</p>
+          <p style="color:#81d4fa;font-size:22px;border-left:4px solid #81d4fa;padding-left:10px;">📌 中心思想</p>
           <p style="font-size:22px;line-height:1.8;margin-top:6px;">
             大自然奥秘无穷，<br>
             只要我们 <span style="color:#ffd166;">留心观察</span>，<br>
             勤于思考，<br>
             就能发现 <span style="color:#ffd166;">无穷的智慧</span>。
           </p>
-          <p style="color:#95d5b2;font-size:22px;border-left:4px solid #95d5b2;padding-left:10px;margin-top:14px;">📌 写作方法</p>
+          <p style="color:#81d4fa;font-size:22px;border-left:4px solid #81d4fa;padding-left:10px;margin-top:14px;">📌 写作方法</p>
           <p style="font-size:20px;margin-top:4px;">
             ① 比喻：北极星 = 指路灯<br>
             ② 拟人：太阳 = 忠实的向导<br>
@@ -1214,17 +1216,17 @@
     <h2 class="section">十七、课堂小结 ｜ 收获满满</h2>
     <div class="with-bubble" style="margin:6px 0 12px;">
       <div class="mascot">
-        <div class="avatar">🧒</div>
-        <div class="name">小 探</div>
+        <div class="avatar">🐶</div>
+        <div class="name">蓬蓬狗</div>
       </div>
-      <div class="bubble">和小探一起回忆一下，今天我们都学到了什么吧～</div>
+      <div class="bubble">和蓬蓬狗一起回忆一下，今天我们都学到了什么吧～汪！</div>
     </div>
     <div class="objective"><span class="num-circle">1</span>认识并会写课文中的 <b>生字新词</b>。</div>
     <div class="objective"><span class="num-circle">2</span>能正确、流利、有感情地 <b>朗读和背诵</b> 课文。</div>
     <div class="objective"><span class="num-circle">3</span>知道课文写的 <b>四种天然指南针</b>（太阳、北极星、大树、积雪）及它们的特点。</div>
     <div class="objective"><span class="num-circle">4</span>学会了 <b>留心观察大自然</b>，遇到困难要 <b>冷静思考</b>。</div>
-    <div class="objective" style="border-color:#d4577a;background:#fff5f5;box-shadow:0 5px 0 #ffd6e0;">
-      <span class="num-circle" style="background:#d4577a;box-shadow:0 3px 0 #a83352;">❤</span>
+    <div class="objective" style="border-color:#e8770f;background:#fff8f0;box-shadow:0 5px 0 #ffd9a8;">
+      <span class="num-circle" style="background:#e8770f;box-shadow:0 3px 0 #b85a08;">❤</span>
       <b>大自然是我们最好的老师，让我们一起去发现更多秘密吧！</b>
     </div>
   </section>
@@ -1233,8 +1235,8 @@
   <section class="slide">
     <h2 class="section">十八、布置作业 ｜ 课后任务</h2>
     <div class="mascot corner-mascot">
-      <div class="avatar">🧒</div>
-      <div class="name">小 探</div>
+      <div class="avatar">🐶</div>
+      <div class="name">蓬蓬狗</div>
     </div>
     <div class="card" style="margin-bottom:12px;">
       <h3>📘 基础作业</h3>
@@ -1260,12 +1262,12 @@
   <!-- 21. 结束页 -->
   <section class="slide cover">
     <div class="mascot big">
-      <div class="avatar">🧒</div>
-      <div class="name">小 探</div>
+      <div class="avatar">🐶</div>
+      <div class="name">蓬蓬狗</div>
     </div>
-    <h1 style="font-size:60px;margin-top:20px;">谢谢同学们 🌿</h1>
+    <h1 style="font-size:60px;margin-top:20px;">谢谢小朋友 🐾</h1>
     <div class="meta">愿你成为留心观察的小小探险家 🧭✨</div>
-    <div style="margin-top:18px;font-size:28px;color:#fff;text-shadow:0 3px 0 #2d6a4f;">下节课，小探再带你们去探险！👋</div>
+    <div style="margin-top:18px;font-size:28px;color:#fff;text-shadow:0 3px 0 #0277bd;">下节课，蓬蓬狗再带你们去散步探险！汪汪 👋</div>
   </section>
 
 </div>
@@ -1293,10 +1295,10 @@
   <button class="tool" data-mode="eraser" title="橡皮">🧽</button>
   <div class="sep"></div>
   <span class="label">颜色</span>
-  <button class="color active" data-color="#2d6a4f" style="background:#2d6a4f" title="森林绿"></button>
-  <button class="color" data-color="#d4577a" style="background:#d4577a" title="红色"></button>
-  <button class="color" data-color="#4895ef" style="background:#4895ef" title="蓝色"></button>
-  <button class="color" data-color="#f8b500" style="background:#f8b500" title="橙色"></button>
+  <button class="color active" data-color="#0277bd" style="background:#0277bd" title="蓬蓬蓝"></button>
+  <button class="color" data-color="#e8770f" style="background:#e8770f" title="橙色"></button>
+  <button class="color" data-color="#d62828" style="background:#d62828" title="红色"></button>
+  <button class="color" data-color="#52b788" style="background:#52b788" title="绿色"></button>
   <button class="color" data-color="#222" style="background:#222" title="黑色"></button>
   <div class="sep"></div>
   <span class="label">操作</span>
@@ -1348,7 +1350,7 @@
     ).join('');
     footer.innerHTML = `
       <div class="chrome-stepper">${stepperHtml}</div>
-      <div class="chrome-meta">主讲：小探　|　© 部编版小学语文</div>`;
+      <div class="chrome-meta">主讲：蓬蓬狗　|　© 部编版小学语文</div>`;
     s.appendChild(footer);
   });
 
@@ -1393,7 +1395,7 @@
     const layer = document.getElementById('celebration');
     layer.innerHTML = '';
     layer.classList.add('show');
-    const emojis = ['🎉','⭐','🌟','🌿','🍃','🧭','✨','☀️'];
+    const emojis = ['🎉','⭐','🌟','🐾','🦴','🐶','✨','☀️'];
     for (let i = 0; i < 24; i++) {
       const c = document.createElement('div');
       c.className = 'confetti';
@@ -1425,7 +1427,7 @@
   const pen = {
     canvas: null, ctx: null,
     enabled: false,
-    color: '#2d6a4f',
+    color: '#0277bd',
     mode: 'pen',
     drawing: false,
     current: null,
